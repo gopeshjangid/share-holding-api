@@ -1,0 +1,11 @@
+{
+    "accessKeyId": "AKIASJZDKJFAIE6MRDHW",
+    "secretAccessKey": "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",
+    "region": "us-east-2",
+    "apiVersions": {
+        "mediaconvert": "2017-08-29",
+        "iam": "2010-05-08",
+        "s3": "2006-03-01",
+        "sqs": "2012-11-05"
+    }
+}

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        @media screen and (max-width: 480px) {
+            .mobile-hide {
+                display: none !important;
+            }
+
+            .mobile-center {
+                text-align: center !important;
+            }
+        }
+
+        div[style*="margin: 16px 0;"] {
+            margin: 0 !important;
+        }
+    </style>
+
+<body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                    <tr>
+                        <td align="center" valign="top" style="font-size:0; padding: 35px;" bgcolor="#4965db">
+                            <div
+                                style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;">
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                    style="max-width:300px;">
+                                   <tr>
+                        <td align="center" valign="top" style="font-size:0; padding: 35px;" bgcolor="#4965db">
+                            <div style="display:inline-block; max-width:100%; min-width:100px; vertical-align:top; width:100%;" class="mobile-hide">
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                    <tr>
+                                        <td align="right" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 48px;">
+                                            <table cellspacing="0" cellpadding="0" border="0" align="right">
+                                                <tr>
+
+                                                    <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
+                                                        <svg width="140" height="51" viewBox="0 0 140 51" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <rect x="0.976562" y="0.890625" width="138.197" height="49.6341" fill="url(#pattern0)"/>
+                                                            <defs>
+                                                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                            <use xlink:href="#image0_872_950" transform="translate(-0.000821629) scale(0.00399061 0.0111111)"/>
+                                                            </pattern>
+                                                            <image id="image0_872_950" width="251" height="90" xlink:href="data:image/png;base64,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"/>
+                                                            </defs>
+                                                            </svg>
+
+                                                    </td>
+                                                    <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;"> <a href="#" target="_blank" style="color: #ffffff; text-decoration: none;"></a> </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                                </table>
+                            </div>
+                            <div style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;"
+                                class="mobile-hide">
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                    style="max-width:300px;">
+                                    <tr>
+                                        <td align="right" valign="top"
+                                            style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 48px;">
+                                            <table cellspacing="0" cellpadding="0" border="0" align="right">
+                                                <tr>
+                                                    <td>
+                                                        <svg id="Layer_2" data-name="Layer 2"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79.52 58.38"
+                                                            style="width:8rem;float:left;">
+                                                            <polygon style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                points="56.91 39.1 49.66 39.1 49.32 46.01 40.35 39.1 23.45 39.1 23.45 13.91 56.91 13.91 56.91 39.1">
+                                                            </polygon>
+                                                            <line style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                x1="23.45" y1="13.92" x2="52.02" y2="10.02"></line>
+                                                            <line style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                x1="52.13" y1="13.92" x2="52.22" y2="9.78"></line>
+                                                            <line style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                x1="23.45" y1="13.92" x2="46.54" y2="5.18"></line>
+                                                            <line style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                x1="46.58" y1="10.76" x2="46.7" y2="4.94"></line>
+                                                            <line style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                x1="23.45" y1="13.92" x2="41.03" y2="0.4"></line>
+                                                            <line style="fill:none;stroke:white;stroke-miterlimit:10"
+                                                                x1="40.97" y1="7.31" x2="41.13" y2="0.2"></line>
+                                                        </svg>
+                                                    </td>
+                                                </tr>
+                                                <!-- <tr>
+                                                    <td
+                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
+                                                        <p style="font-size: 18px; font-weight: 400; color: #ffffff;">
+                                                            <a href="#" target="_blank"
+                                                                style="color: #ffffff; text-decoration: none;">Order
+                                                                Confirmation &nbsp;</a>
+                                                        </p>
+                                                    </td>
+                                                    <td
+                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">
+                                                        <a href="#" target="_blank"
+                                                            style="color: #ffffff; text-decoration: none;"><img
+                                                                src="https://img.icons8.com/color/48/000000/small-business.png"
+                                                                width="27" height="23"
+                                                                style="display: block; border: 0px;" /></a>
+                                                    </td>
+                                                </tr> -->
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;"
+                            bgcolor="#ffffff">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="max-width:600px;">
+                                <tr>
+                                    <td align="center"
+                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                                        <img src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png"
+                                            width="125" height="120" style="display: block; border: 0px;" /><br>
+                                        <h2
+                                            style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
+                                            Thank You For Your Order! </h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;">
+                                        <p
+                                            style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;">
+                                            Please find your order details below for your reference. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" style="padding-top: 20px;">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="75%" align="left" bgcolor="#eeeeee"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                                                    Order Confirmation # </td>
+                                                <td width="25%" align="left" bgcolor="#eeeeee"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                                                    <%= orderId%> </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="75%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                                    Purchased Item (<%= quantity%>) </td>
+                                                <td width="25%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                                    $ <%= amount%> </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td width="75%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                    Shipping + Handling </td>
+                                                <td width="25%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                    $ 10.00 </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="75%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                    Sales Tax </td>
+                                                <td width="25%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                    $ 5.00 </td>
+                                            </tr> -->
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" style="padding-top: 20px;">
+                                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="75%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                                    TOTAL </td>
+                                                <td width="25%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                                    $ <%= amount %> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" height="100%" valign="top" width="100%"
+                            style="padding: 0 35px 35px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="max-width:660px;">
+                                <tr>
+                                    <td align="center" valign="top" style="font-size:0;">
+                                        <div
+                                            style="display:inline-block; max-width:50%; min-width:240px; vertical-align:top; width:100%;">
+                                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                style="max-width:300px;">
+                                                <tr>
+                                                    <td align="left" valign="top"
+                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                                                        <p style="font-weight: 800;">Delivery Address</p>
+                                                        <p><%= address %><br><%= city %>, <%= provience %> <%= zip%>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div
+                                            style="display:inline-block; max-width:50%; min-width:240px; vertical-align:top; width:100%;">
+                                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                style="max-width:300px;">
+                                                <tr>
+                                                    <td align="left" valign="top"
+                                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                                                        <p style="font-weight: 800;">Contact Details</p>
+                                                        <p><%= name %></br>
+                                                            <%= email %></p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style=" padding: 35px; background-color: #61a8ff;;" bgcolor="#1b9ba3">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="max-width:600px;">
+                                <tr>
+                                    <td align="center"
+                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                                        <h2
+                                            style="font-size: 24px; font-weight: 800; line-height: 30px; color: #ffffff; margin: 0;">
+                                            For any query </h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding: 25px 0 15px 0;">
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td align="center" style="border-radius: 5px;" bgcolor="#66b3b7"> <a
+                                                        href="<%= process.env.URL %>contact-us" target="_blank"
+                                                        style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #F44336; padding: 15px 30px; border: 1px solid #F44336; display: block;">Contact
+                                                        US</a> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding: 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="max-width:600px;">
+                                <tr>
+                                    <td align="center"
+                                        style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 0 10px 0;">
+                                        <p
+                                            style="font-size: 14px; font-weight: 800; line-height: 18px; color: #333333;">
+                                            675 Parko Avenue<br> LA, CA 02232 </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

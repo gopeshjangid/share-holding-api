@@ -1,0 +1,68 @@
+{
+	"name": "share-holding-backend-api",
+	"version": "1.0.0",
+	"description": "Share holding backend apis",
+	"author": "Gopesh Kumar Jangid",
+	"main": "index.js",
+	"private": false,
+	"scripts": {
+		"start": "pm2 startOrRestart ecosystem.config.js  && pm2 save",
+		"dev": "nodemon --watch index.js  --watch src --ext js,.env",
+		"start:debug": "cross-env DEBUG=express-mongoose-es6-rest-api:* yarn start",
+		"lint": "esw *.js server config --color",
+		"lint:watch": "yarn lint -- --watch",
+		"prepare": "husky install"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:gopeshjangid/verga/verga-backend-api.git"
+	},
+	"keywords": [
+		"express",
+		"node"
+	],
+	"dependencies": {
+		"aws-sdk": "^2.1187.0",
+		"bluebird": "3.7.2",
+		"body-parser": "1.20.0",
+		"busboy": "^1.6.0",
+		"compression": "1.7.4",
+		"cookie-parser": "1.4.6",
+		"cors": "2.8.5",
+		"debug": "^4.3.4",
+		"dotenv": "^16.0.1",
+		"ejs": "^3.1.8",
+		"express": "4.18.1",
+		"express-jwt": "7.7.5",
+		"express-validation": "^4.1.0",
+		"express-winston": "4.2.0",
+		"helmet": "5.1.1",
+		"http-status": "1.5.2",
+		"joi": "^17.6.0",
+		"jsonwebtoken": "8.5.1",
+		"method-override": "^3.0.0",
+		"moment": "^2.29.4",
+		"mongoose": "6.5.0",
+		"morgan": "1.10.0",
+		"multer": "^1.4.5-lts.1",
+		"nodemailer": "^6.7.7",
+		"read-excel-file": "^5.4.5",
+		"socket.io": "^4.5.1",
+		"stripe": "^10.0.0",
+		"winston": "3.8.1"
+	},
+	"devDependencies": {
+		"cross-env": "7.0.3",
+		"husky": "^8.0.1",
+		"nodemon": "2.0.19"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "./hooks/pre-commit"
+		}
+	},
+	"nodemonConfig": {
+		"delay": 100
+	},
+	"license": "MIT"
+}

@@ -1,0 +1,18 @@
+version: "3"
+services:
+  varga-prod: #just put any name
+    build:
+      context: ./ #current directory
+      dockerfile: Dockerfile.prod #any docker file name  like for Dockerfile.prod
+    restart: always
+    container_name: api-prod
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+      - SERVER_TYPE=testing
+      - CHOKIDAR_USEPOLLING=true
+    env_file:
+      - ./.env

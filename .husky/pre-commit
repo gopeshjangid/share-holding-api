@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+echo "branch ${branch}"
+if [ "$branch" = "main" ]; then
+  echo "You can't commit directory to ${branch} branch ! please create new feature branch and raise pull request to merge it."
+  exit 1
+fi
