@@ -21,7 +21,7 @@ RUN yarn add pm2 global
 COPY . /app/
 
 # expose port 4040
-EXPOSE 4040
+EXPOSE 8000
 
 # cmd to start service
 CMD [ "pm2-runtime", "index.js" ]
