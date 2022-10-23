@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
   express-mongoose-es6-rest-api:
@@ -16,7 +16,7 @@ services:
 
     # Expose ports [HOST:CONTAINER}
     ports:
-      - "4040:4040"
+      - "8000:8000"
 
     # Set environment variables from this file
     env_file:
