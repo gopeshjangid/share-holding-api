@@ -36,7 +36,7 @@ mongoose.connection.on("open", () => {
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
 // listen on port config.port
-const PORT = process.env.NODE_ENV === "production" ? 8000 : 4000;
+const PORT = process.env.NODE_ENV === "production" ? 8000 : 4040;
 mongoose.connect(mongoUri, {
 	server: {
 		ssl: true,
