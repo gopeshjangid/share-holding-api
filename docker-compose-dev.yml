@@ -11,7 +11,7 @@ services:
     volumes:
       - ./src:/app/src
     ports:
-      - "4040:4040"
+      - "8000:8000"
     environment:
       - NODE_ENV=development
       - SERVER_TYPE=testing
