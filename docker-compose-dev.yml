@@ -5,7 +5,7 @@ services:
       context: ./ #current directory
       dockerfile: Dockerfile.dev #any docker file name  like for Dockerfile.prod
       args:
-        - NODE_ENV=production
+        - NODE_ENV=development
     restart: always
     container_name: api-dev
     volumes:
@@ -13,7 +13,7 @@ services:
     ports:
       - "4040:4040"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
       - SERVER_TYPE=testing
       - CHOKIDAR_USEPOLLING=true
     env_file:
