@@ -1,7 +1,7 @@
 const Company = require("./company.model");
 const Utils = require("../../../helpers/utils");
 const utils = new Utils();
-const File = require("../Upload");
+const File = require("../docs/Upload");
 const JwtToken = require("../../middleware/jwt");
 const jwtToken = new JwtToken();
 const mongoose = require("mongoose");

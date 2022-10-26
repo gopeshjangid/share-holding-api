@@ -35,6 +35,23 @@ class Utils extends ExtendableError {
 		super(message, status, isPublic);
 	}
 
+	getDocumentTypes = () => {
+		return [
+			"PAN",
+			"GST_CERTIFICATE",
+			"GST_DECLARATION",
+			"INCORPORATION",
+			"MOA",
+			"AOA",
+			"FIN_STATEMENT",
+			"MGT",
+			"MCF",
+			"TRIPARTITE",
+			"ISIN",
+			"BALANCE_SHEET",
+		];
+	};
+
 	getJsonResponse = (status, message, data) => {
 		return {
 			status: status,
@@ -75,6 +92,36 @@ class Utils extends ExtendableError {
 		} catch (err) {
 			return err;
 		}
+	};
+
+	join = (
+		leftModel,
+		lookup = {
+			from: "",
+			localField: "",
+			foreignField: "",
+			as: "",
+		},
+		condition,
+		projection
+	) => {
+		return new Promise((resolve, reject) => {
+			leftModel
+				.aggregate([
+					{
+						$match: condition,
+						$lookup: lookup,
+						$project: {
+							_id: true,
+							...projection,
+						},
+					},
+				])
+				.exec((err, result) => {
+					if (err) reject(err);
+					resolve(result);
+				});
+		});
 	};
 }
 
