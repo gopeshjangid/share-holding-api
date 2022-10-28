@@ -18,9 +18,7 @@ const generatePdf = (path, data, options) => {
 			try {
 				content = ejs.render(content, data);
 
-				const browser = await puppeteer.launch({
-					ignoreDefaultArgs: ["--disable-extensions"],
-				});
+				const browser = await puppeteer.launch();
 				const page = await browser.newPage();
 
 				// We set the page content as the generated html by handlebars
