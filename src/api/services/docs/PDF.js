@@ -19,7 +19,7 @@ const generatePdf = (path, data, options) => {
 				content = ejs.render(content, data);
 
 				const browser = await puppeteer.launch({
-					executablePath: "/usr/bin/chromium-browser",
+					args: ["--no-sandbox", "--disabled-setupid-sandbox"],
 				});
 				const page = await browser.newPage();
 
