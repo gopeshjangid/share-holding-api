@@ -19,7 +19,7 @@ const generatePdf = (path, data, options) => {
 				content = ejs.render(content, data);
 
 				const browser = await puppeteer.launch({
-					args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+					ignoreDefaultArgs: ["--disable-extensions"],
 				});
 				const page = await browser.newPage();
 
