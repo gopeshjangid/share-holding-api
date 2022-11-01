@@ -12,8 +12,12 @@ const DocumentSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		documentList: {
-			type: Array,
+		docType: {
+			type: String,
+			required: true,
+		},
+		docUrl: {
+			type: String,
 			required: true,
 		},
 		createdAt: {

@@ -6,14 +6,14 @@ const PDF = require("./PDF");
 const router = express.Router(); // eslint-disable-line new-cap
 
 router
-	.route("/upload")
+	.route("/uploadFile")
 	/** GET /api/users - Get list of users */
 	.post(Upload.uploadDocs);
 
 router
 	.route("/uploadRegistrationDocuments")
 	/** GET /api/users - Get list of users */
-	.post(Upload.uploadRegistrationDocuments);
+	.post(Document.uploadRegistrationDocuments);
 router
 	.route("/generatePdf")
 	/** GET /api/users - Get list of users */

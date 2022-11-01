@@ -12,6 +12,7 @@ const path = require("path");
 const moment = require("moment");
 const Document = require("./document.model");
 const PDF = require("../docs/PDF");
+
 /**
  * Company Login.
  */
@@ -27,6 +28,15 @@ const getDocumentByCompanyId = async (id) => {
 		},
 		{ companyId: id }
 	);
+};
+
+const saveDocument = async (id, data) => {
+	const document = new Document({
+		companyId: id,
+		...data,
+	});
+
+	return await document.save();
 };
 
 // async function updateDocument(document, catalog) {
@@ -112,6 +122,41 @@ function list(req, res, next) {
 		.catch((e) => next(e));
 }
 
+const uploadRegistrationDocuments = async (req, res) => {
+	// or module.exports = async (req, res) => {
+	try {
+		const companyName = req.query.companyName;
+		const companyId = req.query.companyId;
+		const docType = req.query.docType;
+		if (companyName === "" || docType === "" || companyId === "") {
+			return res.status(500).json({
+				success: false,
+				data: null,
+				message:
+					"Please provide companyName, companyId, docType in query string",
+			});
+		}
+
+		const directoryName = `${companyName}/${docType}`;
+		let files = await File.upload(req, directoryName);
+
+		const data = await saveDocument(companyId, {
+			companyId,
+			docType,
+			docUrl: files[0].Location,
+		});
+		console.log("data", data);
+		res.status(200).json({
+			success: true,
+			data: data,
+			message: "File(s) uploaded successfully",
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ success: false, data: null, message: err.message });
+	}
+};
+
 const downloadResolutionForm = async (req, res) => {
 	try {
 		const { director_designation, director_name, id } = req.body;
@@ -138,4 +183,5 @@ module.exports = {
 	list,
 	downloadResolutionForm,
 	getDocumentByCompanyId,
+	uploadRegistrationDocuments,
 };

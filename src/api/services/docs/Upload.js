@@ -9,7 +9,7 @@ const parseForm = async (req) => {
 	return new Promise((resolve, reject) => {
 		const form = Busboy({
 			headers: req.headers,
-			limits: { fileSize: 10 * 1024 * 1024 },
+			limits: { fileSize: 50 * 1024 * 1024 },
 		});
 		const files = []; // create an empty array to hold the processed files
 		const buffers = {}; // create an empty object to contain the buffers
@@ -37,12 +37,12 @@ const parseForm = async (req) => {
 	});
 };
 
-const uploadFile = async (buffer, fileParams, companyId) => {
+const uploadToS3 = async (buffer, fileParams, directory) => {
 	// or module.exports = (buffer, fileParams) => {
 	return new Promise((resolve, reject) => {
 		const params = {
 			Bucket: bucketName,
-			Key: companyId + "/" + fileParams.fileName.filename,
+			Key: directory + "/" + fileParams.fileName.filename,
 			Body: buffer,
 			ContentType: fileParams.fileType,
 			ContentEncoding: fileParams.fileEnc,
@@ -57,23 +57,19 @@ const uploadFile = async (buffer, fileParams, companyId) => {
 	});
 };
 
+// this is for uploading any document from frontend
+
 const uploadDocs = async (req, res) => {
 	// or module.exports = async (req, res) => {
 	try {
-		const companyId = req.query.companyId;
-		if (companyId === "") {
-			return res.status(500).json({
-				success: false,
-				data: null,
-				message: "companyId is required in query string",
-			});
-		}
+		const directory = req.query.directory;
+
 		const files = await parseForm(req);
 
 		const fileUrls = [];
 		for (const file of files) {
 			const { fileBuffer, ...fileParams } = file;
-			const result = await uploadFile(fileBuffer, fileParams, companyId);
+			const result = await uploadToS3(fileBuffer, fileParams, directory);
 			fileUrls.push(result);
 		}
 		res.status(200).json({
@@ -87,56 +83,28 @@ const uploadDocs = async (req, res) => {
 	}
 };
 
-const upload = async (req, res) => {
+// this is for uploading documents internally in backend
+const upload = async (req, directory) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const files = await parseForm(req);
-			const companyId = req.body.companyId;
 			const fileUrls = [];
 			for (const file of files) {
 				const { fileBuffer, ...fileParams } = file;
-				const result = await uploadFile(fileBuffer, fileParams, companyId);
+				const result = await uploadToS3(fileBuffer, fileParams, directory);
 				fileUrls.push(result);
 			}
 			resolve(fileUrls);
+			Promise.all(fileUrls)
+				.then((data) => resolve(data))
+				.catch((err) => reject(err));
 		} catch (err) {
 			reject(err);
 		}
 	});
 };
 
-const uploadRegistrationDocuments = async (req, res) => {
-	// or module.exports = async (req, res) => {
-	try {
-		const companyId = req.query.companyId;
-		if (companyId === "") {
-			return res.status(500).json({
-				success: false,
-				data: null,
-				message: "companyId is required in query string",
-			});
-		}
-		const files = await parseForm(req);
-
-		const fileUrls = [];
-		for (const file of files) {
-			const { fileBuffer, ...fileParams } = file;
-			const result = await uploadFile(fileBuffer, fileParams, companyId);
-			fileUrls.push(result);
-		}
-		res.status(200).json({
-			success: true,
-			data: fileUrls,
-			message: "File(s) uploaded successfully",
-		});
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({ success: false, data: null, message: err.message });
-	}
-};
-
 module.exports = {
 	upload,
 	uploadDocs,
-	uploadRegistrationDocuments,
 };
