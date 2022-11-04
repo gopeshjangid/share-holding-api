@@ -10,6 +10,7 @@ const ejs = require("ejs");
 const path = require("path");
 const moment = require("moment");
 const { registrationValidation } = require("./validations");
+const { processDocuments } = require("../docs/document.controller");
 /**
  * Company Login.
  */
@@ -148,6 +149,7 @@ async function registration(req, res, next) {
 				// 	subject: "Sign up has been completed",
 				// 	text: htmlToSend,
 				// });
+				const processedDocuments = await processDocuments(savedCompany);
 				res.send(
 					utils.getJsonResponse(
 						true,
