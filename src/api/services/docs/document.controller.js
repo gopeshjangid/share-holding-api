@@ -97,8 +97,10 @@ const uploadRegistrationDocuments = async (req, res) => {
 const downloadResolutionForm = async (req, res) => {
 	try {
 		const {
-			director_designation,
-			director_name,
+			authoriser,
+			authoriser_designation,
+			authorised,
+			authorised_designation,
 			id,
 			name,
 			email,
@@ -106,26 +108,18 @@ const downloadResolutionForm = async (req, res) => {
 			contact_number,
 			isin,
 			date_of_application,
-			place_of_application
 		} = req.body;
+		const address = registered_address?.split(" ");
+		const place_of_application = address[address.length-1];
 		const filePath = path.join(__dirname, '../DocumentsHTML/Board_Resolution.ejs');
-		const fileName = `Board_Resolution_${id}.pdf`;
-		const pdfData = await PDF.generatePdf(filePath, {
-			name,
-			email,
-			registered_address,
-			contact_number,
-			isin,
-			date_of_application,
-			place_of_application,
-			directors,
-			fileName
-		});
+		const fileName = `Board_Resolution_${Date.now()}.pdf`;
+		const pdfData = await PDF.generatePdf(filePath, {...req.body,place_of_application, fileName});
 		res.contentType('application/pdf');
 		res.header('Content-Length', '' + pdfData.length);
 		fs.unlinkSync(fileName);
 		return res.send(utils.getJsonResponse(true, 'Generated Pdf', pdfData));
 	} catch (e) {
+		console.log("Error:", e)
 		return res.send(utils.getJsonResponse(false, e, null));
 	}
 };
