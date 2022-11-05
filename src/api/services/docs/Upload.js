@@ -69,9 +69,9 @@ const uploadDocs = async (req, res) => {
             const result = await uploadToS3(
                 fileBuffer,
                 {
-                    fileParams: fileParams.fileName.filename,
-                    fileType: fileParams.fileType,
-                    encoding: fileParams.fileEnc
+                    fileName: fileParams.fileName.filename,
+                    fileType: fileParams.fileName.mimeType,
+                    encoding: fileParams.fileName.encoding
                 },
                 directory
             );
@@ -96,7 +96,11 @@ const upload = async (req, directory) => {
             const fileUrls = [];
             for (const file of files) {
                 const { fileBuffer, ...fileParams } = file;
-                const result = await uploadToS3(fileBuffer, fileParams, directory);
+                const result = await uploadToS3(fileBuffer, {
+                    fileName: fileParams.fileName.filename,
+                    fileType: fileParams.fileName.mimeType,
+                    encoding: fileParams.fileName.encoding
+                }, directory);
                 fileUrls.push(result);
             }
             resolve(fileUrls);
