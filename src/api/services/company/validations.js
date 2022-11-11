@@ -4,6 +4,7 @@ const registrationValidation = async (data) => {
 			if (key === "gsttin") return false;
 			if (key === "website") return false;
 			if (key === "isin") return false;
+			if (key === "status") return false;
 			if (key === "correspondence_address") return false;
 			return !value ? key : false;
 		})
