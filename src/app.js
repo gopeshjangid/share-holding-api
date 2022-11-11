@@ -52,6 +52,7 @@ var corsOptions = {
 		"http://localhost:3000",
 		"http://localhost:3001",
 		"https://verga.vercel.app",
+		"http://3.80.76.37"
 	],
 	credentials: true,
 };
