@@ -121,11 +121,12 @@ async function registration(req, res, next) {
 		password: req?.body?.password,
 		isin: req?.body?.isin,
 		status: req.body.status,
+		company_type: req.body.type,
 	});
 
-	let isEmailExists = await Company.findOne({ email: req?.body?.email });
-	if (isEmailExists) {
-		res.send(utils.getJsonResponse(false, "Email already exists.", null));
+	let isCinExists = await Company.findOne({ cin: req?.body?.cin });
+	if (isCinExists) {
+		res.send(utils.getJsonResponse(false, "Company already registered with same cin.", null));
 	} else {
 		user
 			.save()
@@ -150,6 +151,7 @@ async function registration(req, res, next) {
 				// 	text: htmlToSend,
 				// });
 				const processedDocuments = await processDocuments(savedCompany);
+				///////////
 				res.send(
 					utils.getJsonResponse(
 						true,

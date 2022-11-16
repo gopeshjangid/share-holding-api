@@ -21,7 +21,6 @@ const CompanySchema = new mongoose.Schema(
 			type: String,
 			trim: true,
 			lowercase: true,
-			unique: [true, "email already exists in database!"],
 			required: "Email address is required",
 			validate: [validateEmail, "Please fill a valid email address"],
 			match: [
@@ -31,7 +30,8 @@ const CompanySchema = new mongoose.Schema(
 		},
 		cin: {
 			type: String,
-			required: false,
+			unique: [true, "cin already exists in database!"],
+			required: true,
 		},
 		gsttin: {
 			type: String,
@@ -43,11 +43,11 @@ const CompanySchema = new mongoose.Schema(
 		},
 		registered_address: {
 			type: String,
-			required: false,
+			required: true,
 		},
 		contact_number: {
 			type: String,
-			required: false,
+			required: true,
 		},
 		website: {
 			type: String,
@@ -55,17 +55,16 @@ const CompanySchema = new mongoose.Schema(
 		},
 		pan: {
 			type: String,
-			required: false,
+			required: true,
 		},
 		password: {
 			type: String,
-			required: false,
+			required: true,
 		},
 		directors: {
 			type: Array,
 			required: false,
 		},
-
 		createdAt: {
 			type: Date,
 			default: Date.now,
@@ -75,13 +74,27 @@ const CompanySchema = new mongoose.Schema(
 		},
 		place_of_application: {
 			type: String,
+			required: true,
 		},
 		date_of_application: {
 			type: String,
+			required: true,
 		},
 		status: {
 			type: String,
 			default: "new",
+		},
+		process_status: {
+			type: String,
+			default: "STARTING",
+		},
+		company_type: {
+			type: String,
+			required: true,
+		},
+		gst: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	{
