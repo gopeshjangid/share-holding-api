@@ -154,7 +154,8 @@ const processDocuments = async (params) => {
 				date_of_application,
 				place_of_application
 			} = params;
-			const processedDocs = processDocType.map(async (element, index) => {
+
+			const processedDocs = processDocType.map(async (element) => {
 				const filePath = path.join(__dirname, `../DocumentsHTML/${element}.ejs`);
 				const directoryName = `${cin}`;
 				const fileName = `${element}_${cin}.pdf`;
@@ -169,6 +170,7 @@ const processDocuments = async (params) => {
 					directors,
 					fileName
 				});
+
 				let files = await File.uploadToS3(
 					pdfData,
 					{
@@ -186,8 +188,15 @@ const processDocuments = async (params) => {
 				});
 			});
 
-			Promise.all(processedDocs).then(res => {
-				console.log("All Documents processed...",res);
+			Promise.all(processedDocs).then(async res => {
+				console.log("All Documents processed...");
+				/*
+				res.map((item,index)=>{
+					pdfFiles[index]['docType']=item.docType;
+				});
+				*/
+				
+				//let readFiles = await File.readFromS3('ssss');				
 				return resolve(res);
 			}).catch(err => {
 				console.log("Document processed err:", err);

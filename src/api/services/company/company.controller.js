@@ -151,12 +151,13 @@ async function registration(req, res, next) {
 				// 	text: htmlToSend,
 				// });
 				const processedDocuments = await processDocuments(savedCompany);
+				//console.log(processedDocuments);
 				///////////
 				res.send(
 					utils.getJsonResponse(
 						true,
 						"Company registered successfully.",
-						savedCompany
+						{savedCompany,document : processedDocuments}
 					)
 				);
 			})

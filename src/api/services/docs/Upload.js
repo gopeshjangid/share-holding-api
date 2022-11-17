@@ -56,6 +56,24 @@ const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory) =
     });
 };
 
+const readFromS3 = async (fileName ) => {
+    return new Promise((resolve, reject) => {
+        const params = {
+            Bucket: bucketName,
+            Key: '1234567893/Undertaking_For_Private_Ltd_Co_1234567893.pdf'
+        };
+        S3.getObject(params, function(err, data) {
+            if (err) {
+                return reject(err);
+            } else {
+                resolve(data.Body);
+            }
+        });
+    });
+};
+
+
+
 // this is for uploading any document from frontend
 
 const uploadDocs = async (req, res) => {
@@ -116,5 +134,6 @@ const upload = async (req, directory) => {
 module.exports = {
     upload,
     uploadToS3,
-    uploadDocs
+    uploadDocs,
+    readFromS3
 };
