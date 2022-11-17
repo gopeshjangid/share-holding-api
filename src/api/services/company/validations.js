@@ -6,7 +6,11 @@ const registrationValidation = async (data) => {
             if (key === 'isin') return false;
             if (key === 'status') return false;
             if (key === 'correspondence_address') return false;
-            return !value ? key : false;
+            if (key === 'gst') {
+                return false;
+            } else {
+                return !value ? key : false;
+            }
         })
         .filter((field) => field);
     return fields;
