@@ -56,13 +56,14 @@ const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory) =
     });
 };
 
-const readFromS3 = async (fileName ) => {
+const readFromS3 = ({ directory, fileName, dockType }) => {
     return new Promise((resolve, reject) => {
         const params = {
             Bucket: bucketName,
-            Key: '1234567893/Undertaking_For_Private_Ltd_Co_1234567893.pdf'
+            Key: `${directory}/${fileName}.${dockType}`
         };
-        S3.getObject(params, function(err, data) {
+
+        S3.getObject(params, (err, data) => {
             if (err) {
                 return reject(err);
             } else {
@@ -71,8 +72,6 @@ const readFromS3 = async (fileName ) => {
         });
     });
 };
-
-
 
 // this is for uploading any document from frontend
 
@@ -114,11 +113,15 @@ const upload = async (req, directory) => {
             const fileUrls = [];
             for (const file of files) {
                 const { fileBuffer, ...fileParams } = file;
-                const result = await uploadToS3(fileBuffer, {
-                    fileName: fileParams.fileName.filename,
-                    fileType: fileParams.fileName.mimeType,
-                    encoding: fileParams.fileName.encoding
-                }, directory);
+                const result = await uploadToS3(
+                    fileBuffer,
+                    {
+                        fileName: fileParams.fileName.filename,
+                        fileType: fileParams.fileName.mimeType,
+                        encoding: fileParams.fileName.encoding
+                    },
+                    directory
+                );
                 fileUrls.push(result);
             }
             resolve(fileUrls);
