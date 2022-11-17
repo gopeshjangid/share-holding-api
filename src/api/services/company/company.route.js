@@ -13,7 +13,7 @@ router
 
 router.route('/companyRegistration').post(CompanyController.registration);
 
-router.route('/downloadProcessedDocuments').get(CompanyController.getDocument);
+router.route('/downloadProcessedDocument').get(CompanyController.getDocument);
 
 router
     .route('/')
