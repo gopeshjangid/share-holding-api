@@ -239,7 +239,6 @@ const getDocument = async (req, res, next) => {
     await File.readFromS3({ directory, fileName, dockType: 'pdf' })
         .then((response) => {
             let jsonResult;
-            console.log(response, response.length);
             res.contentType('application/pdf');
             res.header('Content-Length', '' + response.length);
             if (response) {
