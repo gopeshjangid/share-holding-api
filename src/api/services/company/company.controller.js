@@ -106,7 +106,7 @@ async function registration(req, res, next) {
         isin: req?.body?.isin,
         status: req.body.status,
         company_type: req.body.type,
-        gst: req?.body?.gst,
+        gst: req?.body?.gst
     });
 
     let isCinExists = await Company.findOne({ cin: req?.body?.cin });
