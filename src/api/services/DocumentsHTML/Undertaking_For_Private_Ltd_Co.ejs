@@ -4,7 +4,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12. Undertaking for Private Company</title>
+    <title>Undertaking For Private Ltd. Co.</title>
+    <meta name="author" content="shelmad" />
     <style type="text/css">
         * {
             margin: 0;
@@ -12,31 +13,13 @@
             text-indent: 0;
         }
 
-        .s1 {
+        h1 {
             color: black;
-            font-family: "Baskerville Old Face", serif;
+            font-family: Algerian;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
-            font-size: 24pt;
-        }
-
-        .s2 {
-            color: black;
-            font-family: "Times New Roman", serif;
-            font-style: normal;
-            font-weight: normal;
-            text-decoration: none;
-            font-size: 13pt;
-        }
-
-        .s4 {
-            color: black;
-            font-family: "Times New Roman", serif;
-            font-style: normal;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 10pt;
+            font-size: 30pt;
         }
 
         h2 {
@@ -48,71 +31,206 @@
             font-size: 12pt;
         }
 
-        .s5 {
+        h3 {
             color: black;
-            font-family: "Book Antiqua", serif;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+
+        p {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11.5pt;
+            margin: 0pt;
+        }
+
+        h4 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+
+        li {
+            display: block;
+        }
+
+        #l1 {
+            padding-left: 0pt;
+            counter-reset: c1 1;
+        }
+
+        #l1>li>*:first-child:before {
+            counter-increment: c1;
+            content: counter(c1, lower-latin) ") ";
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11.5pt;
+        }
+
+        #l1>li:first-child>*:first-child:before {
+            counter-increment: c1 0;
+        }
+
+        li {
+            display: block;
+        }
+
+        #l2 {
+            padding-left: 0pt;
+            counter-reset: d1 3;
+        }
+
+        #l2>li>*:first-child:before {
+            counter-increment: d1;
+            content: counter(d1, decimal) ". ";
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11.5pt;
+        }
+
+        #l2>li:first-child>*:first-child:before {
+            counter-increment: d1 0;
+        }
+
+        .a {
+            color: black;
+            font-family: "Times New Roman", serif;
             font-style: normal;
             font-weight: bold;
             text-decoration: none;
             font-size: 11pt;
         }
 
-        p {
+        .s1 {
             color: black;
-            font-family: "Book Antiqua", serif;
+            font-family: "Times New Roman", serif;
             font-style: normal;
-            font-weight: normal;
+            font-weight: bold;
             text-decoration: none;
-            font-size: 11pt;
-            margin: 0pt;
+            font-size: 12pt;
         }
     </style>
 </head>
 
 <body>
-    <p class="s1" style="padding-left: 75pt;text-indent: 0pt;line-height: 27pt;text-align: center;"><span
-            style=" color: #F00;"><%=name%></span></p>
-    <p class="s2" style="padding-left: 75pt;text-indent: 0pt;line-height: 15pt;text-align: center;"><span
-            style=" color: #F00;"><%=registered_address%></span></p>
-    <p class="s4" style="padding-left: 75pt;text-indent: 0pt;text-align: center;">CIN: <span style=" color: #F00;"><%=cin%></span> | Contact: <span style=" color: #F00;"><%=contact_number%></span> | E-mail: <span
-            style=" color: #F00;"><%=email%></span> <% if(website){ %>Website: <span style=" color: #F00;"><%=website%></span><% } %></p>
-    <h2 style="padding-left: 9pt;text-indent: 0pt;line-height: 13pt;text-align: center;">
-        ---------------------------------------------------------------------------------------------------------------------
-    </h2>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p class="s5" style="text-indent: 0pt;text-align: right;">Date: <span style=" color: #F00;"><%=date_of_application%></span></p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">To,</p>
-    <p style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">The Managing Director</p>
-    <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">National Securities
-        Depository Limited</p>
-    <p style="padding-left: 5pt;text-indent: 0pt;text-align: left;">4th floor, Trade World, A Wing Kamala Mills
-        Compound, Senapati Bapat Marg,</p>
-    <p style="padding-left: 5pt;text-indent: 0pt;text-align: left;">Lower Parel, Mumbai - 400 013</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p style="padding-top: 11pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">Dear Sir,</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p style="padding-left: 5pt;text-indent: 0pt;line-height: 114%;text-align: justify;">This is in connection with our
-        application for admitting our securities on National Securities Depository Ltd. (NSDL) to enable our
-        shareholders to hold their shares in dematerialised form.</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p style="padding-left: 5pt;text-indent: 0pt;line-height: 114%;text-align: justify;">We hereby undertake that once
-        the shares are admitted in NSDL depository system, all the transactions in the shares in demat form, will be
-        conducted in accordance with the provisions of The Depositories Act, 1996 and SEBI (Depositories and
-        Participants) Regulations, 1996 and Bye Laws &amp; Business Rules of NSDL. So long as the Company is a Private
-        Limited Company, the Company covenants and takes full responsibility for (i) any transfer of shares in violation
-        of the restrictions on transfer and lien on shares as incorporated in the Articles of Association and (ii) if
-        the number of members of the Company exceeds 200 due to transfer of shares.</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p style="padding-left: 5pt;text-indent: 0pt;line-height: 114%;text-align: justify;">The Company agrees and
-        undertakes to indemnify and keep indemnified and harmless NSDL, its Directors and employees, from and against
-        any and all liabilities resulting from claims, demands, penalties, suits and judgements and all costs, charges
-        and expenses relating thereto as a result of a breach by the Company of its covenants as stated hereinabove.</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p style="padding-top: 11pt;text-indent: 0pt;text-align: right;">Yours faithfully,</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
-    <p class="s5" style="padding-left: 221pt;text-indent: 108pt;text-align: right;">For, <span
-            style=" color: #F00;"><%=name%></span> Name : <span style=" color: #F00;"><%=authorized_name%></span> Designation <span style=" color: #F00;"><%=authorized_destination%></span></p>
-    <p class="s5" style="text-indent: 0pt;text-align: right;">DIN: <span style=" color: #F00;"><%=authorized_din%></span></p>
+    <h1 style="padding-left: 6pt;text-indent: 0pt;line-height: 37pt;text-align: center;">
+        <%=name%>
+    </h1>
+    <h3 style="padding-bottom: 1pt;padding-left: 41pt;text-indent: 0pt;text-align: center;">Regd. Office:-
+        <%=registered_address%> | TEL. NO.:- <a href="tel:91<%=contact_number%>" class="a">+91- <%=contact_number%></a>
+            | EMAIL ID:- <span class="h4"><a href="mailto:<%=email%>" class="a" target="_blank">
+                    <%=email%>
+                </a>
+            </span><br />
+            <span class="s1">CIN:- <%=cin%></span>
+    </h3>
+    <p style="padding-left: 5pt; text-indent: 0pt; line-height: 1pt; text-align: left;">
+        <span> <img width="730" height="2" alt="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtoAAAACCAYAAABmHHtYAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAJklEQVRYhe3OAQkAQAgEsPP7d9YSwoNsCVZJOgAAwKr3OwAAABcN/PIBA2UO85oAAAAASUVORK5CYII=" /></span>
+    </p>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <p style="padding-top: 4pt; padding-left: 34pt; text-indent: 0pt; text-align: justify;">
+        We <b>AURAIN VENTURES PRIVATE LIMITED </b>an unlisted Private Limited Company incorporated under the Companies
+        Act, 2013, (hereinafter called “<b>the Company</b>”) are desirous to admit our equity shares for
+        dematerialization
+        with Central Depository Services (India) Limited (hereinafter called “<b>CDSL</b>”).
+    </p>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <p style="padding-left: 34pt; text-indent: 0pt; line-height: 114%; text-align: justify;">The Company places on
+        record that it is fully aware of the following facts and law pertaining to Private Limited Companies:</p>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <ol id="l1">
+        <li data-list-text="a)">
+            <p style="padding-left: 52pt; text-indent: -18pt; text-align: justify;">That the right to transfer its
+                shares is restricted under Sections 2(68) and 56 of the Companies Act, 2013;</p>
+        </li>
+        <li data-list-text="b)">
+            <p style="padding-top: 2pt; padding-left: 52pt; text-indent: -18pt; text-align: justify;">The number of its
+                members shall not exceed two hundred and</p>
+        </li>
+        <li data-list-text="c)">
+            <p
+                style="padding-top: 2pt; padding-left: 52pt; text-indent: -18pt; line-height: 114%; text-align: justify;">
+                That the Company is prohibited to invite the public to subscribe for any securities; under Section
+                2(68)(iii) of the Companies Act, 2013;
+            </p>
+        </li>
+        <li data-list-text="d)">
+            <p style="padding-left: 52pt; text-indent: -18pt; line-height: 114%; text-align: justify;">The depository
+                has no control over the transfer of shares in demat form in terms of Section 7(1) of the Depositories
+                Act, 1996;</p>
+        </li>
+        <li data-list-text="e)">
+            <p style="padding-left: 52pt; text-indent: -18pt; line-height: 114%; text-align: justify;">
+                That the provisions of the Depositories Act, 1996 are in addition and not in derogation of any other law
+                for the time being in force relating to the holding and transfer of securities in terms of Section 28 of
+                the
+                Depositories Act, 1996.
+            </p>
+        </li>
+    </ol>
+    <p style="padding-top: 9pt; padding-left: 34pt; text-indent: 0pt; text-align: justify;">We hereby confirm and
+        undertake:</p>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <p style="padding-left: 52pt; text-indent: -18pt; line-height: 114%; text-align: justify;">
+        1. That the Company shall at all times ensure that the provisions of the Companies Act 2013, Securities and
+        Exchange Board of India Act, 1992 and SEBI (Depositories and Participants) Regulations, 1996 and all other
+        applicable
+        Rules and Regulations including those made by SEBI from time to time relating to the admission/issuance
+        allotment, transfer, dematerialization and rematerialization etc., are duly complied with and shall further
+        ensure that the
+        Company duly observes and performs all its obligations there under.
+    </p>
+    <p style="padding-left: 52pt; text-indent: -18pt; line-height: 114%; text-align: justify;">
+        2 The Company shall regularly and diligently reconcile its dematerialized and physical securities and shall in
+        particular ensure that the aggregate of (i) the dematerialized securities (in all depositories taken together)
+        and
+        (ii) those held in physical form and those pending dematerialization does not exceed the issued capital of the
+        Company.
+    </p>
+    <ol id="l2">
+        <li data-list-text="3.">
+            <p style="padding-left: 52pt; text-indent: -18pt; line-height: 114%; text-align: justify;">
+                The Company agrees, declares and confirms that the reconciliation of its securities (including
+                dematerialized securities) is the sole obligation of the Company and its RTA, if any, and the Company
+                shall not look to CDSL
+                or hold CDSL liable or responsible in this behalf.
+            </p>
+        </li>
+        <li data-list-text="4.">
+            <p style="padding-left: 47pt; text-indent: -13pt; line-height: 114%; text-align: justify;">
+                The Company agrees and undertakes to indemnify and keep indemnified and harmless CDSL, its Directors and
+                employees, from and against any and all liability resulting from claims, demands, penalties, suits and
+                judgements
+                and all costs, charges and expenses relating thereto as a result of a breach by the Company of its
+                covenants as stated hereinabove.
+            </p>
+        </li>
+    </ol>
+    <p style="padding-top: 10pt; padding-left: 34pt; text-indent: 0pt; text-align: justify;">Yours faithfully,</p>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <h4 style="padding-left: 34pt; text-indent: 0pt; text-align: left;">For AURAIN VENTURES PRIVATE LIMITED</h4>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <h4 style="padding-top: 10pt; padding-left: 34pt; text-indent: 0pt; text-align: left;">RAUNAK DINESH ASWANI DIRECTOR
+    </h4>
+    <p style="text-indent: 0pt; text-align: left;"><br /></p>
+    <p style="padding-left: 5pt; text-indent: 0pt; line-height: 1pt; text-align: left;">
+        <span><img width="760" height="1" alt="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvgAAAABCAYAAACrINobAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMklEQVRIie1VQZLDMAxC/39hXqM9NEoxxorT7Wlnc2ojjADbShzHkdh7MjMDACLC1gEEgRERr0XvBYwZ8MV/QhNAFMdSTARjLj7qjRWfcCf9nzw02tVD1cB1p7F5LKbRvtK2w+t88DtUzPB7i7MGV8eYxVJDZgJAsCfTY9is2iv+LZpVyxxIU2twzm813Nlf5WGulH0O1fcg++rR6bH3bHGndu7xrX/WD0ANpno+ca0nOgO468/LBD/MgMW563RcIwn+Tqm2u+wnYtP3o+wNp321kX2K3q9lDzkbv8h+wptvh+sxYA3PNOdbww+z3/T8OHtzrouncgde2VtO9VEYzV7m08XVZe94djxteuaZw97cPHmLjks2f6D4vDGXuzOq42vZU47/2QP2/krNZk99/1z2P1A2ypi+4xC3AAAAAElFTkSuQmCC" /></span>
+    </p>
 </body>
+
 </html>
