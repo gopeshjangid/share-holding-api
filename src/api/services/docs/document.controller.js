@@ -157,7 +157,7 @@ const processDocuments = async (params) => {
                 place_of_application,
                 gsttin,
                 pan,
-                website,
+                website
             } = params;
 
             const authorized_din = directors[0]?.din;
@@ -178,13 +178,13 @@ const processDocuments = async (params) => {
                     registered_address,
                     contact_number,
                     cin,
-                    date_of_application: moment().format("MM/DD/YY"),
+                    date_of_application: moment().format('MM/DD/YY'),
                     place_of_application,
                     directors,
                     authorized_din,
                     authorized_destination,
                     authorized_name,
-                    gsttin : gsttin || '',
+                    gsttin: gsttin || '',
                     website,
                     authorizer_name,
                     fileName
