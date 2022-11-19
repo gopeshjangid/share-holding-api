@@ -43,14 +43,30 @@ const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory) =
             Bucket: bucketName,
             Key: directory + '/' + fileName,
             Body: buffer,
-            ContentType: fileType,
-            ContentEncoding: encoding
+            ContentType: fileType
         };
         S3.upload(params, (err, s3res) => {
             if (err) {
                 return reject(err);
             } else {
                 resolve(s3res);
+            }
+        });
+    });
+};
+
+const readFromS3 = ({ directory, fileName, dockType }) => {
+    return new Promise((resolve, reject) => {
+        const params = {
+            Bucket: bucketName,
+            Key: `${directory}/${fileName}.${dockType}`
+        };
+
+        S3.getObject(params, (err, data) => {
+            if (err) {
+                return reject(err);
+            } else {
+                resolve(data.Body);
             }
         });
     });
@@ -96,11 +112,15 @@ const upload = async (req, directory) => {
             const fileUrls = [];
             for (const file of files) {
                 const { fileBuffer, ...fileParams } = file;
-                const result = await uploadToS3(fileBuffer, {
-                    fileName: fileParams.fileName.filename,
-                    fileType: fileParams.fileName.mimeType,
-                    encoding: fileParams.fileName.encoding
-                }, directory);
+                const result = await uploadToS3(
+                    fileBuffer,
+                    {
+                        fileName: fileParams.fileName.filename,
+                        fileType: fileParams.fileName.mimeType,
+                        encoding: fileParams.fileName.encoding
+                    },
+                    directory
+                );
                 fileUrls.push(result);
             }
             resolve(fileUrls);
@@ -116,5 +136,6 @@ const upload = async (req, directory) => {
 module.exports = {
     upload,
     uploadToS3,
-    uploadDocs
+    uploadDocs,
+    readFromS3
 };
