@@ -1,2259 +1,996 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>RTA Registration form</title>
-        <meta name="author" content="nirupamap" />
-        <style type="text/css">
-            * {
-                margin: 0;
-                padding: 0;
-                text-indent: 0;
-            }
 
-            .s1 {
-                color: #f00;
-                font-family: "Palatino Linotype", serif;
-                font-style: italic;
-                font-weight: bold;
-                text-decoration: underline;
-                font-size: 11pt;
-            }
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>14. RTA Registration form</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-indent: 0;
+        }
 
-            .s2 {
-                color: #f00;
-                font-family: "Palatino Linotype", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: underline;
-                font-size: 11pt;
-            }
+        .s1 {
+            color: #F00;
+            font-family: "Palatino Linotype", serif;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 11pt;
+        }
 
-            p {
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: normal;
-                text-decoration: none;
-                font-size: 11pt;
-                margin: 0pt;
-            }
+        .s2 {
+            color: #F00;
+            font-family: "Palatino Linotype", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 11pt;
+        }
 
-            .s3 {
-                color: #f00;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        p {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11pt;
+            margin: 0pt;
+        }
 
-            .s5 {
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        .s3 {
+            color: #F00;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            .s6 {
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: normal;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        .s5 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            .s7 {
-                color: #0d0d0d;
-                font-family: Cambria, serif;
-                font-style: normal;
-                font-weight: normal;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        .s6 {
+            color: #F00;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            .s8 {
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        .s7 {
+            color: #F00;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
 
-            .s9 {
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: underline;
-                font-size: 11pt;
-            }
+        .s8 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
 
-            h2 {
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        .s9 {
+            color: #F00;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            .h1 {
-                color: #f00;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: bold;
-                text-decoration: none;
-                font-size: 12pt;
-            }
+        .s10 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            li {
-                display: block;
-            }
+        .s11 {
+            color: black;
+            font-family: Cambria, serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            #l1 {
-                padding-left: 0pt;
-                counter-reset: c1 1;
-            }
+        .s12 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 11pt;
+        }
 
-            #l1 > li > *:first-child:before {
-                counter-increment: c1;
-                content: counter(c1, decimal) ") ";
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: normal;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        h2 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-            #l1 > li:first-child > *:first-child:before {
-                counter-increment: c1 0;
-            }
+        .h1 {
+            color: #F00;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
 
-            #l2 {
-                padding-left: 0pt;
-                counter-reset: c2 1;
-            }
+        .s13 {
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9.5pt;
+        }
 
-            #l2 > li > *:first-child:before {
-                counter-increment: c2;
-                content: counter(c2, lower-latin) ") ";
-                color: black;
-                font-family: "Times New Roman", serif;
-                font-style: normal;
-                font-weight: normal;
-                text-decoration: none;
-                font-size: 11pt;
-            }
+        li {
+            display: block;
+        }
 
-            #l2 > li:first-child > *:first-child:before {
-                counter-increment: c2 0;
-            }
+        #l1 {
+            padding-left: 0pt;
+            counter-reset: c1 1;
+        }
 
-            table,
-            tbody {
-                vertical-align: top;
-                overflow: visible;
-            }
-        </style>
-    </head>
+        #l1>li>*:first-child:before {
+            counter-increment: c1;
+            content: counter(c1, decimal)") ";
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11pt;
+        }
 
-    <body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="">
-        <p style="padding-left: 17pt; text-indent: 0pt; text-align: left;">
-            <span>
-                <img width="99" height="102" alt="image" src="data:image/jpeg;base64,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" />
-            </span>
-        </p>
-        <p class="s1" style="padding-top: 4pt; padding-left: 159pt; text-indent: 0pt; line-height: 14pt; text-align: center;">
-            RTA DIVISION
-        </p>
-        <p class="s2" style="padding-left: 177pt; text-indent: 0pt; line-height: 14pt; text-align: center;">CLIENT REGISTRATION FORM</p>
-        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-        <p style="padding-top: 4pt; padding-left: 11pt; text-indent: 0pt; line-height: 150%; text-align: left;">
-            We hereby appoint <span class="s3">HARMILAP SHARE TRANSFER AGENTS </span><span style="color: #f00;">as </span>Registrar and Share Transfer Agent for our Company and request you to register us as client with you.
-        </p>
-        <table style="width: 100%;page-break-after: always;" cellspacing="0">
-            <tbody>
-                <tr style="height: 17pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 13pt; text-align: left;">1</p>
-                    </td>
-                    <td
-                        style="
-                            width: 132pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-top: 1pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">Name of the Client /Issuer</p>
-                    </td>
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s5" style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">AURAIN VENTURES PRIVATE LIMITED</p>
-                    </td>
-                </tr>
-                <tr style="height: 14pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">2</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Registration No. / CIN
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            U72200MH2022PTC378905
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 17pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 13pt; text-align: left;">3</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 13pt; text-align: left;">Date of incorporation (DD/MM/YYYY)</p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-top: 1pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">
-                            23/03/2022
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 22pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">4</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Type of Security</p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-top: 4pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">Equity</p>
-                    </td>
-                </tr>
-                <tr style="height: 18pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">5</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Share Capital ( In Shares)</p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">10000</p>
-                    </td>
-                </tr>
-                <tr style="height: 23pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">6</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">GSTN</p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-top: 4pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">NA</p>
-                    </td>
-                </tr>
-                <tr style="height: 20pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">7</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">PAN</p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">
-                            AAWCA6953D
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 20pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">8</p>
-                    </td>
-                    <td
-                        style="
-                            width: 206pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">TAN</p>
-                    </td>
-                    <td
-                        style="
-                            width: 279pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">
-                            MUMA67797C
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 18pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="7"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 13pt; text-align: left;">9</p>
-                    </td>
-                    <td
-                        style="
-                            width: 132pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="7"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 13pt; text-align: left;">
-                            Registered Office Address
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">225, 2ND FLOOR,</p>
-                    </td>
-                </tr>
-                <tr style="height: 18pt;">
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">
-                            PANCHRATNA,
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 16pt;">
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">OPERA HOUSE, GIRGAON, MUMBAI CITY</p>
-                    </td>
-                </tr>
-                <tr style="height: 18pt;">
-                    <td
-                        style="
-                            width: 79pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">City / Town</p>
-                    </td>
-                    <td
-                        style="
-                            width: 120pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">MUMBAI</p>
-                    </td>
-                    <td
-                        style="
-                            width: 57pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">PIN CODE</p>
-                    </td>
-                    <td
-                        colspan="2"
-                        style="
-                            width: 97pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 7pt; text-indent: 0pt; text-align: left;">400004</p>
-                    </td>
-                </tr>
-                <tr style="height: 16pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">State</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">
-                            MAHARASHTRA
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 18pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">Country</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">INDIA</p>
-                    </td>
-                </tr>
-                <tr style="height: 18pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">Mobile No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 105pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">+91-<span class="s7">9821446669</span></p>
-                    </td>
-                    <td
-                        style="
-                            width: 57pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">Fax No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 97pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 3pt; text-indent: 0pt; text-align: left;">N.A.</p>
-                    </td>
-                </tr>
-                <tr style="height: 19pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="7"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">10</p>
-                    </td>
-                    <td
-                        style="
-                            width: 132pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="7"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Correspondence Address
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s5" style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">SAME AS ABOVE</p>
-                    </td>
-                </tr>
-                <tr style="height: 17pt;">
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-                <tr style="height: 17pt;">
-                    <td
-                        style="
-                            width: 353pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-                <tr style="height: 19pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">City / Town</p>
-                    </td>
-                    <td
-                        style="
-                            width: 105pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                    <td
-                        style="
-                            width: 57pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">PIN CODE</p>
-                    </td>
-                    <td
-                        style="
-                            width: 97pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-                <tr style="height: 14pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">State</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Country</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Mobile No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 128pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                    <td
-                        style="
-                            width: 49pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Fax No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 82pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 7pt; text-indent: 0pt; line-height: 12pt; text-align: left;">N.A.</p>
-                    </td>
-                </tr>
-                <tr style="height: 15pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="10"
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">11</p>
-                    </td>
-                    <td
-                        style="
-                            width: 132pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="10"
-                    >
-                        <p class="s5" style="padding-left: 5pt; padding-right: 3pt; text-indent: 0pt; text-align: justify;">
-                            Billing Address with Contact Person Name &amp; Designation.
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 13pt; text-align: left;">Name</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s5" style="padding-left: 6pt; text-indent: 0pt; line-height: 13pt; text-align: left;">RAUNAK DINESH ASWANI</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Designation
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s5" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            DIRECTOR
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Add. 1</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">225, 2ND FLOOR,</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Add. 2</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            PANCHRATNA,
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Add. 3</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">OPERA HOUSE, GIRGAON, MUMBAI CITY</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">City / Town</p>
-                    </td>
-                    <td
-                        style="
-                            width: 97pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">MUMBAI</p>
-                    </td>
-                    <td
-                        style="
-                            width: 56pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">PIN Code</p>
-                    </td>
-                    <td
-                        style="
-                            width: 106pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 8pt; text-indent: 0pt; line-height: 12pt; text-align: left;">400004</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">State</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            MAHARASHTRA
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Country</p>
-                    </td>
-                    <td
-                        style="
-                            width: 259pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="3"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">INDIA</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Mobile No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 97pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">+91-<span class="s7">9821446669</span></p>
-                    </td>
-                    <td
-                        style="
-                            width: 56pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Fax No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 106pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 8pt; text-indent: 0pt; line-height: 12pt; text-align: left;">N.A.</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 94pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Telephone No.
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 119pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">N.A.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 140pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="2"
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table style="width: 100%;" cellspacing="0">
-            <tbody>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="6"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">12</p>
-                    </td>
-                    <td
-                        style="
-                            width: 729pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Director / Company Secretary / Compliance Officer Details
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 144pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Name</p>
-                    </td>
-                    <td
-                        style="
-                            width: 343pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">RAUNAK DINESH ASWANI</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 144pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Designation
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 343pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            DIRECTOR
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 15pt;">
-                    <td
-                        style="
-                            width: 144pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">Email ID</p>
-                    </td>
-                    <td
-                        style="
-                            width: 343pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p style="padding-top: 1pt; padding-left: 6pt; text-indent: 0pt; line-height: 13pt; text-align: left;">
-                            <a href="mailto:ron_901@hotmail.com" class="s8">ron_901@hotmail.com</a>
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 16pt;">
-                    <td
-                        style="
-                            width: 144pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 5pt; text-indent: 0pt; text-align: left;">
-                            Telephone No.
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 176pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">N.A.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 59pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">Fax No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 108pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-top: 1pt; padding-left: 6pt; text-indent: 0pt; text-align: left;">N.A.</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 144pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Mobile Number</p>
-                    </td>
-                    <td
-                        style="
-                            width: 343pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; line-height: 12pt; text-align: left;">+91-<span class="s7">9821446669</span></p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 24pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        rowspan="6"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">13</p>
-                    </td>
-                    <td
-                        style="
-                            width: 487pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="5"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Systems Administrator User Details</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 112pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Name</p>
-                    </td>
-                    <td
-                        style="
-                            width: 375pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">RAUNAK DINESH ASWANI</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 112pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Designation
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 375pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            DIRECTOR
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height: 15pt;">
-                    <td
-                        style="
-                            width: 112pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">Email ID</p>
-                    </td>
-                    <td
-                        style="
-                            width: 375pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p style="padding-left: 5pt; text-indent: 0pt; line-height: 13pt; text-align: left;"><a href="mailto:ron_901@hotmail.com" class="s8">ron_901@hotmail.com</a></p>
-                    </td>
-                </tr>
-                <tr style="height: 15pt;">
-                    <td
-                        style="
-                            width: 112pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">Telephone No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 118pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">N.A.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 72pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">Fax No.</p>
-                    </td>
-                    <td
-                        style="
-                            width: 185pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 6pt; text-indent: 0pt; text-align: left;">N.A.</p>
-                    </td>
-                </tr>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 112pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Mobile Number</p>
-                    </td>
-                    <td
-                        style="
-                            width: 375pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                        colspan="4"
-                    >
-                        <p class="s6" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">+91-<span class="s7">9821446669</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-        <p class="s9" style="padding-top: 4pt; padding-left: 177pt; text-indent: 0pt; text-align: center;">Declaration</p>
-        <h2 style="padding-left: 11pt; text-indent: 0pt; line-height: 150%; text-align: justify;">
-            We hereby certify that the above information is correct to the best of our knowledge and that we have attached all the enclosures required. We undertake to notify
-            <span style="color: #f00;">Harmilap Share Transfer Agents </span>within seven days, of any change in the details set out in the Client Registration Form or Furnished to
-            <span style="color: #f00;">Harmilap Share Transfer Agents </span>from time to time.
-        </h2>
-        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-        <table style="width: 100%;" cellspacing="0">
-            <tbody>
-                <tr style="height: 13pt;">
-                    <td
-                        style="
-                            width: 46pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 4pt; padding-right: 5pt; text-indent: 0pt; line-height: 12pt; text-align: center;">
-                            Sr. No.
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 180pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">Name of the Authorized Signatory</p>
-                    </td>
-                    <td
-                        style="
-                            width: 90pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">
-                            Designation
-                        </p>
-                    </td>
-                    <td
-                        style="
-                            width: 176pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; line-height: 12pt; text-align: left;">DSC Sign</p>
-                    </td>
-                </tr>
-                <tr style="height: 71pt;">
-                    <td
-                        style="
-                            width: 46pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                        <p class="s5" style="text-indent: 0pt; text-align: center;">1</p>
-                    </td>
-                    <td
-                        style="
-                            width: 180pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">RAUNAK DINESH ASWANI</p>
-                    </td>
-                    <td
-                        style="
-                            width: 90pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                        <p class="s5" style="padding-left: 5pt; text-indent: 0pt; text-align: left;">DIRECTOR</p>
-                    </td>
-                    <td
-                        style="
-                            width: 176pt;
-                            border-top-style: solid;
-                            border-top-width: 1pt;
-                            border-left-style: solid;
-                            border-left-width: 1pt;
-                            border-bottom-style: solid;
-                            border-bottom-width: 1pt;
-                            border-right-style: solid;
-                            border-right-width: 1pt;
-                        "
-                    >
-                        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-        <h2 style="padding-top: 4pt; padding-left: 11pt; text-indent: 0pt; text-align: left;">Place: MUMBAI Date: 06.04.2022</h2>
-        <p style="text-indent: 0pt; text-align: left;"><br /></p>
-        <h2 style="padding-left: 11pt; text-indent: 0pt; text-align: left;">Instructions:</h2>
-        <ol id="l1">
-            <li data-list-text="1)">
-                <p style="padding-top: 4pt; padding-left: 29pt; text-indent: -18pt; line-height: 135%; text-align: left;">
-                    Submit duly filled and signed form at : <span class="h1">Harmilap Share Transfer Agents </span>– RTA Division, Shop No 2 &amp; 3 Ground Floor, A 90 &amp; 91 Indra Nagar, Delhi-110033
+        #l1>li:first-child>*:first-child:before {
+            counter-increment: c1 0;
+        }
+
+        #l2 {
+            padding-left: 0pt;
+            counter-reset: c2 1;
+        }
+
+        #l2>li>*:first-child:before {
+            counter-increment: c2;
+            content: counter(c2, lower-latin)") ";
+            color: black;
+            font-family: "Times New Roman", serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 11pt;
+        }
+
+        #l2>li:first-child>*:first-child:before {
+            counter-increment: c2 0;
+        }
+
+        table,
+        tbody {
+            vertical-align: top;
+            overflow: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="padding-left: 17pt;text-indent: 0pt;text-align: left;"><span><img width="99" height="102" alt="image" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEB
+                QgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEB
+                AUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUF
+                BQUFBT/wAARCABmAGMDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/
+                8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2Jyg
+                gkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh
+                4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6
+                erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDB
+                AcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJ
+                ygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXm
+                JmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/
+                9oADAMBAAIRAxEAPwD9Us0d6TOBSbwaAHGim+avrR5invQAyY7QT1xX5q/H/wCOuufFDxhqMKX01
+                v4dtZ3hs7GFysbIpwJHAxuZsZ5zjOB7/pVL82eM5Ffm18f/AIB6/wDDfxfqNxBp1xe+Hbmd5rW9t
+                4y6Rqxz5b4ztZc45xkDI7gfNZ6q3sF7Pa+tj9U8PHgFmNT61bnt7nNa1+tr9drfMxvg18cNf+Eni
+                Wznt72efRWlAvNNkctFJGfvFQfuuByGHcDORkV+nlvMs8aSLyrgEH1Br8yfg18B/EXxV8SWUSadc
+                WmhLKpvNSmjKRrGDlgpP3mI4AGeuTxmv01t41t4o40GEQBQPaoyL26pS9pfl6X/ABN/EV4B42l9V
+                t7Sz57fhe3Xfzta/QsUU3zAKPMX1r6g/JB3aim+YOPenAgigAxRRRQB5x8WPjTpvwy064xp97ruq
+                R2zXR07T4y7RxDrLMwBEUef4j6HAODjw7WfiR8Xfih4e0HVfh/ORHfrI13ZWVisYtArYCm5nyrse
+                fuhemcYqj8JfDF38UfijP4mPjOPUNL8QW09xrWkWb/PDCHCQWkvPQg9cA7UcD724/Xtnp8Gn20Vv
+                bRpBbxKEjijUKqKBgAAcAV48FVxqcnJxh0t+d0fcV3hMgcKUaSq1lrJyTstGnFxaWz1TXk762Pm7
+                UZPi7Y/EixvIf7c0XwIUQXYuFtdSmVgh3ERx73wzbR8uSMk8DgTeCf2sn8UnxHpUeh/afEWlRzzW
+                8TSm1jvo42x8qNukSU/888N9fT6OuEIiIU4PavlH9liLw3rHxJ8SX/9j3Fj4osrSOK9k1CXzXluz
+                LJ9rmTP3ct5YOOmccZ5VSFSjVhCnU+Ju99enQeGrYXHYOvWxOGV6UY2cdNebeWt3fZu79FuVZ/2q
+                PizpUj32p/C2aDR0yz77O6iZF95SCo+pWvTPG3x5sLHwXcLcXP/AAi/iEpZtcQSFLmW0t55VQzpt
+                3LIFDMQMHkDK4Iz7Z5QkjwentXzH+0h8ENG0jU9H8faHPaeG9VttWtFuZZkAtHLzIqzOvABUkEnu
+                M555pVYYnDUpSjPn9baelrBg8RlWaYqlSq4dUezi5PmfRNNu19VdJ6taW36/wCHHxx0q40eXT31m
+                TxLfrqc2m6ZI0aW9zqOyJJSxQ7VXaHKljtB2A9WArktK/aL+IHiez8RX+n+DvscemgC1tG0+7vjf
+                OHKuqzRbUGMdcEc/jVT4U/BXTPiN8TvFnjXxPqmneLWtNQW2txp8YFlJIsMTeYRk7toZV25PKsSW
+                4r6lS3SFMIAqgYAAwB7VdCOIrwTcuVK9rdV3e/5mOYTy3AVpQp0vayai23dKL3aSVrprRvljbW1j
+                5v8YftZXfgrwNpN7qnhY2fifVFcwaWbrcINp2lpwQroc8hccjjcDnFe51L4seIfiBpeo6VNrOq+B
+                GjjnuYoLWDTJSSDujQT7ZCoO05J6EgHPNSfthJ4N0xfC+r+JdJn1WZZ5YBFZTeTO0RiJyWHO1ZDG
+                euBu98H33wYbyXwpozaln+0DZQm53dfM8td2fxzUxjUq15UqlTSNmraP5+ptVrYXB4GjjMPhlzVO
+                dPm96O+nJd3Tiuumr69PnDTvGHxf8E6x4lv/FFzPpvhi0iuLqwj1Oxjvg4Dfu4nltmBQlT95iRkd
+                69P+C/7QunfFLTrIXel3fh7U7tXa3iu1PkXgQ/ObeUgCTHcdRzwQM16w9usiFWAKkYIIr5N/aE+H
+                Nx4Y8WaNqGn+MbfwroOnW9xqel2V3gQxX0bKxiiAx/rN2QvOMMACDinUVXBr2kZOUeqfm+/ZEYWp
+                gs7m6FanGlUe0op20T05Um25OzbbfW1j63U5APSisrwprkfiXwvpGrwjbFf2kV0g9A6Bh/OivXTu
+                ro+LlFwk4y3R8y/DnVNN+C3xxtvA8XhabTvtkc63Gqo7zC7Qvvt5sYwqqNyNjAUsey5r6sRw/I5F
+                c94w8IxeKdLuIUuJdNvWt5IIdRtQBPAHHzbSexwMj2HcAjx74Y/FbVvhzo+saB8R4dRSPw5L9nj8
+                SLZTS293CACpdkVsMFK8nqCMnOa82l/sj9nL4Xe2mi8n/mfTYq+dQ+tUl+9ikpK7cpNtrmV/kuVP
+                TSysfQU3Civn74oeHfEPgXxlY+K9M19dH8G2RuNQvLZLAzhbhh86uIxvKS5JLEkK2T/AHcedfGP9
+                pHV/Gd/og8CTx2Wj216lwl1qFytq2pyxsCEVHYN5QOAScAtxkYOfU9G/an8C+IPD7LfmeDWWU21x
+                4ektHkuGmPymFVC4fJ4H15xzjKeKw+IbhzWts+/p3O6jk2Z5bCGJ9lzqaalFK7inpqrOz3s7adex
+                6Z8OPiDpnxM8IWHiDSZN9rdLko2N8TjhkYeoOR+o4Irgv2sLiztfg9dXGo2rX2nw39lJc2yuUMsY
+                uE3IGHTIyM+9eVfBX4vXngnxL4kuvF00Fl4UumiS2+x3UN5HpTKNkUMogZjHuQAbiACyetWf2hfj
+                bovxO8HX/hXwlf2l5aP5c2qazeZjtLOMOGRQxGWkZlUAKCcA4B7Z1MZCphJcz96z0/4HY6MLklfD
+                5zSdOLdFSi+ZO6S0bXMl8Svbu3a26O4/ZI1XRdb8J+Kb7w7pTaLo02uObeyd95jAtrcNzk9WBOMn
+                GcV7H4o8T2HhDw/f6xqk621hZQtNLIewHYDuT0A7kgV8w/s3/FTw78JfAUej6/qFgmmy3kr2uvad
+                5kltcOQC0coKh45AMY3qAVAxnBqx8cPjndeMItHX4b3cNxa2F8s95ql3PHaWskir8tsGnZFkJDbm
+                AzjC/gUMXClhIttc1tl39P6Qsfk1fF5xUUItUnL45N2su8mt35633VzZ8Fxa58bvG8fiuHXTP4Dv
+                7JEu9KlsdgQo+VtgXBDktkySJgHG3ptx9IQ4HHfHSvC5f2l/h38P/CEdsHl0++soBCvh9bVkuEcL
+                xH02Y/29209QSDXk3w3/aQ8UeEvE/iS/wDGFut5o97L9tnsLO8ilvNKBwoxDu3bAAgZTgrjJwcg1
+                DF0MO1GUruW73t/kvIitk2YZnGVWnS9nCmrQi9HJXS00XM7Wu+ui1dj7PkcICScADJNfLfx/wDFm
+                n+Pfinpvw/bwtN4iMllNHbXBkeCOG6kKjzgQMMkSqdxGcEsOoIrZ8b/AB31n4i6BZ2Hws0vUZ31a
+                b7IfEV1bPDa2eeGIZhy3UZ6DpycCvVPhj8No/h/4d0uyuL6XW9QtLf7OdRuxmQrnOxe6pnoMk4Ay
+                TgVvUl9cvSpv3dLu10/I4cNSeR2xWKj+81UYXakna3M7bWelnZs6vQdJg0LQ9P023G23s7eO3jHo
+                qKFH6Cir6/dFFeklZWR8o25Nt7sRx8p+leD/GK2fwXonjJW1hTbeL43ijhvIyUtJRassjBsgbGjj
+                U4YjaVJG7O2veMda8v/AGjtI1zVfhFra+HDfDWovKlgGnuyzNiRd6jbycpuyO/pXNiVelJ22TPUy
+                uVsZTg2kpNJ323Vm/JOz9D4tm+GdreaZaRXl/b3sWjrNbwT2kxt1uoRNcvsYyJhH3I43At/rolxn
+                k0NI8J+Jn8f3ev3Gli9S9muUnbRbiG6aJrhTGWjVHJJVrhSoPcdeCRXn8ceN/CWoQXHiDwxaS3Eb
+                iVG1rQUikLhy+7zAiOTuJYktyeetWLL432EQTz/AAsbN1jWENour3VphVREXh2kXIWNR09T1Oa+F
+                vhW023G3dM/oj2WcRhNU4xqqSaupJ/Fq7axtd67FrSPhxqvhHRdbNrDc+I7nWLA2Fpa6dp11gq7Q
+                yebIZIkAAUxlVG47nU8AZrF0DwVq0vhfVNA1SwvtCNxPBf299e2MwgJijnDJIwUlQUd2DYIGw5wD
+                uHRSfFvwDrRl/tPw54jtGdiwe01eOUrzIeN8I4/eAD2iiH8NbOm/Fv4X6eHWK28Xrbu4ZraSKwkj
+                +8u5eVzgorRkf3ZHHc1ooYOTVqisk1b133RhKvncISjPDSlJtO9ldONrbNrp2118jktX8Fan4V8D
+                33huG1utb1O+v4rq5NjaTNDaJbh027mQbnLXK52jCjaCctinQ+AdY8X+EdF09ra60a70RbiOWK+s
+                rgRzI0kjmUMkbYceXKjBgP9SMZwQOtb4v8AwvkmtZ7ix8V39xCyNIZobBRcssrSEyAJzuyiN/eWN
+                M/dBrBu/jB4QtVA07SfEzYiEYkk1W3hYHynQt8tsfmJdnJ/vnPrScMHF61Va1reQ44jPKkfdwrU+
+                bm5nbdrl2dlbl0tb8bmd4z+HnifVtW01LbTLhbbTrWDTlv9SK2fnshC7sTFTtDOqLnnaEzit2y+G
+                N3fC/8AEsckVjc6lBMZEuZfNgtVnRPMbdGHZjtuGCqwUqwOSxX5sbVfj/Je3RuItInl/emZItR1e
+                4mjQ72cYWMxDA3bQCD8oA5xXOSeOfEHie7WHT9GsDI0axLBa6Yty21Y0iUAyiR+EjQdecZ6kms3U
+                wik5JuV/I6Y4fOqlKFOcY0lFWu30vd31frsl02Prf4PeF08U6B4X8Lt4ls7qy8G3cWpSppSkm7fz
+                ZfJVnBK7FdGPBLN0ZYyvzfTMQwgrx39lXQNc0j4TWs/iKS/bVr+6mupItRL+ZCC21Vw/Kghd2OOX
+                J6k17IvAr7jBxSoxla10v8AgH8+Z1WlUx1WDkpKMpaq1m27yaslu/w8hc+1FQSX1vE5R5kVh1DMA
+                aK7Lo8Oxw3x4+Neifs8/CrXPiB4itNQvdH0gQmeDS40kuG82eOFdqu6KcNKpOWHAPU8HM8U/tDeH
+                PC37O6/GO7sdTl8Mto9trf2SGKM3nkTrGyLsMgTeBIuRvxwcE15R/wU+/5Md+JWem3Tv/Tla18hf
+                Ebwb+07B+wamo6t4+8HXPws/wCES0+UaPBYst8LExw+THv8gfOoKZO/nB5ovuLsfpx8PfH2lfE74
+                beHvGthDNaaPrenQ6nAl+qJLHFIgcCQBmUEA84Yj3o1fwD4K8QwNd6n4e0S+jZd5uLi0hcY67txH
+                T3zXwL8a/izp3hX/gnv8A/h9d64nh0/EDTdH0q81Ik/6HpaxQteT8A5AUxoV7iU9azPgp8WNI179
+                gf9on4a6drieILfwDZaraaXqQzm80mVZntZue/Eq7f4QqjilKMZNpo0pVKlJpwk0/J2Pty4/Z8+E
+                PiOQxp4d0iSTrtsJzGfyjYVnJ+yh8HpLt7ZdARrlBloRqlxvA9183I6j86/Mvwj8P7XWdc+AHhPw
+                /8ACJPgz4/1X+zNbtPiHe+IXdNVgiiDSvDGuUMkpKuIs7gSqkDdmvRvGHjiD4H/APBSH4j/ABb1K
+                7kt/DukaxpWg6vHGCd0N9o0rIxxxhZbSM4PtXO8Jh29YL7kepDOczguWOJmv+35f5n3V/wyx8GS0
+                6jRIma3yZgNVuMx44O797x+NaOlfs0/CO2uI0tfDVnNK8YlVZrqWYsn94BnOR71+XXwS0jVrLwj+
+                1NqWvP5mteI/huniS7cDALXwa6BA7fLKtfUv7O5z+158Dmx0/Z800f+TC0lhMOtoL7hvOszlo8TP
+                /wOX+fmfZtl8GPAOijzLfwfoUBUZ8w2ERI/EjNdFYf2bDYiSyFrHZKpIe32iMAdeRxxg/lXzd/wU
+                g+Mg+FH7M2s2NvexWGr+Lpk8OWdxK2FhWcEXErdwqwCX5h0JWvnT9kb4m+GdK+EX7RvwV8O+KY/F
+                eg+G9L1HVvDOpBmzPp1xbMZEClVwYpWG7jlpjjjFbxhCPwpI82pXrVnepNy9W3+Z+kVnrOn3cnlW
+                17bXEh52RTKx/IGrwORX4sfB74K3HxT+C3wxj+F/wAFvFOhfE+PULe7k+KksrWumrGk775kcy4kA
+                XaNoQH5DjJGG/aWIEIM9a0MBfLB5wKKfRU2QHAfHP4M6F+0B8L9a8BeJJb2DRdWEIuJNPlWOceVN
+                HMu1mVgPmiXPB4zWf4k/Z98NeKPgAvwgvJ9QXwsNIt9F86KZBdeRCqKh3lSu7Ea5O3HXitS/wDjB
+                oOm31xaTR60ZoJDG/laFfSpkHBw6wlWHuCQexqH/hd3hz/nlrv/AITuof8AxisnWprRyR2xwWKkk
+                1Tl9zON8Nfsf+BPDvirwRrr/wBo6xL4N8Nr4Z0ez1SWOa2hgHBmMfljM7L8pfOCP4eBiDxj+x18P
+                /GHi/xV4hLajolz4n8MyeFtVttJligt7i1ds+YUMZxKMKA+eigYPOe4b43+HAP9Vr3/AITt/wD/A
+                Bivgf8A4KYXvgLWP2gP2frj4iTXdt8Pbm0vpdTdY54plhYxkHYi+arbtvAXPqBzVxqQm/ddzKrh6
+                1FXqwa9VY+zPH/7J3gb4j/CzwV4G1GXVLa38Giz/sPWLC5WLUrJ7aNY43SbYRuKoN3y4JAOAQpGF
+                48/Yh+HnxJi+Jq63e61LJ8QZtLn1aaO5iR4pLBdsLQfusISMhsg53HG2vhH4Vaf8PIv2u/hRL+yN
+                c+Kr7SEuiPGU8y3QsBZbl3BzOoPMfnfeGN3k7Pnrc/4Ki/sm/Dn4VeC7D4iaBp15beJ/E3jNU1Ke
+                W+kkjdbiO5nlCxk7Vy6KRjGBwK0OfY+3739jT4fXt145lik1W1Txd4ctvC17b21xGI4LKCIRRCEG
+                M7WCqBliw46Vh+Lv2EfBfi3V/Cep2vjDxz4W1Tw14atvClpd+GtaWymeygLFRI6xFixJy2CAdo44
+                rQ8D/BL4XfsI/Dfx/4s8M2V5p+liw/tLUlub57hpRbRysip5hOGPmMoA6lhXw3+xl4m8YfBX9ojw
+                D448cXjjSP2gra9nmEoMaRX5u3e3IHOdwaHZ0AF5/s0dbC2Vz7k8M/sSeE9G8S+Edb1jxV408d3H
+                ha6vLzTo/F+rLqKCS5hSKTeWiDMAI1KruwrZIHJroPGn7Jvgfxn8QbfxkEvtC1ZNDvPD066NJHbw
+                3dnco6ukybDuKmQupyMMFJzgCuy8Q/E+Hw9q81g+geJL9owP32n6RLPC2QD8rqMHrz71nf8Lqtx/
+                wAyl4y/8EM/+FZOrBOzZ2xweImlKMNGanwb+FGj/BD4aaF4G0CW7m0fRoWhtnvpFeYqXZzuZVUE5
+                Y9AK7SvN/8AhdVv/wBCl4y/8EM/+FWNO+L9vqOoW1qPDPiu2M8ixiW50WaONMnGWYjAA7ntS9tB9
+                RvBYiKu4HoGaKRDlQaK2OIAuOlL3oooAa/QV8NftbWQuv2+f2XN6o8QfUNyOMg/KvaiihfEhvZ+h
+                w37Tmnt+wr+1V4Q+MHguQW3hTxzctp3ifwrbKEiuJBjfPGnC7iHEg6ESIeSsrAdX/wWEt2u/wBnj
+                wMqkA/8JpaE5/69buiijoierNb/AIKi6/qOt/Dv4efCbS5/sMvxF8SWum3F4/3EgSSM7TjJ/wBbJ
+                A3HaNh3rxb9rn/gnT4N+AvwH1H4g+CvFfi7/hIfCktpeWC6tqSTQRD7REnyBYlKMNysCDjKAYooq
+                Xpqu4+yP0R+CXjp/ih8IfBfi+a3FrPrmkWuoSwLysbyRKzKPYEkD2rt8DFFFV1EtgxxQQPSiigYA
+                DFFFFAH/9k=" /></span></p>
+    <p class="s1" style="padding-top: 4pt;padding-left: 159pt;text-indent: 0pt;line-height: 15pt;text-align: center;">
+        RTA DIVISION</p>
+    <p class="s2" style="padding-left: 177pt;text-indent: 0pt;line-height: 15pt;text-align: center;">CLIENT REGISTRATION
+        FORM</p>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p style="padding-top: 4pt;padding-left: 11pt;text-indent: 0pt;line-height: 151%;text-align: left;">We hereby
+        appoint <span class="s3">HARMILAP SHARE TRANSFER AGENTS </span><span style=" color: #F00;">as </span>Registrar
+        and Share Transfer Agent for our Company and request you to register us as client with you.</p>
+    <table style="border-collapse:collapse;margin-left:5.632pt" cellspacing="0">
+        <tr style="height:17pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">1</p>
+            </td>
+            <td
+                style="width:132pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-top: 1pt;padding-left: 5pt;text-indent: 0pt;text-align: left;"><%=authorizer_name%></p>
+            </td>
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p class="s6" style="padding-left: 6pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><%=name%></p>
+            </td>
+        </tr>
+        <tr style="height:14pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">2</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                    Registration No./ CIN</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s7" style="padding-left: 6pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><%=cin%></p>
+            </td>
+        </tr>
+        <tr style="height:16pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">3</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">Date of
+                    Incorporation(DD/MM/YYYY)</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s7" style="text-indent: 0pt;text-align: left;"><%=date_of_application%></p>
+            </td>
+        </tr>
+        <tr style="height:22pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">4</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Type of
+                    Security</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s8" style="padding-left: 6pt;text-indent: 0pt;text-align: left;">Equity</p>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">5</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                    ShareCapital (InShares)</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">6</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">GSTN</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s7" style="padding-left: 6pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><%=gsttin%></p>
+            </td>
+        </tr>
+        <tr style="height:20pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">7</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">PAN</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s7" style="padding-left: 6pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><%=pan%></p>
+            </td>
+        </tr>
+        <tr style="height:20pt">
+            <td
+                style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">8</p>
+            </td>
+            <td style="width:206pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">TAN</p>
+            </td>
+            <td style="width:279pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="7">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">9</p>
+            </td>
+            <td style="width:132pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="7">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">Registered
+                    Office Address</p>
+            </td>
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p class="s9" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><%=registered_address%>
                 </p>
-                <p style="padding-left: 29pt; text-indent: 0pt; text-align: left;">Enclose the following documents along with the Client Registration Form:</p>
-                <ol id="l2">
-                    <li data-list-text="a)">
-                        <p style="padding-top: 5pt; padding-left: 47pt; text-indent: -18pt; text-align: left;">Copy of Incorporation Certificate</p>
-                    </li>
-                    <li data-list-text="b)">
-                        <p style="padding-top: 5pt; padding-left: 47pt; text-indent: -18pt; text-align: left;">Copy of PAN ( DIRECTOR / Company Secretary/ Compliance Officer )</p>
-                    </li>
-                    <li data-list-text="c)">
-                        <p style="padding-top: 5pt; padding-left: 47pt; text-indent: -18pt; text-align: left;">Copy of PAN ( Company)</p>
-                    </li>
-                    <li data-list-text="d)">
-                        <p style="padding-top: 5pt; padding-left: 47pt; text-indent: -18pt; text-align: left;">Copy of GSTN ( Company)</p>
-                    </li>
-                    <li data-list-text="e)">
-                        <p style="padding-top: 5pt; padding-left: 47pt; text-indent: -18pt; text-align: left;">Board Resolution for Authorized Signatories.</p>
-                    </li>
-                </ol>
-            </li>
-        </ol>
-        <!-- Code injected by live-server -->
-    </body>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:16pt">
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td
+                style="width:79pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-top: 2pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">City/Town
+                </p>
+            </td>
+            <td
+                style="width:88pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:25pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">PIN</p>
+            </td>
+            <td
+                style="width:161pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:16pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">State</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-top: 2pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">Country</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:18pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-top: 2pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">MobileNo.
+                </p>
+            </td>
+            <td style="width:106pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s11" style="padding-left: 6pt;text-indent: 0pt;line-height: 13pt;text-align: left;">+91-<%=contact_number%></p>
+            </td>
+            <td
+                style="width:53pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-top: 2pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">Fax No.</p>
+            </td>
+            <td
+                style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+        </tr>
+        <tr style="height:19pt">
+            <td style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="7">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">10</p>
+            </td>
+            <td style="width:132pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="7">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                    Correspondence Address</p>
+            </td>
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p class="s6" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><%=registered_address%>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:17pt">
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:17pt">
+            <td style="width:353pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:19pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-top: 2pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">City/Town
+                </p>
+            </td>
+            <td style="width:153pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:41pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-top: 2pt;padding-left: 7pt;text-indent: 0pt;text-align: left;">PIN</p>
+            </td>
+            <td
+                style="width:65pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:14pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">State</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Country
+                </p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">MobileNo.
+                </p>
+            </td>
+            <td style="width:128pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s11" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">+91-<%=contact_number%></p>
+            </td>
+            <td
+                style="width:48pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Fax No.
+                </p>
+            </td>
+            <td
+                style="width:83pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 7pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+        </tr>
+        <tr style="height:15pt">
+            <td style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="10">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">11</p>
+            </td>
+            <td style="width:132pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="10">
+                <p class="s5" style="padding-left: 5pt;padding-right: 3pt;text-indent: 0pt;text-align: justify;">Billing
+                    Address with Contact Person Name &amp; Designation.</p>
+            </td>
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Name</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s6" style="padding-left: 6pt;text-indent: 0pt;text-align: left;">GST Address</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                    Designation</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Add.1</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Add.2</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Add.3</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">City/Town
+                </p>
+            </td>
+            <td style="width:149pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:59pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">PIN CODE
+                </p>
+            </td>
+            <td
+                style="width:51pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">State</p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Country
+                </p>
+            </td>
+            <td style="width:259pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Mobile No.
+                </p>
+            </td>
+            <td
+                style="width:98pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s11" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">+91-</p>
+            </td>
+            <td
+                style="width:55pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 4pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Fax No.
+                </p>
+            </td>
+            <td
+                style="width:106pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 7pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:94pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Telephone
+                    No.</p>
+            </td>
+            <td style="width:119pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+            <td
+                style="width:140pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+    </table>
+    <table style="border-collapse:collapse;margin-left:5.64399pt" cellspacing="0">
+        <tr style="height:13pt">
+            <td style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="6">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">12</p>
+            </td>
+            <td style="width:487pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Director/
+                    Company Secretary/ Compliance Officer Details</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td
+                style="width:144pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Name</p>
+            </td>
+            <td style="width:343pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s6" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Authorized
+                    Director Details</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td
+                style="width:144pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                    Designation</p>
+            </td>
+            <td style="width:343pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:15pt">
+            <td
+                style="width:144pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Email ID
+                </p>
+            </td>
+            <td style="width:343pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:16pt">
+            <td
+                style="width:144pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Telephone
+                    No.</p>
+            </td>
+            <td
+                style="width:176pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+            <td
+                style="width:59pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Fax No.
+                </p>
+            </td>
+            <td
+                style="width:108pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td
+                style="width:144pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Mobile
+                    Number</p>
+            </td>
+            <td style="width:343pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s11" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">+91-</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td style="width:24pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                rowspan="6">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">13</p>
+            </td>
+            <td style="width:487pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="4">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Systems
+                    Administrator User Details</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td
+                style="width:112pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Name</p>
+            </td>
+            <td style="width:375pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s6" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Authorized
+                    Director Details</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td
+                style="width:112pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                    Designation</p>
+            </td>
+            <td style="width:375pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:15pt">
+            <td
+                style="width:112pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Email ID
+                </p>
+            </td>
+            <td style="width:375pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+        <tr style="height:15pt">
+            <td
+                style="width:112pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Telephone
+                    No.</p>
+            </td>
+            <td
+                style="width:118pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+            <td
+                style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Fax No.
+                </p>
+            </td>
+            <td
+                style="width:185pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 6pt;text-indent: 0pt;line-height: 12pt;text-align: left;">N.A.</p>
+            </td>
+        </tr>
+        <tr style="height:13pt">
+            <td
+                style="width:112pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s10" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Mobile
+                    Number</p>
+            </td>
+            <td style="width:375pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s11" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">+91-</p>
+            </td>
+        </tr>
+    </table>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <p class="s12" style="padding-top: 4pt;padding-left: 177pt;text-indent: 0pt;text-align: center;">Declaration</p>
+    <h2 style="padding-left: 11pt;text-indent: 0pt;line-height: 150%;text-align: justify;">We hereby certify that the
+        above information is correct to the best of our knowledge and that we have attached all the enclosures required.
+        We undertake to notify <span style=" color: #F00;">Harmilap Share Transfer Agents </span>within seven days, of
+        any change in the details set out in the Client Registration Form or Furnished to <span
+            style=" color: #F00;">Harmilap Share Transfer Agents </span>from time to time.</h2>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <h2 style="padding-top: 9pt;padding-left: 11pt;text-indent: 0pt;text-align: left;">Place: <span
+            style=" color: #F00;">(City of Reg. Office) </span>Date: (<span style=" color: #F00;"><%=date_of_application%>)</span>
+    </h2>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <h2 style="padding-left: 11pt;text-indent: 0pt;text-align: left;">Instructions:</h2>
+    <ol id="l1">
+        <li data-list-text="1)">
+            <p style="padding-top: 4pt;padding-left: 29pt;text-indent: -18pt;line-height: 135%;text-align: left;">Submit
+                duly filled and signed format :<span class="h1">Harmilap Share Transfer Agents </span>– RTA Division,
+                Shop No. 2 &amp; 3 Ground Floor, A90 &amp; 91 Indra Nagar, Delhi-110033</p>
+            <p style="padding-left: 29pt;text-indent: 0pt;text-align: left;">Enclose the following documents along with
+                the Client Registration Form:</p>
+            <ol id="l2">
+                <li data-list-text="a)">
+                    <p style="padding-top: 5pt;padding-left: 47pt;text-indent: -18pt;text-align: left;">Copy of
+                        Incorporation Certificate</p>
+                </li>
+                <li data-list-text="b)">
+                    <p style="padding-top: 5pt;padding-left: 47pt;text-indent: -18pt;text-align: left;">Copy of PAN
+                        (AUTHORISEDSIGNATORY / Company Secretary/ Compliance Officer)</p>
+                </li>
+                <li data-list-text="c)">
+                    <p style="padding-top: 5pt;padding-left: 47pt;text-indent: -18pt;text-align: left;">Copy of PAN
+                        (Company)</p>
+                </li>
+                <li data-list-text="d)">
+                    <p style="padding-top: 5pt;padding-left: 47pt;text-indent: -18pt;text-align: left;">Copy of GSTN
+                        (Company)</p>
+                </li>
+                <li data-list-text="e)">
+                    <p style="padding-top: 5pt;padding-left: 47pt;text-indent: -18pt;text-align: left;">Board Resolution
+                        for Authorized Signatories.</p>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <table style="border-collapse:collapse;margin-left:5.63398pt" cellspacing="0">
+        <tr style="height:13pt">
+            <td
+                style="width:46pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5"
+                    style="padding-left: 4pt;padding-right: 5pt;text-indent: 0pt;line-height: 12pt;text-align: center;">
+                    Sr. No.</p>
+            </td>
+            <td
+                style="width:180pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Name of the
+                    Authorized Signatory</p>
+            </td>
+            <td
+                style="width:90pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Designation
+                </p>
+            </td>
+            <td
+                style="width:176pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">DSC Sign
+                </p>
+            </td>
+        </tr>
+        <tr style="height:71pt">
+            <td
+                style="width:46pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <p class="s5" style="text-indent: 0pt;text-align: center;">1</p>
+            </td>
+            <td
+                style="width:180pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <p class="s13" style="text-indent: 0pt;text-align: left;"><%=authorized_name%></p>
+            </td>
+            <td
+                style="width:90pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <p class="s5" style="padding-left: 5pt;text-indent: 0pt;text-align: left;"><%=authorized_destination%></p>
+            </td>
+            <td
+                style="width:176pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+        </tr>
+    </table>
+</body>
+
 </html>

@@ -154,8 +154,18 @@ const processDocuments = async (params) => {
                 contact_number,
                 registered_address,
                 date_of_application,
-                place_of_application
+                place_of_application,
+                gsttin,
+                pan,
+                website,
             } = params;
+
+            const authorized_din = directors[0]?.din;
+            const authorized_destination = directors[0]?.designation;
+            const authorized_name = directors[0]?.name;
+            const authorizer_din = directors[1]?.din;
+            const authorizer_destination = directors[1]?.designation;
+            const authorizer_name = directors[1]?.name;
 
             const processedDocs = processDocType.map(async (element) => {
                 const filePath = path.join(__dirname, `../DocumentsHTML/${element}.ejs`);
@@ -164,12 +174,19 @@ const processDocuments = async (params) => {
                 const pdfData = await PDF.generatePdf(filePath, {
                     name,
                     email,
+                    pan,
                     registered_address,
                     contact_number,
                     cin,
-                    date_of_application,
+                    date_of_application: moment().format("MM/DD/YY"),
                     place_of_application,
                     directors,
+                    authorized_din,
+                    authorized_destination,
+                    authorized_name,
+                    gsttin : gsttin || '',
+                    website,
+                    authorizer_name,
                     fileName
                 });
 
