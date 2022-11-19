@@ -111,8 +111,8 @@ const downloadResolutionForm = async (req, res) => {
         } = req.body;
         const address = registered_address?.split(' ');
         const place_of_application = address[address.length - 1];
-        const filePath = path.join(__dirname, '../DocumentsHTML/Board_Resolution.ejs');
-        const fileName = `Board_Resolution_${Date.now()}.pdf`;
+        const filePath = path.join(__dirname, '../DocumentsHTML/board_resolution.ejs');
+        const fileName = `board_resolution_${Date.now()}.pdf`;
         const pdfData = await PDF.generatePdf(filePath, { ...req.body, place_of_application, fileName });
         res.contentType('application/pdf');
         res.header('Content-Length', '' + pdfData.length);
@@ -129,7 +129,8 @@ const processDocuments = async (params) => {
         const processDocType = [
             'rta_appointment_letter_for_equity',
             'rta_registration_form',
-            'tripartite_agreement_franking_fillable'
+            'tripartite_agreement_franking_fillable',
+            'master_creation_form'
         ];
 
         if (!params.gst) {
