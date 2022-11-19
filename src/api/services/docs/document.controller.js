@@ -127,21 +127,21 @@ const downloadResolutionForm = async (req, res) => {
 const processDocuments = async (params) => {
     return new Promise((resolve, reject) => {
         const processDocType = [
-            'RTA_Appointment_Letter_for_Equity',
-            'RTA_Registration_form',
-            'Tripartite_Agreement_Franking_Fillable'
+            'rta_appointment_letter_for_equity',
+            'rta_registration_form',
+            'tripartite_agreement_franking_fillable'
         ];
 
         if (!params.gst) {
-            processDocType.push('GST_Declaration');
+            processDocType.push('gst_declaration');
         }
 
         if (params.company_type === 'pvt_ltd') {
-            processDocType.push('Undertaking_For_Private_Ltd_Co');
+            processDocType.push('undertaking_for_private_ltd_co');
         }
 
         if (params.status === 'new') {
-            processDocType.push('Undertaking_for_Balance_Sheet');
+            processDocType.push('undertaking_for_balance_sheet');
         }
 
         try {
@@ -160,7 +160,7 @@ const processDocuments = async (params) => {
             const processedDocs = processDocType.map(async (element) => {
                 const filePath = path.join(__dirname, `../DocumentsHTML/${element}.ejs`);
                 const directoryName = `${cin}`;
-                const fileName = `${element}_${cin}.pdf`;
+                const fileName = `${element}.pdf`;
                 const pdfData = await PDF.generatePdf(filePath, {
                     name,
                     email,

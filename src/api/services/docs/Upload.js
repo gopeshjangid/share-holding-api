@@ -43,8 +43,7 @@ const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory) =
             Bucket: bucketName,
             Key: directory + '/' + fileName,
             Body: buffer,
-            ContentType: fileType,
-            ContentEncoding: encoding
+            ContentType: fileType
         };
         S3.upload(params, (err, s3res) => {
             if (err) {
