@@ -133,23 +133,22 @@ const upload = async (req, directory) => {
     });
 };
 
-//// For Remove the basket 
+//// For Remove the basket
 const removeBasket = async ({ directory, fileName, dockType }) => {
     return new Promise(async (resolve, reject) => {
         const params = {
             Bucket: bucketName,
             Key: `${directory}/${fileName}_${directory}.${dockType}`
         };
-        
-        S3.deleteObject(params, function (err, data){
+
+        S3.deleteObject(params, function (err, data) {
             if (err) {
                 return reject(err);
             } else {
                 resolve(data);
-            }            
+            }
         });
-        
-    });    
+    });
 };
 
 module.exports = {
