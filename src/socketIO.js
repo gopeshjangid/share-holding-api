@@ -17,4 +17,4 @@ const socketIO = (io) => {
     });
 };
 
-module.exports = socketIO;
+export default socketIO;

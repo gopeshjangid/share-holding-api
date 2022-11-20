@@ -10,7 +10,7 @@ const ejs = require('ejs');
 const path = require('path');
 const moment = require('moment');
 const { registrationValidation } = require('./validations');
-const { processDocuments } = require('../docs/document.controller');
+const { processDocuments, connectSocket } = require('../docs/document.controller');
 /**
  * Company Login.
  */
@@ -134,6 +134,7 @@ async function registration(req, res, next) {
                 // 	text: htmlToSend,
                 // });
                 const processedDocuments = await processDocuments(savedCompany);
+                await connectSocket(req.app.get('socketIo'), req?.body?.cin);
                 res.send(
                     utils.getJsonResponse(true, 'Company registered successfully.', {
                         ...savedCompany?._doc,

@@ -45,7 +45,7 @@ const saveDocument = async (id, data) => {
  * @property {number} req.query.limit - Limit number of users to be returned.
  * @returns {Company[]}
  */
-function list(req, res, next) {
+const list = (req, res, next) => {
     const { limit = 50, skip = 0, companyId } = req?.query;
     Document.list({ limit, skip, companyId })
         .then(async (users) => {
@@ -58,10 +58,9 @@ function list(req, res, next) {
             res.send(jsonResult);
         })
         .catch((e) => next(e));
-}
+};
 
 const uploadRegistrationDocuments = async (req, res) => {
-    // or module.exports = async (req, res) => {
     try {
         const companyName = req.query.companyName;
         const companyId = req.query.companyId;
@@ -227,37 +226,27 @@ const processDocuments = async (params) => {
 
 const updateCompanyDocumentStatus = async (req, res, next) => {
     let cin = req?.query?.cin;
-    //return new Promise(async(resolve, reject) => {
-    const documentList = await Document.find({ $and: [{ companyId: cin }, { status: 'PENDING' }] }).select({
+    const documentList = await Document.find({ $and: [{ companyId: cin }] }).select({
         companyId: 1,
         docType: 1,
         docUrl: 1,
         status: 1
     });
-    let jsonResult = '';
-    // console.log(documentList);
+    let jsonResult;
     if (documentList.length > 0) {
         try {
-            /*
-            let jsonResult = utils.getJsonResponse(true, 'Please send userId ', documentList);
-            res.send(jsonResult);
-            */
-            let constNumber = 1;
             const processedDocs = documentList.map(async (element) => {
                 let fileName = element.docType;
                 let directory = element.companyId;
                 await File.removeBasket({ directory, fileName, dockType: 'pdf' });
                 let aws_url = element.docUrl.replace(/share-holding-docs/gi, 'shareholding-signed-docs');
                 return await Document.updateOne({ _id: element._id }, { $set: { status: 'ACTIVE', docUrl: aws_url } });
-                //console.log(aws_url);
             });
             Promise.all(processedDocs)
                 .then(async (response) => {
                     console.log('All Documents has been updated...');
-                    //return resolve(res);
                     await Company.updateOne({ cin }, { $set: { process_status: 'SIGNED' } });
-                    req.app.get('socketIo').to(cin).emit(cin, 'SIGNED');
-
+                    req.app.get('socketIo').to(cin).emit('SIGNED', { companyCIN: cin });
                     jsonResult = utils.getJsonResponse(true, 'Document updated to another bucket.', response);
                     return res.send(jsonResult);
                 })
@@ -274,11 +263,31 @@ const updateCompanyDocumentStatus = async (req, res, next) => {
         return res.send(jsonResult);
     }
 };
+
+const connectSocket = async (io, companyCIN) => {
+    io.on('connection', async (socket) => {
+        socket.join(companyCIN);
+        console.log('connected');
+        // Leave the room if the user closes the socket
+        socket.on('disconnect', () => {
+            socket.leave(companyCIN);
+            console.log('A disconnection has been made');
+        });
+        Promise.resolve('connected');
+    });
+
+    io.on('error', (info) => {
+        console.log('err =>>', info);
+        Promise.reject('Error');
+    });
+};
+
 module.exports = {
     list,
     downloadResolutionForm,
     getDocumentByCompanyId,
     uploadRegistrationDocuments,
     processDocuments,
-    updateCompanyDocumentStatus
+    updateCompanyDocumentStatus,
+    connectSocket
 };
