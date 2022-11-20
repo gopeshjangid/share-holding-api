@@ -83,7 +83,7 @@ const CompanySchema = new mongoose.Schema(
         },
         process_status: {
             type: String,
-            default: 'STARTING'
+            default: 'STARTED'
         },
         company_type: {
             type: String,

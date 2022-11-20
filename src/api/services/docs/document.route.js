@@ -24,5 +24,9 @@ router
     /** GET /api/users - Get list of users */
     .post(Document.downloadResolutionForm);
 
+router
+.route('/updateCompanyDocumentStatus')
+.get(Document.updateCompanyDocumentStatus);    
+
 // /api/users/verifyOtp
 module.exports = router;

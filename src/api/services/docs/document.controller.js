@@ -193,6 +193,7 @@ const processDocuments = async (params) => {
             Promise.all(processedDocs)
                 .then(async (res) => {
                     console.log('All Documents processed...');
+                    await Company.updateOne({ cin }, { $set: { process_status: "PROCESSING"} });
                     return resolve(res);
                 })
                 .catch((err) => {
@@ -206,10 +207,54 @@ const processDocuments = async (params) => {
     });
 };
 
+const updateCompanyDocumentStatus = async (req, res, next) => {
+    let cin = req?.query?.cin;
+    //return new Promise(async(resolve, reject) => {
+    const documentList = await Document.find({ $and: [{ companyId: cin }, { status: "PENDING" }] }).select({ companyId: 1, docType: 1, docUrl: 1, status: 1 });
+    let jsonResult = '';
+    // console.log(documentList);
+    if (documentList.length > 0) {
+        try {
+            /*
+            let jsonResult = utils.getJsonResponse(true, 'Please send userId ', documentList);
+            res.send(jsonResult);
+            */
+            let constNumber = 1;
+            const processedDocs = documentList.map(async (element) => {
+                let fileName = element.docType;
+                let directory = element.companyId;
+                await File.removeBasket({ directory, fileName, dockType: 'pdf' });
+                let aws_url = element.docUrl.replace(/share-active-docs/gi, "share-holding-docs");
+                return await Document.updateOne({ _id: element._id }, { $set: { status: "ACTIVE", docUrl: aws_url } });
+                //console.log(aws_url);   
+            });
+            Promise.all(processedDocs)
+                .then(async (response) => {
+                    console.log('All Documents has been updated...');
+                    //return resolve(res);
+                    await Company.updateOne({ cin }, { $set: { process_status: "SIGNED"} });
+                    jsonResult = utils.getJsonResponse(true, 'Document updated to another bucket.', response);
+                    return res.send(jsonResult);
+                })
+                .catch((err) => {
+                    console.log('Document processed err:', err);
+                    next(err);
+                });
+        } catch (e) {
+            console.log('Error in process: ', e);
+            next(e);
+
+        }
+    } else {
+        jsonResult = utils.getJsonResponse(false, 'Document does not exists.', null);
+        return res.send(jsonResult);
+    }
+};
 module.exports = {
     list,
     downloadResolutionForm,
     getDocumentByCompanyId,
     uploadRegistrationDocuments,
-    processDocuments
+    processDocuments,
+    updateCompanyDocumentStatus
 };
