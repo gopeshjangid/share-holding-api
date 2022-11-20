@@ -256,7 +256,7 @@ const updateCompanyDocumentStatus = async (req, res, next) => {
                     console.log('All Documents has been updated...');
                     //return resolve(res);
                     await Company.updateOne({ cin }, { $set: { process_status: 'SIGNED' } });
-                    req.app.get("socketIo").to(cin).emit(cin, "SIGNED");
+                    req.app.get('socketIo').to(cin).emit(cin, 'SIGNED');
 
                     jsonResult = utils.getJsonResponse(true, 'Document updated to another bucket.', response);
                     return res.send(jsonResult);
