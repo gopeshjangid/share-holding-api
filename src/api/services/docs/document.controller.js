@@ -238,6 +238,20 @@ const updateCompanyDocumentStatus = async (req, res, next) => {
             const processedDocs = documentList.map(async (element) => {
                 let fileName = element.docType;
                 let directory = element.companyId;
+                /////////////// Read Fron S3
+                let pdfData = await File.readFromS3({ directory, fileName, dockType: 'pdf' });
+
+                let files = await File.uploadToS3(
+                    pdfData,
+                    {
+                        fileName:fileName+'.pdf',
+                        fileType: 'application/pdf',
+                        encoding: 'text/html; charset=utf-8'
+                    },
+                    directory,
+                    'shareholding-signed-docs'
+                );                
+                /////////
                 await File.removeBasket({ directory, fileName, dockType: 'pdf' });
                 let aws_url = element.docUrl.replace(/share-holding-docs/gi, 'shareholding-signed-docs');
                 return await Document.updateOne({ _id: element._id }, { $set: { status: 'ACTIVE', docUrl: aws_url } });

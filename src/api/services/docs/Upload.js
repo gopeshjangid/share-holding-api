@@ -37,7 +37,7 @@ const parseForm = async (req) => {
     });
 };
 
-const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory) => {
+const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory,bucketName='share-holding-docs') => {
     return new Promise((resolve, reject) => {
         const params = {
             Bucket: bucketName,
@@ -138,7 +138,7 @@ const removeBasket = async ({ directory, fileName, dockType }) => {
     return new Promise(async (resolve, reject) => {
         const params = {
             Bucket: bucketName,
-            Key: `${directory}/${fileName}_${directory}.${dockType}`
+            Key: `${directory}/${fileName}.${dockType}`
         };
 
         S3.deleteObject(params, function (err, data) {
