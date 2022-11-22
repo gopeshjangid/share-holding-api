@@ -253,6 +253,38 @@ const getDocument = async (req, res, next) => {
         .catch((e) => next(e));
 };
 
+async function updateCompanyProcessStatus(req, res) {
+    try {
+        let cin = req?.body?.cin;
+        let processStatus = req?.body?.process_status;
+        if(cin =='' || processStatus ==''){
+            $message='';
+            if(cin ==''){
+                $message='Please send cin';
+            }else{
+                $message='Please send process_status';
+            }
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        }else{
+             Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus } }, { new: true })
+                .then(async (savedUser) => {
+                    let jsonResult = utils.getJsonResponse(true, 'Company preoces status updated successfully.', savedUser);
+                    res.send(jsonResult);
+                })
+                .catch(async (err) => {
+                    if (err) {
+                        let jsonResult = utils.getJsonResponse(false, err, null);
+                        res.send(jsonResult);
+                    }
+                });
+        }
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
+
 module.exports = {
     companyLogin,
     load,
@@ -262,5 +294,6 @@ module.exports = {
     list,
     remove,
     sendEmail,
-    getDocument
+    getDocument,
+    updateCompanyProcessStatus
 };

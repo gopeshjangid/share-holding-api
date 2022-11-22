@@ -49,5 +49,6 @@ router
 /** Load user when API with userId route parameter is hit */
 router.param('userId', CompanyController.load);
 
-// /api/users/verifyOtp
+router.route('/updateCompanyProcessStatus').post(CompanyController.updateCompanyProcessStatus);
+
 module.exports = router;
