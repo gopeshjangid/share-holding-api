@@ -257,19 +257,23 @@ async function updateCompanyProcessStatus(req, res) {
     try {
         let cin = req?.body?.cin;
         let processStatus = req?.body?.process_status;
-        if(cin =='' || processStatus ==''){
-            $message='';
-            if(cin ==''){
-                $message='Please send cin';
-            }else{
-                $message='Please send process_status';
+        if (cin == '' || processStatus == '') {
+            $message = '';
+            if (cin == '') {
+                $message = 'Please send cin';
+            } else {
+                $message = 'Please send process_status';
             }
             let jsonResult = utils.getJsonResponse(false, $message, {});
             res.send(jsonResult);
-        }else{
-             Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus } }, { new: true })
+        } else {
+            Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus } }, { new: true })
                 .then(async (savedUser) => {
-                    let jsonResult = utils.getJsonResponse(true, 'Company preoces status updated successfully.', savedUser);
+                    let jsonResult = utils.getJsonResponse(
+                        true,
+                        'Company preoces status updated successfully.',
+                        savedUser
+                    );
                     res.send(jsonResult);
                 })
                 .catch(async (err) => {
