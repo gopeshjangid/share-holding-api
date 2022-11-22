@@ -244,13 +244,13 @@ const updateCompanyDocumentStatus = async (req, res, next) => {
                 let files = await File.uploadToS3(
                     pdfData,
                     {
-                        fileName:fileName+'.pdf',
+                        fileName: fileName + '.pdf',
                         fileType: 'application/pdf',
                         encoding: 'text/html; charset=utf-8'
                     },
                     directory,
                     'shareholding-signed-docs'
-                );                
+                );
                 /////////
                 await File.removeBasket({ directory, fileName, dockType: 'pdf' });
                 let aws_url = element.docUrl.replace(/share-holding-docs/gi, 'shareholding-signed-docs');

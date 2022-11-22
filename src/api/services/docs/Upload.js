@@ -37,7 +37,7 @@ const parseForm = async (req) => {
     });
 };
 
-const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory,bucketName='share-holding-docs') => {
+const uploadToS3 = async (buffer, { fileType, encoding, fileName }, directory, bucketName = 'share-holding-docs') => {
     return new Promise((resolve, reject) => {
         const params = {
             Bucket: bucketName,
