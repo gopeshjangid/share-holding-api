@@ -138,7 +138,7 @@ async function registration(req, res, next) {
                 const timeline = new CompanyTimeline({
                     companyId: ObjectId(savedCompany?._id),
                     companyRegistration: new Date()
-                });                
+                });
                 await timeline.save();
                 const processedDocuments = await processDocuments(savedCompany);
                 await connectSocket(req.app.get('socketIo'), req?.body?.cin);
@@ -276,7 +276,10 @@ async function updateCompanyProcessStatus(req, res) {
         } else {
             Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus } }, { new: true })
                 .then(async (savedUser) => {
-                    await CompanyTimeline.findOneAndUpdate({ companyId: ObjectId(savedUser._id) }, { $set: { documentUploaded: new Date() } })
+                    await CompanyTimeline.findOneAndUpdate(
+                        { companyId: ObjectId(savedUser._id) },
+                        { $set: { documentUploaded: new Date() } }
+                    );
                     let jsonResult = utils.getJsonResponse(
                         true,
                         'Company preoces status updated successfully.',
@@ -305,14 +308,13 @@ async function getCompanyInfo(req, res) {
             let jsonResult = utils.getJsonResponse(false, $message, {});
             res.send(jsonResult);
         } else {
-            Company.findOne({cin:cin},{password :0})
+            Company.findOne({ cin: cin }, { password: 0 })
                 .then(async (companyInfo) => {
-                    const timeline = await CompanyTimeline.findOne({ companyId: ObjectId(companyInfo._id) },{_id:0,companyId:0});
-                    let jsonResult = utils.getJsonResponse(
-                        true,
-                        'Company Info.',
-                        {...companyInfo?._doc,timeline}
+                    const timeline = await CompanyTimeline.findOne(
+                        { companyId: ObjectId(companyInfo._id) },
+                        { _id: 0, companyId: 0 }
                     );
+                    let jsonResult = utils.getJsonResponse(true, 'Company Info.', { ...companyInfo?._doc, timeline });
                     res.send(jsonResult);
                 })
                 .catch(async (err) => {

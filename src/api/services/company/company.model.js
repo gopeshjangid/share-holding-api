@@ -33,7 +33,7 @@ const CompanySchema = new mongoose.Schema(
         isin: {
             type: String,
             required: false
-        },        
+        },
         gsttin: {
             type: String,
             default: false

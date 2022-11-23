@@ -15,8 +15,6 @@ router.route('/companyRegistration').post(CompanyController.registration);
 
 router.route('/downloadProcessedDocument').get(CompanyController.getDocument);
 
-
-
 router
     .route('/getUserDetails')
     /** GET /api/users - Get list of users */
@@ -26,8 +24,6 @@ router
     .route('/updateUser')
     /** GET /api/users - Get list of users */
     .put(jwtToken.verifyToken, CompanyController.update);
-
-
 
 /** Load user when API with userId route parameter is hit */
 router.param('userId', CompanyController.load);
@@ -56,5 +52,5 @@ router
     .route('/')
     /** GET /api/users - Get list of users */
     .get(jwtToken.verifyToken, jwtToken.isAdmin, CompanyController.list);
-    
+
 module.exports = router;

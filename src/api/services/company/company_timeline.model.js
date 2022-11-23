@@ -7,7 +7,7 @@ const APIError = require('../../../helpers/APIError');
  * Company Timeline Schema
  */
 var Schema = mongoose.Schema,
-ObjectId = Schema.ObjectId;
+    ObjectId = Schema.ObjectId;
 const CompanyTimelineSchema = new mongoose.Schema(
     {
         companyId: {
@@ -59,7 +59,7 @@ const CompanyTimelineSchema = new mongoose.Schema(
 /**
  * Methods
  */
- CompanyTimelineSchema.method({});
+CompanyTimelineSchema.method({});
 
 /**
  * Statics
