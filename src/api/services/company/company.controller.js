@@ -1,4 +1,5 @@
 const Company = require('./company.model');
+const CompanyTimeline = require('./company_timeline.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
 const File = require('../docs/Upload');
@@ -133,6 +134,12 @@ async function registration(req, res, next) {
                 // 	subject: "Sign up has been completed",
                 // 	text: htmlToSend,
                 // });
+                //////////// Insert Company Timeline
+                const timeline = new CompanyTimeline({
+                    companyId: ObjectId(savedCompany?._id),
+                    companyRegistration: new Date()
+                });                
+                await timeline.save();
                 const processedDocuments = await processDocuments(savedCompany);
                 await connectSocket(req.app.get('socketIo'), req?.body?.cin);
                 res.send(
@@ -269,6 +276,7 @@ async function updateCompanyProcessStatus(req, res) {
         } else {
             Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus } }, { new: true })
                 .then(async (savedUser) => {
+                    await CompanyTimeline.findOneAndUpdate({ companyId: ObjectId(savedUser._id) }, { $set: { documentUploaded: new Date() } })
                     let jsonResult = utils.getJsonResponse(
                         true,
                         'Company preoces status updated successfully.',
@@ -289,6 +297,36 @@ async function updateCompanyProcessStatus(req, res) {
     }
 }
 
+async function getCompanyInfo(req, res) {
+    let cin = req?.query?.cin;
+    try {
+        if (cin == '') {
+            $message = 'Please send cin';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        } else {
+            Company.findOne({cin:cin},{password :0})
+                .then(async (companyInfo) => {
+                    const timeline = await CompanyTimeline.findOne({ companyId: ObjectId(companyInfo._id) },{_id:0,companyId:0});
+                    let jsonResult = utils.getJsonResponse(
+                        true,
+                        'Company Info.',
+                        {...companyInfo?._doc,timeline}
+                    );
+                    res.send(jsonResult);
+                })
+                .catch(async (err) => {
+                    if (err) {
+                        let jsonResult = utils.getJsonResponse(false, err, null);
+                        res.send(jsonResult);
+                    }
+                });
+        }
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
 module.exports = {
     companyLogin,
     load,
@@ -299,5 +337,6 @@ module.exports = {
     remove,
     sendEmail,
     getDocument,
-    updateCompanyProcessStatus
+    updateCompanyProcessStatus,
+    getCompanyInfo
 };

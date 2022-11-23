@@ -30,6 +30,10 @@ const CompanySchema = new mongoose.Schema(
             unique: [true, 'cin already exists in database!'],
             required: true
         },
+        isin: {
+            type: String,
+            required: false
+        },        
         gsttin: {
             type: String,
             default: false
