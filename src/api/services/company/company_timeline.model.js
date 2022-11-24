@@ -25,7 +25,7 @@ const CompanyTimelineSchema = new mongoose.Schema(
         documentSigned: {
             type: Date,
             default: null
-        },        
+        },
         paymentStatus: {
             type: Date,
             default: null

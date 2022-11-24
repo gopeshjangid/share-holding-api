@@ -21,11 +21,11 @@ const shareholderSchema = new mongoose.Schema(
             type: Date,
             required: true
         },
-        aadhaarNo:{
+        aadhaarNo: {
             type: Number,
             required: true
         },
-        phoneNumber:{
+        phoneNumber: {
             type: Number,
             required: true
         },
@@ -78,7 +78,7 @@ const shareholderSchema = new mongoose.Schema(
         createdAt: {
             type: Date,
             default: Date.now
-        },        
+        }
     },
     {
         toJSON: {
@@ -100,7 +100,7 @@ const shareholderSchema = new mongoose.Schema(
 /**
  * Methods
  */
- shareholderSchema.method({});
+shareholderSchema.method({});
 
 /**
  * Statics

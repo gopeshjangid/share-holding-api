@@ -30,7 +30,7 @@ const { shareholderValidation } = require('./validations');
  * @property {string} req?.body?.fathersLastName - The father last name of shareholder.
  * @returns {Shareholder}
  */
- async function registration(req, res, next) {
+async function registration(req, res, next) {
     const valid = await shareholderValidation(req.body);
     if (valid.length) {
         return res.send(utils.getJsonResponse(false, `${valid.join(', ')} required`, null));

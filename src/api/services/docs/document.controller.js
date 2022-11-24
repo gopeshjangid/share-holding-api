@@ -261,7 +261,7 @@ const updateCompanyDocumentStatus = async (req, res, next) => {
                 .then(async (response) => {
                     console.log('All Documents has been updated...');
                     await Company.updateOne({ cin }, { $set: { process_status: 'SIGNED' } });
-                    const companyData = await Company.findOne({ cin: cin }, {_id:1});
+                    const companyData = await Company.findOne({ cin: cin }, { _id: 1 });
                     await CompanyTimeline.findOneAndUpdate(
                         { companyId: ObjectId(companyData._id) },
                         { $set: { documentSigned: new Date() } }
