@@ -101,7 +101,6 @@ const CompanySchema = new mongoose.Schema(
             type: String,
             default: 'COMPANY'
         }
-
     },
     {
         toJSON: {

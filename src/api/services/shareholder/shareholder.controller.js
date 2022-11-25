@@ -64,18 +64,17 @@ async function registration(req, res, next) {
             res.send(utils.getJsonResponse(false, 'Shareholder already registered with same PAN number.', null));
         } else {
             user.save()
-            .then(async (savedShareholder) => {
-                res.send(
-                    utils.getJsonResponse(true, 'Shareholder registered successfully.', {
-                        ...savedShareholder?._doc
-                    })
-                );
-            })
-            .catch(async (err) => {
-                console.log('Error:', err);
-                res.send(utils.getJsonResponse(false, err, null));
-            });
-
+                .then(async (savedShareholder) => {
+                    res.send(
+                        utils.getJsonResponse(true, 'Shareholder registered successfully.', {
+                            ...savedShareholder?._doc
+                        })
+                    );
+                })
+                .catch(async (err) => {
+                    console.log('Error:', err);
+                    res.send(utils.getJsonResponse(false, err, null));
+                });
         }
     }
 }

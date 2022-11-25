@@ -51,7 +51,7 @@ const shareholderDocsSchema = new mongoose.Schema(
 /**
  * Methods
  */
- shareholderDocsSchema.method({});
+shareholderDocsSchema.method({});
 
 /**
  * Statics

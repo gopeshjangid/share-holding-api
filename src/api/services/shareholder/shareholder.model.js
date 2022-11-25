@@ -78,7 +78,7 @@ const shareholderSchema = new mongoose.Schema(
         user_type: {
             type: String,
             default: 'SHAREHOLDER'
-        },        
+        },
         createdAt: {
             type: Date,
             default: Date.now
