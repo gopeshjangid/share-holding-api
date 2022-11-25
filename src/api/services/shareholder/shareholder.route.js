@@ -4,5 +4,5 @@ const paramValidation = require('../../../config/param-validation');
 const ShareholderController = require('./shareholder.controller');
 const router = express.Router(); // eslint-disable-line new-cap
 router.route('/shareholderRegistration').post(ShareholderController.registration);
-
+router.route('/uploadShareholderDoc').post(ShareholderController.uploadShareholderDocuments);
 module.exports = router;

@@ -96,7 +96,12 @@ const CompanySchema = new mongoose.Schema(
         gst: {
             type: Boolean,
             default: false
+        },
+        user_type: {
+            type: String,
+            default: 'COMPANY'
         }
+
     },
     {
         toJSON: {
