@@ -127,7 +127,7 @@ async function registration(req, res, next) {
                 await timeline.save();
                 const processedDocuments = await processDocuments(savedCompany);
                 await connectSocket(req.app.get('socketIo'), req?.body?.cin);
-                delete savedCompany?._doc?.password
+                delete savedCompany?._doc?.password;
                 res.send(
                     utils.getJsonResponse(true, 'Company registered successfully.', {
                         ...savedCompany?._doc,
