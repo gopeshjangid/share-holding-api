@@ -24,6 +24,7 @@ async function companyLogin(req, res, next) {
     if (password === '') {
         return res.send(utils.getJsonResponse(false, 'Password is required.', null));
     }
+
     Company.findOne({ pan, password })
         .then(async (user) => {
             req.user = user; // eslint-disable-line no-param-reassign
@@ -32,7 +33,7 @@ async function companyLogin(req, res, next) {
                 user.token = jwtToken.createToken(user?._id, user?.email, user.password);
                 jsonResult = utils.getJsonResponse(true, 'Company logged in successfully.', user);
             } else {
-                jsonResult = utils.getJsonResponse(false, 'Company not found.', null);
+                jsonResult = utils.getJsonResponse(false, 'Invalid credential!.', null);
             }
             return res.send(jsonResult);
 
@@ -91,55 +92,55 @@ async function registration(req, res, next) {
         return res.send(utils.getJsonResponse(false, `${valid.join(', ')} required`, null));
     }
     const company = new Company({
-        ...req?.body
+        ...req?.body,
+        timeline: {
+            companyRegistration: new Date()
+        }
     });
+
+    let isPanExists = await Company.findOne({ pan: req?.body?.pan });
+    if (isPanExists) {
+        res.send(utils.getJsonResponse(false, 'Company already registered with same PAN.', null));
+        return;
+    }
 
     let isCinExists = await Company.findOne({ cin: req?.body?.cin });
     if (isCinExists) {
-        res.send(utils.getJsonResponse(false, 'Company already registered with same cin.', null));
-    } else {
-        company
-            .save()
-            .then(async (savedCompany) => {
-                savedCompany.token = await jwtToken.createToken(
-                    savedCompany?._id,
-                    savedCompany?.email,
-                    savedCompany?.name
-                );
-                // const htmlToSend = await ejs.renderFile(
-                // 	path.join(__dirname, "../../../../signup.ejs"),
-                // 	{
-                // 		name: savedUser?.name,
-                // 		email: savedUser?.email,
-                // 		username: savedUser?.username,
-                // 	}
-                // );
-                // await utils.sendEmail({
-                // 	email: savedUser?.email,
-                // 	subject: "Sign up has been completed",
-                // 	text: htmlToSend,
-                // });
-                //////////// Insert Company Timeline
-                const timeline = new CompanyTimeline({
-                    companyId: ObjectId(savedCompany?._id),
-                    companyRegistration: new Date()
-                });
-                await timeline.save();
-                const processedDocuments = await processDocuments(savedCompany);
-                await connectSocket(req.app.get('socketIo'), req?.body?.cin);
-                delete savedCompany?._doc?.password;
-                res.send(
-                    utils.getJsonResponse(true, 'Company registered successfully.', {
-                        ...savedCompany?._doc,
-                        document: processedDocuments
-                    })
-                );
-            })
-            .catch(async (err) => {
-                console.log('Error:', err);
-                res.send(utils.getJsonResponse(false, err, null));
-            });
+        res.send(utils.getJsonResponse(false, 'Company already registered with same CIN.', null));
+        return;
     }
+
+    company
+        .save()
+        .then(async (savedCompany) => {
+            savedCompany.token = await jwtToken.createToken(savedCompany?._id, savedCompany?.email, savedCompany?.name);
+            // const htmlToSend = await ejs.renderFile(
+            // 	path.join(__dirname, "../../../../signup.ejs"),
+            // 	{
+            // 		name: savedUser?.name,
+            // 		email: savedUser?.email,
+            // 		username: savedUser?.username,
+            // 	}
+            // );
+            // await utils.sendEmail({
+            // 	email: savedUser?.email,
+            // 	subject: "Sign up has been completed",
+            // 	text: htmlToSend,
+            // });
+            const processedDocuments = await processDocuments(savedCompany);
+            await connectSocket(req.app.get('socketIo'), req?.body?.cin);
+            delete savedCompany?._doc?.password;
+            res.send(
+                utils.getJsonResponse(true, 'Company registered successfully.', {
+                    ...savedCompany?._doc,
+                    document: processedDocuments
+                })
+            );
+        })
+        .catch(async (err) => {
+            console.log('Error:', err);
+            res.send(utils.getJsonResponse(false, err, null));
+        });
 }
 
 async function update(req, res, next) {
@@ -268,7 +269,7 @@ async function updateCompanyProcessStatus(req, res) {
                     );
                     let jsonResult = utils.getJsonResponse(
                         true,
-                        'Company preoces status updated successfully.',
+                        'Company precess status updated successfully.',
                         savedUser
                     );
                     res.send(jsonResult);

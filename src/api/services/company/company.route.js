@@ -7,12 +7,11 @@ const jwtToken = new JwtToken();
 
 const router = express.Router(); // eslint-disable-line new-cap
 router
-    .route('/companyLogin')
+    .route('/login')
     /** POST /api/users/adminLogin -  */
     .post(CompanyController.companyLogin);
 
-router.route('/companyRegistration').post(CompanyController.registration);
-
+router.route('/registration').post(CompanyController.registration);
 router.route('/downloadProcessedDocument').get(CompanyController.getDocument);
 
 router
@@ -27,11 +26,8 @@ router
 
 /** Load user when API with userId route parameter is hit */
 router.param('userId', CompanyController.load);
-
-router.route('/updateCompanyProcessStatus').post(CompanyController.updateCompanyProcessStatus);
-
+router.route('/updateCompanyProcessStatus').put(CompanyController.updateCompanyProcessStatus);
 router.route('/getCompanyInfo').get(CompanyController.getCompanyInfo);
-
 router
     .route('/:userId')
     /** GET /api/users/:userId - Get user */
