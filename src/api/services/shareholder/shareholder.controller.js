@@ -16,7 +16,7 @@ const { shareholderValidation } = require('./validations');
 /**
  * Shareholder Login.
  */
- async function shareholderLogin(req, res, next) {
+async function shareholderLogin(req, res, next) {
     const { pan, password } = req.body;
     if (pan === '') {
         return res.send(utils.getJsonResponse(false, 'PAN is required.', null));
@@ -134,7 +134,7 @@ const uploadShareholderDocuments = async (req, res) => {
                 message: 'Please provide pan, shareholderId, docType in query string'
             });
         }
-        
+
         let files = await File.upload(req, directoryName);
         const data = await saveShareholderDoc(shareholderId, {
             shareholderId,
