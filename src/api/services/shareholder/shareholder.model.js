@@ -15,7 +15,8 @@ const shareholderSchema = new mongoose.Schema(
     {
         panNo: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         dob: {
             type: Date,

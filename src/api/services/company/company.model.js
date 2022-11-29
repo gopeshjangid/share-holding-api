@@ -56,7 +56,8 @@ const CompanySchema = new mongoose.Schema(
         },
         pan: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         password: {
             type: String,
@@ -100,6 +101,36 @@ const CompanySchema = new mongoose.Schema(
         user_type: {
             type: String,
             default: 'COMPANY'
+        },
+        timeline: {
+            companyRegistration: {
+                type: Date,
+                default: null
+            },
+            documentUploaded: {
+                type: Date,
+                default: null
+            },
+            documentSigned: {
+                type: Date,
+                default: null
+            },
+            paymentStatus: {
+                type: Date,
+                default: null
+            },
+            documentVerified: {
+                type: Date,
+                default: null
+            },
+            isinGenerated: {
+                type: Date,
+                default: null
+            },
+            addShareholderInfo: {
+                type: Date,
+                default: null
+            }
         }
     },
     {
@@ -109,6 +140,7 @@ const CompanySchema = new mongoose.Schema(
                 delete ret.__v;
             }
         },
+        versionKey: false,
         strict: false
     }
 );

@@ -14,6 +14,39 @@ const moment = require('moment');
 const { shareholderValidation } = require('./validations');
 
 /**
+ * Shareholder Login.
+ */
+async function shareholderLogin(req, res, next) {
+    const { pan, password } = req.body;
+    if (pan === '') {
+        return res.send(utils.getJsonResponse(false, 'PAN is required.', null));
+    }
+
+    if (password === '') {
+        return res.send(utils.getJsonResponse(false, 'Password is required.', null));
+    }
+
+    Shareholder.findOne({ pan, password })
+        .then(async (user) => {
+            req.user = user; // eslint-disable-line no-param-reassign
+            let jsonResult;
+            if (user) {
+                user.token = jwtToken.createToken(user?._id, user?.email, user.password);
+                jsonResult = utils.getJsonResponse(true, 'Company logged in successfully.', user);
+            } else {
+                jsonResult = utils.getJsonResponse(false, 'Company not found.', null);
+            }
+            return res.send(jsonResult);
+
+            // return next();
+        })
+        .catch((e) => {
+            console.log('Share holder login error: ', e);
+            res.send(utils.getJsonResponse(false, e, null));
+        });
+}
+
+/**
  * Create new shareholder
  * @property {number} req?.body?.panNo - The pan number of shareholder.
  * @property {Date} req?.body?.dob - The dob of shareholder.
@@ -90,21 +123,22 @@ const saveShareholderDoc = async (id, data) => {
 
 const uploadShareholderDocuments = async (req, res) => {
     try {
-        const pan = req.query.pan;
+        const directoryName = req.query.directoryName;
         const shareholderId = req.query.shareholderId;
-        if (pan === '' || shareholderId === '') {
+        const docType = req.query.docType;
+
+        if (directoryName === '' || docType === '' || shareholderId === '') {
             return res.status(500).json({
                 success: false,
                 data: null,
-                message: 'Please provide pan, shareholderId in query string'
+                message: 'Please provide pan, shareholderId, docType in query string'
             });
         }
 
-        const directoryName = `${pan}`;
         let files = await File.upload(req, directoryName);
-
         const data = await saveShareholderDoc(shareholderId, {
             shareholderId,
+            docType,
             docUrl: files[0].Location
         });
 
@@ -120,6 +154,7 @@ const uploadShareholderDocuments = async (req, res) => {
 };
 
 module.exports = {
+    shareholderLogin,
     registration,
     uploadShareholderDocuments
 };
