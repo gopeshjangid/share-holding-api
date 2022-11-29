@@ -108,7 +108,8 @@ const CompanySchema = new mongoose.Schema(
                 delete ret.password;
                 delete ret.__v;
             }
-        }
+        },
+        strict: false
     }
 );
 
