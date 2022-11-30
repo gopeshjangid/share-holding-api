@@ -88,6 +88,23 @@ const shareholderSchema = new mongoose.Schema(
             type: Date,
             required: false
         },
+        timeline: {
+            registration: {
+                type: Date,
+                default: null
+            },
+            documentUploaded: {
+                type: Date,
+                default: null
+            },
+        },   
+        process_status: {
+            type: String,
+            default: 'STARTED'
+        },
+        token: {
+            type: String
+        },                      
         createdAt: {
             type: Date,
             default: Date.now
@@ -96,10 +113,11 @@ const shareholderSchema = new mongoose.Schema(
     {
         toJSON: {
             transform(doc, ret) {
-                delete ret.password;
                 delete ret.__v;
             }
-        }
+        },
+        versionKey: false,
+        strict: false
     }
 );
 

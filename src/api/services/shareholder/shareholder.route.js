@@ -13,4 +13,8 @@ router
     .post(ShareholderController.otpVerify);
 router.route('/registration').post(ShareholderController.registration);
 router.route('/uploadShareholderDoc').post(ShareholderController.uploadShareholderDocuments);
+router
+    .route('/companyAssociate')
+    /** POST /api/shareholder/companyAssociate -  */
+    .post(ShareholderController.companyAssociate);
 module.exports = router;
