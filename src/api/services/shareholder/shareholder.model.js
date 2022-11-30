@@ -96,15 +96,15 @@ const shareholderSchema = new mongoose.Schema(
             documentUploaded: {
                 type: Date,
                 default: null
-            },
-        },   
+            }
+        },
         process_status: {
             type: String,
             default: 'STARTED'
         },
         token: {
             type: String
-        },                      
+        },
         createdAt: {
             type: Date,
             default: Date.now

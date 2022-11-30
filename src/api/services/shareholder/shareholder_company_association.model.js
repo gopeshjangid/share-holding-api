@@ -27,40 +27,40 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
                 type: String,
                 default: null
             }
-        },   
-        companyName :{
+        },
+        companyName: {
             type: String,
             default: null
-        }, 
-        isin :{
+        },
+        isin: {
             type: String,
             default: null
-        },  
-        securitiesType :{
+        },
+        securitiesType: {
             type: String,
             default: null
-        },  
-        folio :{
+        },
+        folio: {
             type: Number,
             default: null
-        }, 
-        noOfCertificates :{
+        },
+        noOfCertificates: {
             type: Number,
             default: null
-        }, 
-        noOfCertificatesWords :{
+        },
+        noOfCertificatesWords: {
             type: String,
             default: null
-        }, 
-        certificateNumber :{
+        },
+        certificateNumber: {
             type: Number,
             default: null
-        },  
-        distinctiveNoForm :{
+        },
+        distinctiveNoForm: {
             type: Number,
             default: null
-        }, 
-        distinctiveNoTo :{
+        },
+        distinctiveNoTo: {
             type: Number,
             default: null
         },
@@ -77,7 +77,7 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
                 type: Date,
                 default: null
             }
-        }, 
+        },
         status: {
             type: String,
             default: 'INITIATED'
@@ -85,12 +85,11 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
         createdAt: {
             type: Date,
             default: Date.now
-        },               
+        },
         updatedAt: {
             type: Date,
             default: Date.now
         }
-        
     },
     {
         toJSON: {
@@ -112,7 +111,7 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
 /**
  * Methods
  */
- shareholderCompanyAssociationSchema.method({});
+shareholderCompanyAssociationSchema.method({});
 
 /**
  * Statics

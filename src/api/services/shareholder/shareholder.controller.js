@@ -290,17 +290,16 @@ async function otpVerify(req, res, next) {
     } else {
         otpCondition = { phoneNumber: phoneNumber, panNo: panNo, otp: otp };
     }
-    let OPTExists = await Shareholder.findOne(otpCondition).select({otp:0,createdAt:0})
+    let OPTExists = await Shareholder.findOne(otpCondition).select({ otp: 0, createdAt: 0 });
     if (OPTExists && moment().isAfter(moment(OPTExists.expiryAt))) {
         jsonResult = utils.getJsonResponse(false, 'OTP Expired.', null);
     } else if (OPTExists) {
-        OPTExists.token = jwtToken.createToken(OPTExists?._id, OPTExists?.emailAddress,OPTExists?.firstName);
+        OPTExists.token = jwtToken.createToken(OPTExists?._id, OPTExists?.emailAddress, OPTExists?.firstName);
         jsonResult = utils.getJsonResponse(true, 'OTP Verified.', OPTExists);
     } else {
         jsonResult = utils.getJsonResponse(false, 'Incorrect OTP', null);
     }
     return res.send(jsonResult);
-    
 }
 
 /**
@@ -402,9 +401,9 @@ const uploadShareholderDocuments = async (req, res) => {
             docUrl: files[0].Location
         });
         const timelineUpdate = await Shareholder.findOneAndUpdate(
-            { _id: ObjectId(shareholderId)},
+            { _id: ObjectId(shareholderId) },
             { $set: { process_status: 'UPLOADED', 'timeline.documentUploaded': new Date() } }
-        )
+        );
         res.status(200).json({
             success: true,
             data: data,
@@ -431,15 +430,19 @@ const companyAssociate = async (req, res) => {
     if (shareholderId === '' || shareholderId === undefined) {
         return res.send(utils.getJsonResponse(false, 'ShareholderId number is required.', null));
     }
-    let isPanExists = await ShareholderComAssociate.findOne({ shareholderId: ObjectId(shareholderId), companyId: ObjectId(companyId)});
+    let isPanExists = await ShareholderComAssociate.findOne({
+        shareholderId: ObjectId(shareholderId),
+        companyId: ObjectId(companyId)
+    });
     if (isPanExists) {
         res.send(utils.getJsonResponse(false, 'Shareholder already registered with same company.', null));
     } else {
         const shareHolderAssocite = new ShareholderComAssociate({
             companyId: req?.body?.companyId,
-            shareholderId: req?.body?.shareholderId,
-        });        
-        shareHolderAssocite.save()
+            shareholderId: req?.body?.shareholderId
+        });
+        shareHolderAssocite
+            .save()
             .then(async (savedShareholder) => {
                 res.send(
                     utils.getJsonResponse(true, 'Shareholder registered successfully.', {
@@ -452,7 +455,7 @@ const companyAssociate = async (req, res) => {
                 res.send(utils.getJsonResponse(false, err, null));
             });
     }
-}
+};
 
 module.exports = {
     shareholderLogin,
