@@ -80,6 +80,14 @@ const shareholderSchema = new mongoose.Schema(
             type: String,
             default: 'SHAREHOLDER'
         },
+        otp: {
+            type: Number,
+            required: false
+        },   
+        otp_expiry: {
+            type: Date,
+            required: false
+        },     
         createdAt: {
             type: Date,
             default: Date.now

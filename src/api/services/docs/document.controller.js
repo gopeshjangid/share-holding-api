@@ -1,5 +1,5 @@
 const Company = require('../company/company.model');
-const CompanyTimeline = require('../company/company_timeline.model');
+//const CompanyTimeline = require('../company/company_timeline.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
 const File = require('./Upload');
@@ -211,7 +211,7 @@ const processDocuments = async (params) => {
             Promise.all(processedDocs)
                 .then(async (res) => {
                     console.log('All Documents processed...');
-                    await Company.updateOne({ cin }, { $set: { process_status: 'PROCESSING' } });
+                    await Company.updateOne({ cin }, { $set: { process_status: 'PROCESSING'} });
                     return resolve(res);
                 })
                 .catch((err) => {
@@ -260,13 +260,14 @@ const updateCompanyDocumentStatus = async (req, res, next) => {
             Promise.all(processedDocs)
                 .then(async (response) => {
                     console.log('All Documents has been updated...');
-                    await Company.updateOne({ cin }, { $set: { process_status: 'SIGNED' } });
+                    await Company.updateOne({ cin }, { $set: { process_status: 'SIGNED',"timeline.documentSigned": new Date()} });
+                    /*
                     const companyData = await Company.findOne({ cin: cin }, { _id: 1 });
                     await CompanyTimeline.findOneAndUpdate(
                         { companyId: ObjectId(companyData._id) },
                         { $set: { documentSigned: new Date() } }
                     );
-
+                    */
                     req.app.get('socketIo').to(cin).emit('SIGNED', { companyCIN: cin });
                     jsonResult = utils.getJsonResponse(true, 'Document updated to another bucket.', response);
                     return res.send(jsonResult);

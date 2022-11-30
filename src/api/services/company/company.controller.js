@@ -1,5 +1,5 @@
 const Company = require('./company.model');
-const CompanyTimeline = require('./company_timeline.model');
+//const CompanyTimeline = require('./company_timeline.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
 const File = require('../docs/Upload');
@@ -261,12 +261,8 @@ async function updateCompanyProcessStatus(req, res) {
             let jsonResult = utils.getJsonResponse(false, $message, {});
             res.send(jsonResult);
         } else {
-            Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus } }, { new: true })
+            Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus,"timeline.documentUploaded" : new Date()  } }, { new: true })
                 .then(async (savedUser) => {
-                    await CompanyTimeline.findOneAndUpdate(
-                        { companyId: ObjectId(savedUser._id) },
-                        { $set: { documentUploaded: new Date() } }
-                    );
                     let jsonResult = utils.getJsonResponse(
                         true,
                         'Company precess status updated successfully.',
@@ -297,11 +293,13 @@ async function getCompanyInfo(req, res) {
         } else {
             Company.findOne({ cin: cin }, { password: 0 })
                 .then(async (companyInfo) => {
+                    /*
                     const timeline = await CompanyTimeline.findOne(
                         { companyId: ObjectId(companyInfo._id) },
                         { _id: 0, companyId: 0 }
                     );
-                    let jsonResult = utils.getJsonResponse(true, 'Company Info.', { ...companyInfo?._doc, timeline });
+                    */
+                    let jsonResult = utils.getJsonResponse(true, 'Company Info.', { ...companyInfo?._doc });
                     res.send(jsonResult);
                 })
                 .catch(async (err) => {
