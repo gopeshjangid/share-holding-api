@@ -256,6 +256,52 @@ async function shareholderLogin(req, res, next) {
 }
 
 /**
+ * Shareholder Login.
+ * @property {number} req?.body?.phoneNumber - The phone number of shareholder.
+ * @property {number} req?.body?.panNo - The pan number of shareholder.
+ * @property {string} req?.body?.shareholder_type - Shareholder type Like ('individual','joint','non-individual').
+ * @returns {Shareholder}
+ */
+async function otpVerify(req, res, next){
+    const phoneNumber = req?.body?.phoneNumber;
+    const shareholder_type = req?.body?.shareholder_type;
+    const panNo = req?.body?.panNo;
+    const otp = req?.body?.otp;
+
+    if (otp === '' || otp === undefined) {
+        return res.send(utils.getJsonResponse(false, 'OTP is required.', null));
+    }
+    if (shareholder_type == 'individual') {
+        if (phoneNumber === '' || phoneNumber === undefined) {
+            return res.send(utils.getJsonResponse(false, 'Mobile number is required.', null));
+        }
+    } else {
+        if (phoneNumber === '' || phoneNumber === undefined) {
+            return res.send(utils.getJsonResponse(false, 'Mobile number is required.', null));
+        }
+        if (panNo === '' || panNo === undefined) {
+            return res.send(utils.getJsonResponse(false, 'PAN number is required.', null));
+        }
+    }
+    let otpCondition = {};
+    if (shareholder_type == 'individual') {
+        otpCondition = { phoneNumber: phoneNumber,otp:otp };
+    } else {
+        otpCondition = { phoneNumber: phoneNumber, panNo: panNo, otp:otp};
+    }
+    let OPTExists = await Shareholder.findOne(otpCondition);
+    if (OPTExists && moment().isAfter(moment(OPTExists.expiryAt))) {
+        jsonResult = utils.getJsonResponse(false, "OTP Expired.", null);
+    } else if (OPTExists) {
+        jsonResult = utils.getJsonResponse(true, "OTP Verified.", null);
+    } else {
+        jsonResult = utils.getJsonResponse(false, "Incorrect OTP", null);
+    }
+    return res.send(jsonResult);
+}
+
+
+/**
  * Create new shareholder
  * @property {number} req?.body?.panNo - The pan number of shareholder.
  * @property {Date} req?.body?.dob - The dob of shareholder.
