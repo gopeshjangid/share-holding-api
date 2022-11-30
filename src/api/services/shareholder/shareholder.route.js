@@ -10,7 +10,7 @@ router
 router
     .route('/otpverify')
     /** POST /api/shareholder/adminLogin -  */
-    .post(ShareholderController.otpVerify);    
+    .post(ShareholderController.otpVerify);
 router.route('/registration').post(ShareholderController.registration);
 router.route('/uploadShareholderDoc').post(ShareholderController.uploadShareholderDocuments);
 module.exports = router;

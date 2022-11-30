@@ -262,7 +262,7 @@ async function shareholderLogin(req, res, next) {
  * @property {string} req?.body?.shareholder_type - Shareholder type Like ('individual','joint','non-individual').
  * @returns {Shareholder}
  */
-async function otpVerify(req, res, next){
+async function otpVerify(req, res, next) {
     const phoneNumber = req?.body?.phoneNumber;
     const shareholder_type = req?.body?.shareholder_type;
     const panNo = req?.body?.panNo;
@@ -285,21 +285,20 @@ async function otpVerify(req, res, next){
     }
     let otpCondition = {};
     if (shareholder_type == 'individual') {
-        otpCondition = { phoneNumber: phoneNumber,otp:otp };
+        otpCondition = { phoneNumber: phoneNumber, otp: otp };
     } else {
-        otpCondition = { phoneNumber: phoneNumber, panNo: panNo, otp:otp};
+        otpCondition = { phoneNumber: phoneNumber, panNo: panNo, otp: otp };
     }
     let OPTExists = await Shareholder.findOne(otpCondition);
     if (OPTExists && moment().isAfter(moment(OPTExists.expiryAt))) {
-        jsonResult = utils.getJsonResponse(false, "OTP Expired.", null);
+        jsonResult = utils.getJsonResponse(false, 'OTP Expired.', null);
     } else if (OPTExists) {
-        jsonResult = utils.getJsonResponse(true, "OTP Verified.", null);
+        jsonResult = utils.getJsonResponse(true, 'OTP Verified.', null);
     } else {
-        jsonResult = utils.getJsonResponse(false, "Incorrect OTP", null);
+        jsonResult = utils.getJsonResponse(false, 'Incorrect OTP', null);
     }
     return res.send(jsonResult);
 }
-
 
 /**
  * Create new shareholder
