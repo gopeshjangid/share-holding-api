@@ -36,28 +36,31 @@ async function shareholderLogin(req, res, next) {
             return res.send(utils.getJsonResponse(false, 'PAN number is required.', null));
         }
     }
-    let otpCondition = {}
+    let otpCondition = {};
     if (shareholder_type == 'individual') {
-        otpCondition = {phoneNumber:phoneNumber}
-    }else{
-        otpCondition = {phoneNumber:phoneNumber,panNo:panNo}
+        otpCondition = { phoneNumber: phoneNumber };
+    } else {
+        otpCondition = { phoneNumber: phoneNumber, panNo: panNo };
     }
-        //console.log(otpCondition)
-        Shareholder.findOne(otpCondition)
-            .then(async (user) => {
-                req.user = user; // eslint-disable-line no-param-reassign
-                let jsonResult;
-                if (user) {
-                    //user.token = jwtToken.createToken(user?._id, user?.email, user.password);
-                    //////////// Create a OTP
-                    let otp;
-                    otp = Math.floor(100000 + Math.random() * 900000);
-                    var expiry = new Date();
-                    expiry.setMinutes(expiry.getMinutes() + 10);
-                    expiry = new Date(expiry); 
-                    let shareholderData = await Shareholder.findOneAndUpdate({_id:user._id},{otp:otp,otp_expiry:expiry});     
-                    if(shareholderData){
-                        let template = `<!DOCTYPE html>
+    //console.log(otpCondition)
+    Shareholder.findOne(otpCondition)
+        .then(async (user) => {
+            req.user = user; // eslint-disable-line no-param-reassign
+            let jsonResult;
+            if (user) {
+                //user.token = jwtToken.createToken(user?._id, user?.email, user.password);
+                //////////// Create a OTP
+                let otp;
+                otp = Math.floor(100000 + Math.random() * 900000);
+                var expiry = new Date();
+                expiry.setMinutes(expiry.getMinutes() + 10);
+                expiry = new Date(expiry);
+                let shareholderData = await Shareholder.findOneAndUpdate(
+                    { _id: user._id },
+                    { otp: otp, otp_expiry: expiry }
+                );
+                if (shareholderData) {
+                    let template = `<!DOCTYPE html>
                         <html>
                         <head>
                             <title></title>
@@ -231,26 +234,25 @@ async function shareholderLogin(req, res, next) {
                             </table>
                         </body>
                         </html>`;
-                        utils.sendEmail({
-                            email: shareholderData.emailAddress,
-                            subject: "Verify OTP",
-                            text: template,
-                        });                        
-                        jsonResult = utils.getJsonResponse(true, 'OTP mail sent successfully.', null);
-                    }else{
-                        jsonResult = utils.getJsonResponse(false, 'Error while creating OTP.', null);
-                    }                                  
+                    utils.sendEmail({
+                        email: shareholderData.emailAddress,
+                        subject: 'Verify OTP',
+                        text: template
+                    });
+                    jsonResult = utils.getJsonResponse(true, 'OTP mail sent successfully.', null);
                 } else {
-                    jsonResult = utils.getJsonResponse(false, 'Shareholder not found.', null);
+                    jsonResult = utils.getJsonResponse(false, 'Error while creating OTP.', null);
                 }
-                return res.send(jsonResult);
-                // return next();
-            })
-            .catch((e) => {
-                console.log('Share holder login error: ', e);
-                res.send(utils.getJsonResponse(false, e, null));
-            });
-    
+            } else {
+                jsonResult = utils.getJsonResponse(false, 'Shareholder not found.', null);
+            }
+            return res.send(jsonResult);
+            // return next();
+        })
+        .catch((e) => {
+            console.log('Share holder login error: ', e);
+            res.send(utils.getJsonResponse(false, e, null));
+        });
 }
 
 /**

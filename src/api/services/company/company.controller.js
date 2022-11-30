@@ -261,7 +261,11 @@ async function updateCompanyProcessStatus(req, res) {
             let jsonResult = utils.getJsonResponse(false, $message, {});
             res.send(jsonResult);
         } else {
-            Company.findOneAndUpdate({ cin: cin }, { $set: { process_status: processStatus,"timeline.documentUploaded" : new Date()  } }, { new: true })
+            Company.findOneAndUpdate(
+                { cin: cin },
+                { $set: { process_status: processStatus, 'timeline.documentUploaded': new Date() } },
+                { new: true }
+            )
                 .then(async (savedUser) => {
                     let jsonResult = utils.getJsonResponse(
                         true,
