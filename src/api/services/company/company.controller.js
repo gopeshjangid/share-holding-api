@@ -197,14 +197,31 @@ function list(req, res, next) {
         .then(async (users) => {
             let jsonResult;
             if (users) {
-                jsonResult = utils.getJsonResponse(true, 'Users list.', users);
+                jsonResult = utils.getJsonResponse(true, 'Company list.', users);
             } else {
-                jsonResult = utils.getJsonResponse(false, 'Users list not found.', null);
+                jsonResult = utils.getJsonResponse(false, 'Company list not found.', null);
             }
             res.send(jsonResult);
         })
         .catch((e) => next(e));
 }
+
+function companyList(req, res, next) {
+    const { limit = 50, skip = 0 } = req?.query;
+    Company.find().select({_id:1,name:1})
+        .then(async (users) => {
+            let jsonResult;
+            if (users) {
+                jsonResult = utils.getJsonResponse(true, 'Company list.', users);
+            } else {
+                jsonResult = utils.getJsonResponse(false, 'Company list not found.', null);
+            }
+            res.send(jsonResult);
+        })
+        .catch((e) => next(e));
+}
+
+
 
 /**
  * Delete user.
@@ -329,5 +346,6 @@ module.exports = {
     sendEmail,
     getDocument,
     updateCompanyProcessStatus,
-    getCompanyInfo
+    getCompanyInfo,
+    companyList
 };

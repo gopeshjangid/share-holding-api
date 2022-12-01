@@ -422,14 +422,19 @@ const uploadShareholderDocuments = async (req, res) => {
  * @returns {Shareholder}
  */
 const companyAssociate = async (req, res) => {
-    const companyId = req?.body?.companyId;
-    const shareholderId = req?.body?.shareholderId;
+    
+    const companyId = req?.query?.companyId;
+    const shareholderId = req?.query?.shareholderId;
+    const shareholderStep = req?.query?.shareholderStep;
     if (companyId === '' || companyId === undefined) {
         return res.send(utils.getJsonResponse(false, 'CompanyId is required.', null));
     }
     if (shareholderId === '' || shareholderId === undefined) {
         return res.send(utils.getJsonResponse(false, 'ShareholderId number is required.', null));
     }
+    if (shareholderStep === '' || shareholderStep === undefined) {
+        return res.send(utils.getJsonResponse(false, 'Shareholder step is required.', null));
+    }    
     let isPanExists = await ShareholderComAssociate.findOne({
         shareholderId: ObjectId(shareholderId),
         companyId: ObjectId(companyId)
@@ -437,16 +442,26 @@ const companyAssociate = async (req, res) => {
     if (isPanExists) {
         res.send(utils.getJsonResponse(false, 'Shareholder already registered with same company.', null));
     } else {
-        const shareHolderAssocite = new ShareholderComAssociate({
-            companyId: req?.body?.companyId,
-            shareholderId: req?.body?.shareholderId
-        });
-        shareHolderAssocite
+        if(shareholderStep =='certificate'){
+            let files = await File.upload(req, shareholderId,'company-shareholding-document');
+            console.log(files);
+            const shareHolderAssocite = new ShareholderComAssociate({
+                companyId: ObjectId(companyId),
+                shareholderId: ObjectId(shareholderId),
+                certificates: {
+                    frontSide: files[0].Location,
+                    backSide: files[1].Location
+                },    
+                timeline: {
+                    dematerializationInitiated: new Date()
+                }            
+            });            
+            shareHolderAssocite
             .save()
             .then(async (savedShareholder) => {
                 res.send(
                     utils.getJsonResponse(true, 'Shareholder registered successfully.', {
-                        ...savedShareholder?._doc
+                        savedShareholder
                     })
                 );
             })
@@ -454,6 +469,12 @@ const companyAssociate = async (req, res) => {
                 console.log('Error:', err);
                 res.send(utils.getJsonResponse(false, err, null));
             });
+            
+        }else{
+
+
+        }
+  
     }
 };
 

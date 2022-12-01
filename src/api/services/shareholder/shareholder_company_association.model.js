@@ -78,9 +78,9 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
                 default: null
             }
         },
-        status: {
+        request_status: {
             type: String,
-            default: 'INITIATED'
+            default: 'PENDING'
         },
         createdAt: {
             type: Date,
