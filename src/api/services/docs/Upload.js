@@ -105,7 +105,7 @@ const uploadDocs = async (req, res) => {
 };
 
 // this is for uploading documents internally in backend
-const upload = async (req, directory,bucketName='share-holding-docs') => {
+const upload = async (req, directory, bucketName = 'share-holding-docs') => {
     return new Promise(async (resolve, reject) => {
         try {
             const files = await parseForm(req);

@@ -208,7 +208,8 @@ function list(req, res, next) {
 
 function companyList(req, res, next) {
     const { limit = 50, skip = 0 } = req?.query;
-    Company.find().select({_id:1,name:1})
+    Company.find()
+        .select({ _id: 1, name: 1 })
         .then(async (users) => {
             let jsonResult;
             if (users) {
@@ -220,8 +221,6 @@ function companyList(req, res, next) {
         })
         .catch((e) => next(e));
 }
-
-
 
 /**
  * Delete user.
