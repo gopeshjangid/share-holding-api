@@ -443,7 +443,7 @@ const companyAssociate = async (req, res) => {
     } else {
         if (shareholderStep == 'certificate') {
             let files = await File.upload(req, shareholderId, 'company-shareholding-document');
-            console.log(files);
+            //console.log(files);
             const shareHolderAssocite = new ShareholderComAssociate({
                 companyId: ObjectId(companyId),
                 shareholderId: ObjectId(shareholderId),
@@ -469,6 +469,40 @@ const companyAssociate = async (req, res) => {
                     res.send(utils.getJsonResponse(false, err, null));
                 });
         } else {
+            const shareHolderAssocite = new ShareholderComAssociate({
+                companyId: ObjectId(companyId),
+                shareholderId: ObjectId(shareholderId),
+                certificates: {
+                    frontSide: null,
+                    backSide: null
+                },
+                companyName:req?.query?.companyName,
+                isin:req?.query?.isin,
+                securitiesType:req?.query?.securitiesType,
+                folio:req?.query?.folio,
+                noOfCertificates:req?.query?.noOfCertificates,
+                noOfCertificatesWords:req?.query?.noOfCertificatesWords,
+                certificateNumber:req?.query?.certificateNumber,
+                distinctiveNoForm:req?.query?.distinctiveNoForm,
+                distinctiveNoTo:req?.query?.distinctiveNoTo,
+                timeline: {
+                    dematerializationInitiated: new Date()
+                },
+                request_status:'PENDING'
+            });
+            shareHolderAssocite
+                .save()
+                .then(async (savedShareholder) => {
+                    res.send(
+                        utils.getJsonResponse(true, 'Shareholder registered successfully.', {
+                            savedShareholder
+                        })
+                    );
+                })
+                .catch(async (err) => {
+                    console.log('Error:', err);
+                    res.send(utils.getJsonResponse(false, err, null));
+                });
         }
     }
 };
