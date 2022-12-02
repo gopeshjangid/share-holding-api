@@ -476,19 +476,19 @@ const companyAssociate = async (req, res) => {
                     frontSide: null,
                     backSide: null
                 },
-                companyName:req?.query?.companyName,
-                isin:req?.query?.isin,
-                securitiesType:req?.query?.securitiesType,
-                folio:req?.query?.folio,
-                noOfCertificates:req?.query?.noOfCertificates,
-                noOfCertificatesWords:req?.query?.noOfCertificatesWords,
-                certificateNumber:req?.query?.certificateNumber,
-                distinctiveNoForm:req?.query?.distinctiveNoForm,
-                distinctiveNoTo:req?.query?.distinctiveNoTo,
+                companyName: req?.query?.companyName,
+                isin: req?.query?.isin,
+                securitiesType: req?.query?.securitiesType,
+                folio: req?.query?.folio,
+                noOfCertificates: req?.query?.noOfCertificates,
+                noOfCertificatesWords: req?.query?.noOfCertificatesWords,
+                certificateNumber: req?.query?.certificateNumber,
+                distinctiveNoForm: req?.query?.distinctiveNoForm,
+                distinctiveNoTo: req?.query?.distinctiveNoTo,
                 timeline: {
                     dematerializationInitiated: new Date()
                 },
-                request_status:'PENDING'
+                request_status: 'PENDING'
             });
             shareHolderAssocite
                 .save()
