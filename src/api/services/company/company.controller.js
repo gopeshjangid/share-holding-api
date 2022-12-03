@@ -277,9 +277,38 @@ async function updateCompanyProcessStatus(req, res) {
             let jsonResult = utils.getJsonResponse(false, $message, {});
             res.send(jsonResult);
         } else {
+            let updateTimeline = '';
+            let updateProcessStatus ='';
+            switch (processStatus) {
+                case "PROCESSED":
+                    updateTimeline = `timeline.documentUploaded`;
+                    updateProcessStatus =`process_status`;
+                    break;
+                case "SIGNED":
+                    updateTimeline = `timeline.documentSigned`;
+                    updateProcessStatus =`process_status`;
+                    break;
+                case "PAID":
+                    updateTimeline = `timeline.paymentStatus`;
+                    updateProcessStatus =`payment_status`;
+                    break;
+                case "UNPAID":
+                    updateTimeline = `timeline.paymentStatus`;
+                    updateProcessStatus =`payment_status`;
+                    break;
+                    case "ISIN":
+                        updateTimeline = `timeline.isinGenerated`;
+                        updateProcessStatus =`isin`;
+                        break;                    
+                    isin
+                default:
+                    updateTimeline = `timeline.documentDefault`;
+                    updateProcessStatus =`process_status`;
+                    break;
+            }
             Company.findOneAndUpdate(
                 { cin: cin },
-                { $set: { process_status: processStatus, 'timeline.documentUploaded': new Date() } },
+                { $set: { [updateProcessStatus]: processStatus, [updateTimeline]: new Date() } },
                 { new: true }
             )
                 .then(async (savedUser) => {
@@ -334,6 +363,24 @@ async function getCompanyInfo(req, res) {
         res.send(jsonResult);
     }
 }
+
+function getRTACompanyList(req, res, next) {
+    Company.find({payment_status:'PAID'})
+        .select({password:0,token:0})
+        .then(async (users) => {
+            let jsonResult;
+            if (users) {
+                jsonResult = utils.getJsonResponse(true, 'Company list.', users);
+            } else {
+                jsonResult = utils.getJsonResponse(false, 'Company list not found.', null);
+            }
+            res.send(jsonResult);
+        })
+        .catch((e) => next(e));
+}
+
+
+
 module.exports = {
     companyLogin,
     load,
@@ -346,5 +393,6 @@ module.exports = {
     getDocument,
     updateCompanyProcessStatus,
     getCompanyInfo,
-    companyList
+    companyList,
+    getRTACompanyList
 };

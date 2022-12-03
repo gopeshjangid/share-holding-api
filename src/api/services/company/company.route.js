@@ -14,6 +14,7 @@ router
 router.route('/registration').post(CompanyController.registration);
 router.route('/downloadProcessedDocument').get(CompanyController.getDocument);
 router.route('/companyList').get(CompanyController.companyList);
+router.route('/rtaCompanyList').get(CompanyController.getRTACompanyList);
 router
     .route('/getUserDetails')
     /** GET /api/users - Get list of users */

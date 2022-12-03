@@ -46,15 +46,15 @@ const saveDocument = async (id, data) => {
  * @property {number} req.query.limit - Limit number of users to be returned.
  * @returns {Company[]}
  */
-const list = (req, res, next) => {
+const getCompanyDocumentsList = (req, res, next) => {
     const { limit = 50, skip = 0, companyId } = req?.query;
-    Document.list({ limit, skip, companyId })
+    Document.find({companyId: companyId})
         .then(async (users) => {
             let jsonResult;
             if (users) {
-                jsonResult = utils.getJsonResponse(true, 'Users list.', users);
+                jsonResult = utils.getJsonResponse(true, 'Documents list.', users);
             } else {
-                jsonResult = utils.getJsonResponse(false, 'Users list not found.', null);
+                jsonResult = utils.getJsonResponse(false, 'Documents list not found.', null);
             }
             res.send(jsonResult);
         })
@@ -308,7 +308,7 @@ const connectSocket = async (io, companyCIN) => {
 };
 
 module.exports = {
-    list,
+    getCompanyDocumentsList,
     downloadResolutionForm,
     getDocumentByCompanyId,
     uploadRegistrationDocuments,

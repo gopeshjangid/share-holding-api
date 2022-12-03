@@ -26,5 +26,10 @@ router
 
 router.route('/updateCompanyDocumentStatus').get(Document.updateCompanyDocumentStatus);
 
+router
+    .route('/getCompanyDocumentsList')
+    /** GET /api/users - Get list of users */
+    .get(Document.getCompanyDocumentsList);
+
 // /api/users/verifyOtp
 module.exports = router;

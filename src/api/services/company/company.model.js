@@ -32,7 +32,8 @@ const CompanySchema = new mongoose.Schema(
         },
         isin: {
             type: String,
-            required: false
+            required: false,
+            default: null
         },
         gsttin: {
             type: String,
@@ -102,6 +103,10 @@ const CompanySchema = new mongoose.Schema(
             type: String,
             default: 'COMPANY'
         },
+        payment_status: {
+            type: String,
+            default: null
+        },        
         timeline: {
             companyRegistration: {
                 type: Date,

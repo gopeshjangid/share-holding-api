@@ -15,7 +15,7 @@ const moment = require('moment');
  * Broker Login.
  */
 async function brokerLogin(req, res, next) {
-    const { pan, password } = req.body;
+    const { email, password, user_type } = req.body;
     if (email === '' || email === undefined) {
         return res.send(utils.getJsonResponse(false, 'PAN is required.', null));
     }
@@ -26,7 +26,7 @@ async function brokerLogin(req, res, next) {
         return res.send(utils.getJsonResponse(false, 'User type is required.', null));
     }
 
-    User.findOne({ pan, password, user_type, status: 'ACTIVE' })
+    User.findOne({ email, password, user_type, status: 'ACTIVE' })
         .then(async (user) => {
             req.user = user; // eslint-disable-line no-param-reassign
             let jsonResult;
