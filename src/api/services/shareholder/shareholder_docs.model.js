@@ -18,6 +18,10 @@ const shareholderDocsSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        docType: {
+            type: String,
+            default: null
+        },        
         createdAt: {
             type: Date,
             default: Date.now
