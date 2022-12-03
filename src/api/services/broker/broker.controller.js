@@ -14,7 +14,7 @@ const moment = require('moment');
 /**
  * Broker Login.
  */
- async function brokerLogin(req, res, next) {
+async function brokerLogin(req, res, next) {
     const { pan, password } = req.body;
     if (email === '' || email === undefined) {
         return res.send(utils.getJsonResponse(false, 'PAN is required.', null));
@@ -26,7 +26,7 @@ const moment = require('moment');
         return res.send(utils.getJsonResponse(false, 'User type is required.', null));
     }
 
-    User.findOne({ pan, password,user_type,status:'ACTIVE' })
+    User.findOne({ pan, password, user_type, status: 'ACTIVE' })
         .then(async (user) => {
             req.user = user; // eslint-disable-line no-param-reassign
             let jsonResult;
@@ -46,7 +46,6 @@ const moment = require('moment');
         });
 }
 
-
 module.exports = {
-    brokerLogin,
+    brokerLogin
 };

@@ -11,4 +11,4 @@ router
     /** POST /api/user/login -  */
     .post(BrokerController.brokerLogin);
 
-    module.exports = router;    
+module.exports = router;

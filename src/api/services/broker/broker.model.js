@@ -11,7 +11,7 @@ var validateEmail = function (email) {
 /**
  * User Schema
  */
-const  UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -43,7 +43,7 @@ const  UserSchema = new mongoose.Schema(
         createdAt: {
             type: Date,
             default: Date.now
-        }        
+        }
     },
     {
         toJSON: {
