@@ -48,7 +48,7 @@ const saveDocument = async (id, data) => {
  */
 const getCompanyDocumentsList = (req, res, next) => {
     const { limit = 50, skip = 0, companyId } = req?.query;
-    Document.find({companyId: companyId})
+    Document.find({ companyId: companyId })
         .then(async (users) => {
             let jsonResult;
             if (users) {

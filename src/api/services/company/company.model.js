@@ -106,7 +106,7 @@ const CompanySchema = new mongoose.Schema(
         payment_status: {
             type: String,
             default: null
-        },        
+        },
         timeline: {
             companyRegistration: {
                 type: Date,

@@ -278,32 +278,32 @@ async function updateCompanyProcessStatus(req, res) {
             res.send(jsonResult);
         } else {
             let updateTimeline = '';
-            let updateProcessStatus ='';
+            let updateProcessStatus = '';
             switch (processStatus) {
-                case "PROCESSED":
+                case 'PROCESSED':
                     updateTimeline = `timeline.documentUploaded`;
-                    updateProcessStatus =`process_status`;
+                    updateProcessStatus = `process_status`;
                     break;
-                case "SIGNED":
+                case 'SIGNED':
                     updateTimeline = `timeline.documentSigned`;
-                    updateProcessStatus =`process_status`;
+                    updateProcessStatus = `process_status`;
                     break;
-                case "PAID":
+                case 'PAID':
                     updateTimeline = `timeline.paymentStatus`;
-                    updateProcessStatus =`payment_status`;
+                    updateProcessStatus = `payment_status`;
                     break;
-                case "UNPAID":
+                case 'UNPAID':
                     updateTimeline = `timeline.paymentStatus`;
-                    updateProcessStatus =`payment_status`;
+                    updateProcessStatus = `payment_status`;
                     break;
-                    case "ISIN":
-                        updateTimeline = `timeline.isinGenerated`;
-                        updateProcessStatus =`isin`;
-                        break;                    
-                    isin
+                case 'ISIN':
+                    updateTimeline = `timeline.isinGenerated`;
+                    updateProcessStatus = `isin`;
+                    break;
+                    isin;
                 default:
                     updateTimeline = `timeline.documentDefault`;
-                    updateProcessStatus =`process_status`;
+                    updateProcessStatus = `process_status`;
                     break;
             }
             Company.findOneAndUpdate(
@@ -365,8 +365,8 @@ async function getCompanyInfo(req, res) {
 }
 
 function getRTACompanyList(req, res, next) {
-    Company.find({payment_status:'PAID'})
-        .select({password:0,token:0})
+    Company.find({ payment_status: 'PAID' })
+        .select({ password: 0, token: 0 })
         .then(async (users) => {
             let jsonResult;
             if (users) {
@@ -378,8 +378,6 @@ function getRTACompanyList(req, res, next) {
         })
         .catch((e) => next(e));
 }
-
-
 
 module.exports = {
     companyLogin,
