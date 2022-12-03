@@ -47,7 +47,7 @@ app.use(helmet());
 
 var corsOptions = {
     origin: [
-        'http://www.myshareholding.com',
+        'http://www.myshareholdings.com',
         'https://share-holding-phi.vercel.app',
         'http://localhost:3000',
         'http://localhost:3001',
