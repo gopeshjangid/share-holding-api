@@ -300,7 +300,6 @@ async function updateCompanyProcessStatus(req, res) {
                     updateTimeline = `timeline.isinGenerated`;
                     updateProcessStatus = `isin`;
                     break;
-                    isin;
                 default:
                     updateTimeline = `timeline.documentDefault`;
                     updateProcessStatus = `process_status`;
@@ -315,6 +314,51 @@ async function updateCompanyProcessStatus(req, res) {
                     let jsonResult = utils.getJsonResponse(
                         true,
                         'Company precess status updated successfully.',
+                        savedUser
+                    );
+                    res.send(jsonResult);
+                })
+                .catch(async (err) => {
+                    if (err) {
+                        let jsonResult = utils.getJsonResponse(false, err, null);
+                        res.send(jsonResult);
+                    }
+                });
+        }
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
+
+async function updateCompanyISIN(req, res) {
+    try {
+        let cin = req?.body?.cin;
+        let processStatus = req?.body?.process_status;
+        let isin = req?.body?.isin;
+        if ((cin === '' || cin === undefined) || (processStatus === '' || processStatus === undefined) || (isin === '' || isin === undefined)) {
+            $message = '';
+            if (cin === '' || cin === undefined) {
+                $message = 'Please send cin';
+            }else if (processStatus === '' || processStatus === undefined) {
+                $message = 'Please send process_status';
+            }else if (isin === '' || isin === undefined) {
+                $message = 'Please send isin';
+            }
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        } else {
+                    updateTimeline = `timeline.isinGenerated`;
+                    updateProcessStatus = `process_status`;            
+            Company.findOneAndUpdate(
+                { cin: cin },
+                { $set: { [updateProcessStatus]: processStatus,isin:isin, [updateTimeline]: new Date() } },
+                { new: true }
+            )
+                .then(async (savedUser) => {
+                    let jsonResult = utils.getJsonResponse(
+                        true,
+                        'Company isin updated successfully.',
                         savedUser
                     );
                     res.send(jsonResult);
@@ -392,5 +436,6 @@ module.exports = {
     updateCompanyProcessStatus,
     getCompanyInfo,
     companyList,
-    getRTACompanyList
+    getRTACompanyList,
+    updateCompanyISIN
 };

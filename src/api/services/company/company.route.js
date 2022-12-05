@@ -28,6 +28,8 @@ router
 /** Load user when API with userId route parameter is hit */
 router.param('userId', CompanyController.load);
 router.route('/updateCompanyProcessStatus').put(CompanyController.updateCompanyProcessStatus);
+router.route('/updateCompanyISIN').put(CompanyController.updateCompanyISIN);
+
 router.route('/getCompanyInfo').get(CompanyController.getCompanyInfo);
 router
     .route('/:userId')
