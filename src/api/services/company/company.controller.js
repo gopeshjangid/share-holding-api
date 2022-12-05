@@ -336,31 +336,34 @@ async function updateCompanyISIN(req, res) {
         let cin = req?.body?.cin;
         let processStatus = req?.body?.process_status;
         let isin = req?.body?.isin;
-        if ((cin === '' || cin === undefined) || (processStatus === '' || processStatus === undefined) || (isin === '' || isin === undefined)) {
+        if (
+            cin === '' ||
+            cin === undefined ||
+            processStatus === '' ||
+            processStatus === undefined ||
+            isin === '' ||
+            isin === undefined
+        ) {
             $message = '';
             if (cin === '' || cin === undefined) {
                 $message = 'Please send cin';
-            }else if (processStatus === '' || processStatus === undefined) {
+            } else if (processStatus === '' || processStatus === undefined) {
                 $message = 'Please send process_status';
-            }else if (isin === '' || isin === undefined) {
+            } else if (isin === '' || isin === undefined) {
                 $message = 'Please send isin';
             }
             let jsonResult = utils.getJsonResponse(false, $message, {});
             res.send(jsonResult);
         } else {
-                    updateTimeline = `timeline.isinGenerated`;
-                    updateProcessStatus = `process_status`;            
+            updateTimeline = `timeline.isinGenerated`;
+            updateProcessStatus = `process_status`;
             Company.findOneAndUpdate(
                 { cin: cin },
-                { $set: { [updateProcessStatus]: processStatus,isin:isin, [updateTimeline]: new Date() } },
+                { $set: { [updateProcessStatus]: processStatus, isin: isin, [updateTimeline]: new Date() } },
                 { new: true }
             )
                 .then(async (savedUser) => {
-                    let jsonResult = utils.getJsonResponse(
-                        true,
-                        'Company isin updated successfully.',
-                        savedUser
-                    );
+                    let jsonResult = utils.getJsonResponse(true, 'Company isin updated successfully.', savedUser);
                     res.send(jsonResult);
                 })
                 .catch(async (err) => {
