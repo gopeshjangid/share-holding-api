@@ -105,6 +105,10 @@ const shareholderSchema = new mongoose.Schema(
         token: {
             type: String
         },
+        status: {
+            type: String,
+            default: 'PENDING'
+        },        
         createdAt: {
             type: Date,
             default: Date.now

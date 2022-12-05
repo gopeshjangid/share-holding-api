@@ -1,4 +1,5 @@
 const User = require('./broker.model');
+const Shareholder = require('../shareholder/shareholder.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
 const File = require('../docs/Upload');
@@ -46,6 +47,48 @@ async function brokerLogin(req, res, next) {
         });
 }
 
+async function getShareholderByStatus(req, res, next) {
+    const { status } = req?.query;
+    if (status === '' || status === undefined) {
+        return res.send(utils.getJsonResponse(false, 'Status is required.', null));
+    }
+    Shareholder.aggregate([
+        { $lookup:
+           {
+             from: 'shareholderdocs',
+             localField: '_id',
+             foreignField: 'shareholderId',
+             as: 'docsdetails'
+           }
+         },
+         {
+            $match: { status: status }
+         },
+         { "$project": {
+            "otp": 0,
+            "token": 0,
+        }},                
+        ])
+        .then(async (user) => {
+            req.user = user; // eslint-disable-line no-param-reassign
+            let jsonResult;
+            if (user) {
+                user.token = jwtToken.createToken(user?._id, user?.email, user.password);
+                jsonResult = utils.getJsonResponse(true, 'Shareholder list.', user);
+            } else {
+                jsonResult = utils.getJsonResponse(false, 'Invalid status!.', null);
+            }
+            return res.send(jsonResult);
+
+            // return next();
+        })
+        .catch((e) => {
+            console.log('User login error: ', e);
+            res.send(utils.getJsonResponse(false, e, null));
+        });
+}
+
 module.exports = {
-    brokerLogin
+    brokerLogin,
+    getShareholderByStatus
 };
