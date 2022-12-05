@@ -13,6 +13,5 @@ router
     .post(BrokerController.brokerLogin);
 
 router.route('/getShareholderByStatus').get(BrokerController.getShareholderByStatus);
-    
 
 module.exports = router;

@@ -49,9 +49,9 @@ async function shareholderLogin(req, res, next) {
             req.user = user; // eslint-disable-line no-param-reassign
             let jsonResult;
             if (user) {
-                if(user.status === 'PENDING'){
+                if (user.status === 'PENDING') {
                     jsonResult = utils.getJsonResponse(false, 'Shareholder is not active.', null);
-                }else{
+                } else {
                     //user.token = jwtToken.createToken(user?._id, user?.email, user.password);
                     //////////// Create a OTP
                     let otp;

@@ -53,22 +53,24 @@ async function getShareholderByStatus(req, res, next) {
         return res.send(utils.getJsonResponse(false, 'Status is required.', null));
     }
     Shareholder.aggregate([
-        { $lookup:
-           {
-             from: 'shareholderdocs',
-             localField: '_id',
-             foreignField: 'shareholderId',
-             as: 'docsdetails'
-           }
-         },
-         {
+        {
+            $lookup: {
+                from: 'shareholderdocs',
+                localField: '_id',
+                foreignField: 'shareholderId',
+                as: 'docsdetails'
+            }
+        },
+        {
             $match: { status: status }
-         },
-         { "$project": {
-            "otp": 0,
-            "token": 0,
-        }},                
-        ])
+        },
+        {
+            $project: {
+                otp: 0,
+                token: 0
+            }
+        }
+    ])
         .then(async (user) => {
             req.user = user; // eslint-disable-line no-param-reassign
             let jsonResult;
