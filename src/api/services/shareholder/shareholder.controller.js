@@ -1,5 +1,5 @@
 const Shareholder = require('./shareholder.model');
-const shareHolderAssociate = require('./shareholder_company_association.model');
+const shareHolderAssociateModal = require('./shareholder_company_association.model');
 const ShareholderDocs = require('./shareholder_docs.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
@@ -438,7 +438,7 @@ const companyAssociate = async (req, res) => {
     if (shareholderStep === '' || shareholderStep === undefined) {
         return res.send(utils.getJsonResponse(false, 'Shareholder step is required.', null));
     }
-    let isPanExists = await shareHolderAssociate.findOne({
+    let isPanExists = await shareHolderAssociateModal.findOne({
         shareholderId: ObjectId(shareholderId),
         companyId: ObjectId(companyId)
     });
@@ -448,7 +448,7 @@ const companyAssociate = async (req, res) => {
         if (shareholderStep == 'certificate') {
             let files = await File.upload(req, shareholderId, 'company-shareholding-document');
             //console.log(files);
-            const shareHolderAssociate = new shareHolderAssociate({
+            const shareHolderAssociate = new shareHolderAssociateModal({
                 companyId: ObjectId(companyId),
                 shareholderId: ObjectId(shareholderId),
                 certificates: {
@@ -473,7 +473,7 @@ const companyAssociate = async (req, res) => {
                     res.send(utils.getJsonResponse(false, err, null));
                 });
         } else {
-            const shareHolderAssociate = new shareHolderAssociate({
+            const shareHolderAssociate = new shareHolderAssociateModal({
                 companyId: ObjectId(companyId),
                 shareholderId: ObjectId(shareholderId),
                 certificates: {
