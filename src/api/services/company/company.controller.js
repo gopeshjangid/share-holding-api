@@ -210,7 +210,7 @@ function list(req, res, next) {
 function companyList(req, res, next) {
     const { limit = 50, skip = 0 } = req?.query;
     Company.find()
-        .select({ _id: 1, name: 1 })
+        .select({ _id: 1, name: 1, isin: 1 })
         .then(async (users) => {
             let jsonResult;
             if (users) {
