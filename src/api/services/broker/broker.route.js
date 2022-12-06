@@ -13,5 +13,6 @@ router
     .post(BrokerController.brokerLogin);
 
 router.route('/getShareholderByStatus').get(BrokerController.getShareholderByStatus);
+router.route('/updateShareholderStatus').post(BrokerController.updateShareholderStatus);
 
 module.exports = router;

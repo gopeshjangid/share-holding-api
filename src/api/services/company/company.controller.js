@@ -1,4 +1,5 @@
 const Company = require('./company.model');
+const DocumentModel = require('../docs/document.model');
 //const CompanyTimeline = require('./company_timeline.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
@@ -411,6 +412,46 @@ async function getCompanyInfo(req, res) {
     }
 }
 
+async function addCompanyDocumentRemark(req, res) {
+    let documentId = req?.body?.documentId;
+    let remark = req?.body?.remark;
+    try {
+        if(documentId === '' || documentId === undefined) {
+            $message = 'Please select document id.';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        }else if(remark === '' || remark === undefined){
+            $message = 'Please enter remark.';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        } else {
+            const savedRemark = await DocumentModel.findByIdAndUpdate({_id:ObjectId(documentId)},{remark:remark},{new:true,useFindAndModify:true});   
+            res.send(
+                utils.getJsonResponse(true, 'Company document review created successfully.', savedRemark)
+            );                     
+            /*
+            const docmodel = new DocumentModel({
+                remark:remark
+            });
+            docmodel
+            .save()
+            .then(async (savedRemark) => {
+                res.send(
+                    utils.getJsonResponse(true, 'Company document review created successfully.', savedRemark)
+                );
+            })
+            .catch(async (err) => {
+                console.log('Error:', err);
+                res.send(utils.getJsonResponse(false, err, null));
+            });
+            */
+        }
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
+
 function getRTACompanyList(req, res, next) {
     Company.find({ payment_status: 'PAID' })
         .select({ password: 0, token: 0 })
@@ -440,5 +481,6 @@ module.exports = {
     getCompanyInfo,
     companyList,
     getRTACompanyList,
-    updateCompanyISIN
+    updateCompanyISIN,
+    addCompanyDocumentRemark
 };

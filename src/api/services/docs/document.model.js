@@ -20,6 +20,14 @@ const DocumentSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        remark: {
+            type: String,
+            default: null
+        },
+        status: {
+            type: String,
+            default: 'PENDING'
+        },         
         createdAt: {
             type: Date,
             default: Date.now
@@ -27,10 +35,6 @@ const DocumentSchema = new mongoose.Schema(
         updatedAt: {
             type: Date,
             default: Date.now
-        },
-        status: {
-            type: String,
-            default: 'PENDING'
         }
     },
     {

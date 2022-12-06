@@ -90,7 +90,38 @@ async function getShareholderByStatus(req, res, next) {
         });
 }
 
+async function updateShareholderStatus(req, res) {
+    let shareholderID = req?.body?.shareholderID;
+    let status = req?.body?.status;
+    try {
+        if(shareholderID === '' || shareholderID === undefined) {
+            $message = 'Please select shareholder id.';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        }else if(status === '' || status === undefined){
+            $message = 'Please enter status.';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        } else {
+            const savedRemark = await Shareholder.findByIdAndUpdate({_id:ObjectId(shareholderID)},{status:status});
+            if(savedRemark){
+                res.send(
+                    utils.getJsonResponse(true, 'Shareholder status updated successfully.', savedRemark)
+                );
+            }else{
+                res.send(
+                    utils.getJsonResponse(false, 'Shareholder does not exists.',null)
+                );
+            }   
+        }
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
+
 module.exports = {
     brokerLogin,
-    getShareholderByStatus
+    getShareholderByStatus,
+    updateShareholderStatus
 };

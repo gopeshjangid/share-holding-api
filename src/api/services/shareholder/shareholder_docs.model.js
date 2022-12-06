@@ -22,6 +22,14 @@ const shareholderDocsSchema = new mongoose.Schema(
             type: String,
             default: null
         },
+        status: {
+            type: String,
+            default: 'PENDING'
+        },
+        remark: {
+            type: String,
+            default: null
+        },         
         createdAt: {
             type: Date,
             default: Date.now
@@ -29,11 +37,7 @@ const shareholderDocsSchema = new mongoose.Schema(
         updatedAt: {
             type: Date,
             default: Date.now
-        },
-        status: {
-            type: String,
-            default: 'PENDING'
-        }
+        }       
     },
     {
         toJSON: {
