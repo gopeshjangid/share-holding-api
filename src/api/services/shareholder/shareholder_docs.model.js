@@ -29,7 +29,7 @@ const shareholderDocsSchema = new mongoose.Schema(
         remark: {
             type: String,
             default: null
-        },         
+        },
         createdAt: {
             type: Date,
             default: Date.now
@@ -37,7 +37,7 @@ const shareholderDocsSchema = new mongoose.Schema(
         updatedAt: {
             type: Date,
             default: Date.now
-        }       
+        }
     },
     {
         toJSON: {

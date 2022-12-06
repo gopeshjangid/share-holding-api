@@ -27,7 +27,7 @@ const DocumentSchema = new mongoose.Schema(
         status: {
             type: String,
             default: 'PENDING'
-        },         
+        },
         createdAt: {
             type: Date,
             default: Date.now
