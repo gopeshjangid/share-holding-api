@@ -1,5 +1,5 @@
 const Shareholder = require('./shareholder.model');
-const ShareholderComAssociate = require('./shareholder_company_association.model');
+const shareHolderAssociate = require('./shareholder_company_association.model');
 const ShareholderDocs = require('./shareholder_docs.model');
 const Utils = require('../../../helpers/utils');
 const utils = new Utils();
@@ -438,7 +438,7 @@ const companyAssociate = async (req, res) => {
     if (shareholderStep === '' || shareholderStep === undefined) {
         return res.send(utils.getJsonResponse(false, 'Shareholder step is required.', null));
     }
-    let isPanExists = await ShareholderComAssociate.findOne({
+    let isPanExists = await shareHolderAssociate.findOne({
         shareholderId: ObjectId(shareholderId),
         companyId: ObjectId(companyId)
     });
@@ -448,7 +448,7 @@ const companyAssociate = async (req, res) => {
         if (shareholderStep == 'certificate') {
             let files = await File.upload(req, shareholderId, 'company-shareholding-document');
             //console.log(files);
-            const shareHolderAssocite = new ShareholderComAssociate({
+            const shareHolderAssociate = new shareHolderAssociate({
                 companyId: ObjectId(companyId),
                 shareholderId: ObjectId(shareholderId),
                 certificates: {
@@ -459,7 +459,7 @@ const companyAssociate = async (req, res) => {
                     dematerializationInitiated: new Date()
                 }
             });
-            shareHolderAssocite
+            shareHolderAssociate
                 .save()
                 .then(async (savedShareholder) => {
                     res.send(
@@ -473,7 +473,7 @@ const companyAssociate = async (req, res) => {
                     res.send(utils.getJsonResponse(false, err, null));
                 });
         } else {
-            const shareHolderAssocite = new ShareholderComAssociate({
+            const shareHolderAssociate = new shareHolderAssociate({
                 companyId: ObjectId(companyId),
                 shareholderId: ObjectId(shareholderId),
                 certificates: {
@@ -494,7 +494,7 @@ const companyAssociate = async (req, res) => {
                 },
                 request_status: 'PENDING'
             });
-            shareHolderAssocite
+            shareHolderAssociate
                 .save()
                 .then(async (savedShareholder) => {
                     res.send(
