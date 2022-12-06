@@ -492,7 +492,7 @@ const companyAssociate = async (req, res) => {
                 timeline: {
                     dematerializationInitiated: new Date()
                 },
-                quantity:req?.query?.quantity,
+                quantity: req?.query?.quantity,
                 request_status: 'PENDING'
             });
             shareHolderAssociate
