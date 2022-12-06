@@ -82,6 +82,10 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
             type: String,
             default: 'PENDING'
         },
+        quantity: {
+            type: Number,
+            default: null
+        },        
         createdAt: {
             type: Date,
             default: Date.now
