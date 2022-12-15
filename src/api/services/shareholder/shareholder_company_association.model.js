@@ -58,18 +58,6 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
             type: String,
             default: null
         },
-        certificateNumber: {
-            type: Number,
-            default: null
-        },
-        distinctiveNoForm: {
-            type: Number,
-            default: null
-        },
-        distinctiveNoTo: {
-            type: Number,
-            default: null
-        },
         timeline: {
             dematerializationInitiated: {
                 type: Date,
@@ -87,10 +75,6 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
         request_status: {
             type: String,
             default: 'PENDING'
-        },
-        quantity: {
-            type: Number,
-            default: null
         },
         createdAt: {
             type: Date,
