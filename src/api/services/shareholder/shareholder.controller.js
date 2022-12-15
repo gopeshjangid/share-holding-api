@@ -426,9 +426,9 @@ const uploadShareholderDocuments = async (req, res) => {
  * @returns {Shareholder}
  */
 const companyAssociate = async (req, res) => {
-    const companyId = req?.body?.companyId;
-    const shareholderId = req?.body?.shareholderId;
-    const shareholderStep = req?.body?.shareholderStep;
+    const companyId = req?.query?.companyId;
+    const shareholderId = req?.query?.shareholderId;
+    const shareholderStep = req?.query?.shareholderStep;
     if (companyId === '' || companyId === undefined) {
         return res.send(utils.getJsonResponse(false, 'CompanyId is required.', null));
     }
@@ -473,21 +473,28 @@ const companyAssociate = async (req, res) => {
                     res.send(utils.getJsonResponse(false, err, null));
                 });
         } else {
-            const shareHolderAssociate = new shareHolderAssociateModal(
-                {
-                    shareholderId: req?.body?.shareholderId,
-                    companyId: req?.body?.companyId,
-                    certificates: req?.body?.certificates,
-                    companyName: req?.body?.companyName,
-                    isin: req?.body?.isin,
-                    securitiesType: req?.body?.securitiesType,
-                    folio: req?.body?.folio,
-                    noOfCertificates: req?.body?.noOfCertificates,
-                    noOfCertificatesWords: req?.body?.noOfCertificatesWords,
-                    timeline: req?.body?.timeline,
-                    request_status: req?.body?.request_status,
-                }
-            );
+            const shareHolderAssociate = new shareHolderAssociateModal({
+                companyId: ObjectId(companyId),
+                shareholderId: ObjectId(shareholderId),
+                certificates: {
+                    frontSide: null,
+                    backSide: null
+                },
+                companyName: req?.query?.companyName,
+                isin: req?.query?.isin,
+                securitiesType: req?.query?.securitiesType,
+                folio: req?.query?.folio,
+                noOfCertificates: req?.query?.noOfCertificates,
+                noOfCertificatesWords: req?.query?.noOfCertificatesWords,
+                certificateNumber: req?.query?.certificateNumber,
+                distinctiveNoForm: req?.query?.distinctiveNoForm,
+                distinctiveNoTo: req?.query?.distinctiveNoTo,
+                timeline: {
+                    dematerializationInitiated: new Date()
+                },
+                quantity: req?.query?.quantity,
+                request_status: 'PENDING'
+            });
             shareHolderAssociate
                 .save()
                 .then(async (savedShareholder) => {
