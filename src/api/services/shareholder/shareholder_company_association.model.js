@@ -18,16 +18,22 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
             type: ObjectId,
             required: true
         },
-        certificates: {
-            frontSide: {
-                type: String,
-                default: null
-            },
-            backSide: {
-                type: String,
-                default: null
+        certificates: [
+            {
+                certificateNumber: {
+                    type: String
+                },
+                distinctiveNoForm: {
+                    type: Date
+                },
+                distinctiveNoTo: {
+                    type: Date
+                },
+                quantity: {
+                    type: Number
+                }
             }
-        },
+        ],
         companyName: {
             type: String,
             default: null
