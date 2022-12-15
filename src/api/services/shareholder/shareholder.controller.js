@@ -428,22 +428,18 @@ const uploadShareholderDocuments = async (req, res) => {
 const companyAssociate = async (req, res) => {
     const companyId = req?.body?.companyId;
     const shareholderId = req?.body?.shareholderId;
-    const shareholderStep = req?.body?.shareholderStep;
     if (companyId === '' || companyId === undefined) {
         return res.send(utils.getJsonResponse(false, 'CompanyId is required.', null));
     }
     if (shareholderId === '' || shareholderId === undefined) {
         return res.send(utils.getJsonResponse(false, 'ShareholderId number is required.', null));
     }
-    const sharedHolderApi = await shareHolderAssociateModal.findOne({
-        shareholderId: ObjectId(shareholderId)
-    })
-    if (!sharedHolderApi) {
-        return res.send(utils.getJsonResponse(false, 'Shareholder Not Exist.', null));
-    }
-    if (shareholderStep === '' || shareholderStep === undefined) {
-        return res.send(utils.getJsonResponse(false, 'Shareholder step is required.', null));
-    }
+    // const sharedHolderApi = await shareHolderAssociateModal.findOne({
+    //     shareholderId: ObjectId(shareholderId)
+    // })
+    // if (!sharedHolderApi) {
+    //     return res.send(utils.getJsonResponse(false, 'Shareholder Not Exist.', null));
+    // }
     let isPanExists = await shareHolderAssociateModal.findOne({
         shareholderId: ObjectId(shareholderId),
         companyId: ObjectId(companyId)
@@ -451,61 +447,32 @@ const companyAssociate = async (req, res) => {
     if (isPanExists) {
         return res.send(utils.getJsonResponse(false, 'Shareholder already registered with same company.', null));
     } else {
-        if (shareholderStep == 'certificate') {
-            let files = await File.upload(req, shareholderId, 'company-shareholding-document');
-            //console.log(files);
-            const shareHolderAssociate = new shareHolderAssociateModal({
-                companyId: ObjectId(companyId),
-                shareholderId: ObjectId(shareholderId),
-                certificates: {
-                    frontSide: files[0].Location,
-                    backSide: files[1].Location
-                },
-                timeline: {
-                    dematerializationInitiated: new Date()
-                }
+        const shareHolderAssociate = new shareHolderAssociateModal({
+            shareholderId: req?.body?.shareholderId,
+            companyId: req?.body?.companyId,
+            certificates: req?.body?.certificates,
+            companyName: req?.body?.companyName,
+            isin: req?.body?.isin,
+            securitiesType: req?.body?.securitiesType,
+            folio: req?.body?.folio,
+            noOfCertificates: req?.body?.noOfCertificates,
+            noOfCertificatesWords: req?.body?.noOfCertificatesWords,
+            timeline: req?.body?.timeline,
+            request_status: req?.body?.request_status
+        });
+        shareHolderAssociate
+            .save()
+            .then(async (savedShareholder) => {
+                res.send(
+                    utils.getJsonResponse(true, 'Shareholder registered successfully.', {
+                        savedShareholder
+                    })
+                );
+            })
+            .catch(async (err) => {
+                console.log('Error:', err);
+                res.send(utils.getJsonResponse(false, err, null));
             });
-            shareHolderAssociate
-                .save()
-                .then(async (savedShareholder) => {
-                    res.send(
-                        utils.getJsonResponse(true, 'Shareholder registered successfully.', {
-                            savedShareholder
-                        })
-                    );
-                })
-                .catch(async (err) => {
-                    console.log('Error:', err);
-                    res.send(utils.getJsonResponse(false, err, null));
-                });
-        } else {
-            const shareHolderAssociate = new shareHolderAssociateModal({
-                shareholderId: req?.body?.shareholderId,
-                companyId: req?.body?.companyId,
-                certificates: req?.body?.certificates,
-                companyName: req?.body?.companyName,
-                isin: req?.body?.isin,
-                securitiesType: req?.body?.securitiesType,
-                folio: req?.body?.folio,
-                noOfCertificates: req?.body?.noOfCertificates,
-                noOfCertificatesWords: req?.body?.noOfCertificatesWords,
-                timeline: req?.body?.timeline,
-                request_status: req?.body?.request_status
-            });
-            shareHolderAssociate
-                .save()
-                .then(async (savedShareholder) => {
-                    res.send(
-                        utils.getJsonResponse(true, 'Shareholder registered successfully.', {
-                            savedShareholder
-                        })
-                    );
-                })
-                .catch(async (err) => {
-                    console.log('Error:', err);
-                    res.send(utils.getJsonResponse(false, err, null));
-                });
-        }
     }
 };
 

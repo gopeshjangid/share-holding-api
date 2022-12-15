@@ -47,7 +47,7 @@ const shareholderCompanyAssociationSchema = new mongoose.Schema(
             default: null
         },
         folio: {
-            type: Number,
+            type: String,
             default: null
         },
         noOfCertificates: {
