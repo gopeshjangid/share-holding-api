@@ -426,14 +426,20 @@ const uploadShareholderDocuments = async (req, res) => {
  * @returns {Shareholder}
  */
 const companyAssociate = async (req, res) => {
-    const companyId = req?.query?.companyId;
-    const shareholderId = req?.query?.shareholderId;
-    const shareholderStep = req?.query?.shareholderStep;
+    const companyId = req?.body?.companyId;
+    const shareholderId = req?.body?.shareholderId;
+    const shareholderStep = req?.body?.shareholderStep;
     if (companyId === '' || companyId === undefined) {
         return res.send(utils.getJsonResponse(false, 'CompanyId is required.', null));
     }
     if (shareholderId === '' || shareholderId === undefined) {
         return res.send(utils.getJsonResponse(false, 'ShareholderId number is required.', null));
+    }
+    const sharedHolderApi = await shareHolderAssociateModal.findOne({
+        shareholderId: ObjectId(shareholderId)
+    })
+    if (!sharedHolderApi) {
+        return res.send(utils.getJsonResponse(false, 'Shareholder Not Exist.', null));
     }
     if (shareholderStep === '' || shareholderStep === undefined) {
         return res.send(utils.getJsonResponse(false, 'Shareholder step is required.', null));
@@ -443,7 +449,7 @@ const companyAssociate = async (req, res) => {
         companyId: ObjectId(companyId)
     });
     if (isPanExists) {
-        res.send(utils.getJsonResponse(false, 'Shareholder already registered with same company.', null));
+        return res.send(utils.getJsonResponse(false, 'Shareholder already registered with same company.', null));
     } else {
         if (shareholderStep == 'certificate') {
             let files = await File.upload(req, shareholderId, 'company-shareholding-document');
