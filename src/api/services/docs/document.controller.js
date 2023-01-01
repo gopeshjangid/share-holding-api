@@ -307,12 +307,43 @@ const connectSocket = async (io, companyCIN) => {
     });
 };
 
+async function addDocumentRemark(req, res) {
+    let documentID = req?.body?.documentID;
+    let remark = req?.body?.remark;
+    try {
+        if (documentID === '' || documentID === undefined) {
+            $message = 'Please select document id.';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        } else if (remark === '' || remark === undefined) {
+            $message = 'Please enter remark.';
+            let jsonResult = utils.getJsonResponse(false, $message, {});
+            res.send(jsonResult);
+        } else {
+            const savedRemark = await Document.findByIdAndUpdate(
+                { _id: ObjectId(documentID) },
+                { $set:{ remark: remark }},
+                { new: true }
+            );
+            if (savedRemark) {
+                res.send(utils.getJsonResponse(true, 'Document remark updated successfully.', savedRemark));
+            } else {
+                res.send(utils.getJsonResponse(false, 'Document does not exists.', savedRemark));
+            }
+        }
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
+
 module.exports = {
     getCompanyDocumentsList,
     downloadResolutionForm,
     getDocumentByCompanyId,
     uploadRegistrationDocuments,
     processDocuments,
+    addDocumentRemark,
     updateCompanyDocumentStatus,
     connectSocket
 };

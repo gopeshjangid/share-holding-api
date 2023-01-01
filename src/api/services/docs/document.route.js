@@ -31,5 +31,10 @@ router
     /** GET /api/users - Get list of users */
     .get(Document.getCompanyDocumentsList);
 
+router
+    .route('/addDocumentRemark')
+    /** PATCH /addDocumentRemark - Update the remark of a document */
+    .patch(Document.addDocumentRemark);
+
 // /api/users/verifyOtp
 module.exports = router;
