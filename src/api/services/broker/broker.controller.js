@@ -93,7 +93,7 @@ async function getShareholderByStatus(req, res, next) {
 async function updateShareholderStatus(req, res) {
     let shareholderID = req?.body?.shareholderID;
     let status = req?.body?.status;
-    let remark = req?.body?.remark || "";
+    let remark = req?.body?.remark || '';
     try {
         if (shareholderID === '' || shareholderID === undefined) {
             $message = 'Please select shareholder id.';
@@ -106,7 +106,7 @@ async function updateShareholderStatus(req, res) {
         } else {
             const savedRemark = await Shareholder.findByIdAndUpdate(
                 { _id: ObjectId(shareholderID) },
-                { 
+                {
                     status,
                     remark
                 }

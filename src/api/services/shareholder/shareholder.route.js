@@ -17,4 +17,7 @@ router
     .route('/companyAssociate')
     /** POST /api/shareholder/companyAssociate -  */
     .post(ShareholderController.companyAssociate);
+
+router.route('/getCompanyShareholders').get(ShareholderController.getCompanyShareholders);
+
 module.exports = router;

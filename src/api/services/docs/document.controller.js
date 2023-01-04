@@ -322,7 +322,7 @@ async function addDocumentRemark(req, res) {
         } else {
             const savedRemark = await Document.findByIdAndUpdate(
                 { _id: ObjectId(documentID) },
-                { $set:{ remark: remark }},
+                { $set: { remark: remark } },
                 { new: true }
             );
             if (savedRemark) {
@@ -337,6 +337,12 @@ async function addDocumentRemark(req, res) {
     }
 }
 
+async function readZipFromS3(req, res) {
+    let files = await File.readZipFromS3();
+    res.send(files);
+};
+
+
 module.exports = {
     getCompanyDocumentsList,
     downloadResolutionForm,
@@ -345,5 +351,6 @@ module.exports = {
     processDocuments,
     addDocumentRemark,
     updateCompanyDocumentStatus,
+    readZipFromS3,
     connectSocket
 };

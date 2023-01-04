@@ -5,6 +5,11 @@ const fs = require('fs');
 const S3 = AWS.S3();
 const bucketName = 'share-holding-docs';
 const Document = require('./document.model');
+
+const join = require('path').join
+const XmlStream = require('xml-stream')
+const s3Zip = require('s3-zip')
+
 const parseForm = async (req) => {
     return new Promise((resolve, reject) => {
         const form = Busboy({
@@ -152,10 +157,138 @@ const removeBasket = async ({ directory, fileName, dockType }) => {
     });
 };
 
+//zip download
+
+/* let readZipFromS3 = function (fileName = 'undertaking_for_private_ltd_co.pdf') {
+    return new Promise(function (resolve, reject) {
+        let bucketName = 'share-holding-docs';
+        const params = {
+            Bucket: bucketName,
+            Prefix: `U74999DL201F57`
+        };
+        S3.listObjects(params, (err, data) => {
+            if (err) {
+                return reject(err);
+            } else {
+                data.Contents.forEach(async function(obj,index) {
+                    let getres = await getZipFromS3(bucketName, obj.Key);
+                    console.log(obj.Key,"<<<file path", getres);
+                    resolve(getres);
+                })
+            }
+        });
+    });
+};
+
+const getZipFromS3 = async (bucketName, fileName) => {
+    console.log(bucketName, fileName,'---')
+    return new Promise((resolve, reject) => {
+        const params = {
+            Bucket: bucketName,
+            // Key: `${directory}/${fileName}.${dockType}`
+            Key: `${fileName}`
+        };
+
+        S3.getObject(params, (err, data) => {
+            if (err) {
+                return reject(err);
+            } else {
+                resolve(data.Body);
+            }
+        });
+    });
+}; */
+
+const getZipFromS3 = async (params) => {
+    return new Promise((resolve, reject) => {
+        S3.listObjects(params, (err, data) => {
+            if (err) {
+                return reject(err);
+            } else {
+                resolve(data.Contents);
+            }
+        });
+    });
+}
+
+const getMultiFiles = async (files) => {
+    return new Promise((resolve, reject) => {
+        S3.listObjects(params, (err, data) => {
+            if (err) {
+                return reject(err);
+            } else {
+                resolve(data.Contents);
+            }
+        });
+    });
+}
+
+const readZipFromS3 = async (bucketName = 'share-holding-docs', prefix="U74999DL201F57") => {
+    return new Promise(async (resolve, reject) => {
+        const params = {
+            Bucket: bucketName,
+            Prefix: prefix
+        };
+        S3.listObjects(params, function(err, data){
+            if (err) return console.log(err);
+        
+            data.Contents.forEach(async function(fileObj, callback){
+                var key = fileObj.Key;
+                console.log('Downloading: ' + key);
+        
+                var fileParams = {
+                    Bucket: bucketName,
+                    Key: key
+                }
+        
+                S3.getObject(fileParams, function(err, fileContents){
+                    if (err) {
+                        callback(err);
+                    } else {
+                        // Read the file
+                        var contents = fileContents.Body.toString();
+                        
+                        // Do something with file
+                        
+                        
+                        callback(fs.writeFile(contents));
+                    }
+                });
+            }, function(err) {
+                if (err) {
+                    console.log('Failed: ' + err);
+                } else {
+                    console.log('Finished');
+                }
+            });
+        });
+
+        /*
+        const filesArray = []
+        const files = S3.listObjects(params).createReadStream()
+        const xml = new XmlStream(files)
+        xml.collect('Key')
+        xml.on('endElement: Key', function(item) {
+        filesArray.push(item['$text'].substr(folder.length))
+        })
+
+        xml
+        .on('end', function () {
+            zip(filesArray)
+        })
+        const output = fs.createWriteStream(join(__dirname, 'use-s3-zip.zip'))
+        let res = s3Zip.archive({region: 'us-east-2', bucket: bucketName}, prefix, files)
+        .pipe(output);
+        resolve(res);
+        */
+    });
+};
+
 module.exports = {
     upload,
     uploadToS3,
     uploadDocs,
     readFromS3,
-    removeBasket
+    removeBasket,
+    readZipFromS3
 };
