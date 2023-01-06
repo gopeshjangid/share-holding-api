@@ -7,8 +7,8 @@ const bucketName = 'share-holding-docs';
 const Document = require('./document.model');
 
 const join = require('path').join
-const XmlStream = require('xml-stream')
-const s3Zip = require('s3-zip')
+//const XmlStream = require('xml-stream')
+//const s3Zip = require('s3-zip')
 
 const parseForm = async (req) => {
     return new Promise((resolve, reject) => {

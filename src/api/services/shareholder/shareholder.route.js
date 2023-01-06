@@ -2,6 +2,7 @@ const express = require('express');
 const validate = require('express-validation');
 const paramValidation = require('../../../config/param-validation');
 const ShareholderController = require('./shareholder.controller');
+const ShareholderCompanyAssocController = require('./shareholder_company_assoc.controller');
 const router = express.Router(); // eslint-disable-line new-cap
 router
     .route('/login')
@@ -19,5 +20,13 @@ router
     .post(ShareholderController.companyAssociate);
 
 router.route('/getCompanyShareholders').get(ShareholderController.getCompanyShareholders);
+
+ router
+    .route('/getDRFRequestsByCompanyId')
+    .post(ShareholderCompanyAssocController.getDRFRequestsByCompany);
+
+     router
+    .route('/approveRejectDRFRequest')
+    .post(ShareholderCompanyAssocController.approveRejectDRFRequest);
 
 module.exports = router;
