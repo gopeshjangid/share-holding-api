@@ -11,29 +11,28 @@ const getDRFRequestsByCompany = async (req, res) => {
         }
         //const result = await ShareHolderCompanyAssocModel.find(condition, {});
         ShareHolderCompanyAssocModel.aggregate([
-            { "$match": condition },
+            { $match: condition },
             {
-                "$lookup": {
-                    from: "shareholders", // collection name in db
-                    localField: "shareholderId",
-                    foreignField: "_id",
+                $lookup: {
+                    from: 'shareholders', // collection name in db
+                    localField: 'shareholderId',
+                    foreignField: '_id',
                     pipeline: [{ $project: { dob: 1 } }],
-                    as: "shareholderInfo"
-                },
-
-            }]).exec(function (err, data) {
-                console.log("error", err)
-                if (err) {
-                    return res.status(500).json({ success: false, data: null, message: err?.message || err });
+                    as: 'shareholderInfo'
                 }
-                return res.status(200).json({ success: true, data, message: 'DRF request list' });
-            })
-
+            }
+        ]).exec(function (err, data) {
+            console.log('error', err);
+            if (err) {
+                return res.status(500).json({ success: false, data: null, message: err?.message || err });
+            }
+            return res.status(200).json({ success: true, data, message: 'DRF request list' });
+        });
     } catch (err) {
-        console.error("Error in fetching DRF request: ", err);
+        console.error('Error in fetching DRF request: ', err);
         res.status(500).json({ success: false, data: null, message: err.message });
     }
-}
+};
 
 const approveRejectDRFRequest = async (req, res) => {
     const { requestId, request_status, remark } = req.body;
@@ -55,28 +54,25 @@ const approveRejectDRFRequest = async (req, res) => {
     }
 
     try {
-
         const set = { request_status };
         if (request_status === 'REJECTED') {
             set.remark = remark;
         }
         const isRequestFound = await ShareHolderCompanyAssocModel.count({ _id: Object(requestId) });
         if (!isRequestFound) {
-            return res.status(500).json({ success: false, data: null, message: "Request id not found" });
+            return res.status(500).json({ success: false, data: null, message: 'Request id not found' });
         }
 
-        await ShareHolderCompanyAssocModel.findByIdAndUpdate(
-            { _id: ObjectId(requestId) },
-            set,
-            { new: true, useFindAndModify: true }
-        );
+        await ShareHolderCompanyAssocModel.findByIdAndUpdate({ _id: ObjectId(requestId) }, set, {
+            new: true,
+            useFindAndModify: true
+        });
 
-        return res.status(200).json({ success: true, data: null, message: "updated successfully" });
-
+        return res.status(200).json({ success: true, data: null, message: 'updated successfully' });
     } catch (err) {
-        console.error("Error in fetching DRF request: ", err);
+        console.error('Error in fetching DRF request: ', err);
         res.status(500).json({ success: false, data: null, message: err.message });
     }
-}
+};
 
 module.exports = { getDRFRequestsByCompany, approveRejectDRFRequest };

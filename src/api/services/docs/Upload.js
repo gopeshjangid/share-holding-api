@@ -6,7 +6,7 @@ const S3 = AWS.S3();
 const bucketName = 'share-holding-docs';
 const Document = require('./document.model');
 
-const join = require('path').join
+const join = require('path').join;
 //const XmlStream = require('xml-stream')
 //const s3Zip = require('s3-zip')
 
@@ -209,7 +209,7 @@ const getZipFromS3 = async (params) => {
             }
         });
     });
-}
+};
 
 const getMultiFiles = async (files) => {
     return new Promise((resolve, reject) => {
@@ -221,46 +221,48 @@ const getMultiFiles = async (files) => {
             }
         });
     });
-}
+};
 
-const readZipFromS3 = async (bucketName = 'share-holding-docs', prefix="U74999DL201F57") => {
+const readZipFromS3 = async (bucketName = 'share-holding-docs', prefix = 'U74999DL201F57') => {
     return new Promise(async (resolve, reject) => {
         const params = {
             Bucket: bucketName,
             Prefix: prefix
         };
-        S3.listObjects(params, function(err, data){
+        S3.listObjects(params, function (err, data) {
             if (err) return console.log(err);
-        
-            data.Contents.forEach(async function(fileObj, callback){
-                var key = fileObj.Key;
-                console.log('Downloading: ' + key);
-        
-                var fileParams = {
-                    Bucket: bucketName,
-                    Key: key
-                }
-        
-                S3.getObject(fileParams, function(err, fileContents){
+
+            data.Contents.forEach(
+                async function (fileObj, callback) {
+                    var key = fileObj.Key;
+                    console.log('Downloading: ' + key);
+
+                    var fileParams = {
+                        Bucket: bucketName,
+                        Key: key
+                    };
+
+                    S3.getObject(fileParams, function (err, fileContents) {
+                        if (err) {
+                            callback(err);
+                        } else {
+                            // Read the file
+                            var contents = fileContents.Body.toString();
+
+                            // Do something with file
+
+                            callback(fs.writeFile(contents));
+                        }
+                    });
+                },
+                function (err) {
                     if (err) {
-                        callback(err);
+                        console.log('Failed: ' + err);
                     } else {
-                        // Read the file
-                        var contents = fileContents.Body.toString();
-                        
-                        // Do something with file
-                        
-                        
-                        callback(fs.writeFile(contents));
+                        console.log('Finished');
                     }
-                });
-            }, function(err) {
-                if (err) {
-                    console.log('Failed: ' + err);
-                } else {
-                    console.log('Finished');
                 }
-            });
+            );
         });
 
         /*

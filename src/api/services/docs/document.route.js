@@ -36,10 +36,7 @@ router
     /** PATCH /addDocumentRemark - Update the remark of a document */
     .patch(Document.addDocumentRemark);
 
-
-router
-    .route('/readZipFromS3')
-    .get(Document.readZipFromS3);
+router.route('/readZipFromS3').get(Document.readZipFromS3);
 
 // /api/users/verifyOtp
 module.exports = router;

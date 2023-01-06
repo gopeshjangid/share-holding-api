@@ -340,8 +340,7 @@ async function addDocumentRemark(req, res) {
 async function readZipFromS3(req, res) {
     let files = await File.readZipFromS3();
     res.send(files);
-};
-
+}
 
 module.exports = {
     getCompanyDocumentsList,

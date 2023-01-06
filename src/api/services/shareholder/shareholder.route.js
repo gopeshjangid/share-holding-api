@@ -21,12 +21,8 @@ router
 
 router.route('/getCompanyShareholders').get(ShareholderController.getCompanyShareholders);
 
- router
-    .route('/getDRFRequestsByCompanyId')
-    .post(ShareholderCompanyAssocController.getDRFRequestsByCompany);
+router.route('/getDRFRequestsByCompanyId').post(ShareholderCompanyAssocController.getDRFRequestsByCompany);
 
-     router
-    .route('/approveRejectDRFRequest')
-    .post(ShareholderCompanyAssocController.approveRejectDRFRequest);
+router.route('/approveRejectDRFRequest').post(ShareholderCompanyAssocController.approveRejectDRFRequest);
 
 module.exports = router;

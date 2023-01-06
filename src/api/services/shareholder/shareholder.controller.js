@@ -479,9 +479,11 @@ const companyAssociate = async (req, res) => {
 const getCompanyShareholders = async (req, res) => {
     try {
         const companyId = req?.body?.companyId;
-        let data = await shareHolderAssociateModal.find({
-            companyId: ObjectId(companyId)
-        }).select({createdAt: 0});
+        let data = await shareHolderAssociateModal
+            .find({
+                companyId: ObjectId(companyId)
+            })
+            .select({ createdAt: 0 });
         res.status(200).json({
             success: true,
             data: data,
