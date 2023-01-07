@@ -1,6 +1,7 @@
 const ShareHolderCompanyAssocModel = require('./shareholder_company_association.model');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+
 const getDRFRequestsByCompany = async (req, res) => {
     const { companyId, request_status } = req.body;
 
@@ -17,7 +18,7 @@ const getDRFRequestsByCompany = async (req, res) => {
                     from: 'shareholders', // collection name in db
                     localField: 'shareholderId',
                     foreignField: '_id',
-                    pipeline: [{ $project: { dob: 1 } }],
+                    pipeline: [{ $project: { otp: 0 } }],
                     as: 'shareholderInfo'
                 }
             }

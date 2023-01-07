@@ -310,6 +310,7 @@ const connectSocket = async (io, companyCIN) => {
 async function addDocumentRemark(req, res) {
     let documentID = req?.body?.documentID;
     let remark = req?.body?.remark;
+    let status = req?.body?.status;
     try {
         if (documentID === '' || documentID === undefined) {
             $message = 'Please select document id.';
@@ -322,7 +323,7 @@ async function addDocumentRemark(req, res) {
         } else {
             const savedRemark = await Document.findByIdAndUpdate(
                 { _id: ObjectId(documentID) },
-                { $set: { remark: remark } },
+                { $set: { remark: remark, status } },
                 { new: true }
             );
             if (savedRemark) {
