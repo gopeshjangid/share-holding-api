@@ -30,7 +30,7 @@ const aws = {
     },
     S3Client: (config) => {
         return new AWS.S3(config);
-    },
+    }
 };
 
 module.exports = aws;

@@ -155,32 +155,27 @@ const removeBasket = async ({ directory, fileName, dockType }) => {
     });
 };
 
-
 const downloadZipS3Documents = async (paths = [], bucketName) => {
-
     return new Promise(async (resolve, reject) => {
         if (!bucketName) {
-            return reject("Provide bucket name")
+            return reject('Provide bucket name');
         }
         if (paths.length === 0) {
-            return reject("Please provide valid paths arrya")
+            return reject('Please provide valid paths arrya');
         }
 
         let zip = new archiver.create('zip');
         try {
-
             const downloadFilesFromS3 = async (key, fileName) => {
                 return new Promise((resolve, reject) => {
                     S3.getObject({ Bucket: bucketName, Key: key }, function (err, data) {
                         if (err) {
-
                             if (err.statusCode !== 404) {
-                                console.error("S3 Error: ", err);
-                                reject("Some files are not available");
+                                console.error('S3 Error: ', err);
+                                reject('Some files are not available');
                             } else {
                                 resolve(false);
                             }
-
                         } else {
                             zip.append(data.Body, {
                                 name: fileName
@@ -189,34 +184,31 @@ const downloadZipS3Documents = async (paths = [], bucketName) => {
                         }
                     });
                 });
-
-            }
+            };
             const new_paths = paths.map(async (path, index) => {
-                const str = path.split("/");
+                const str = path.split('/');
                 str.splice(0, 3);
                 const fileName = str[1];
-                const key = str.join("/");
-                console.info("File key", key)
+                const key = str.join('/');
+                console.info('File key', key);
                 const data = await downloadFilesFromS3(key, fileName);
                 return data;
             });
             //})
 
-            Promise.all(new_paths).then(data => {
-                if (data.every(file => !file)) {
-                    reject("Data is not found !")
+            Promise.all(new_paths).then((data) => {
+                if (data.every((file) => !file)) {
+                    reject('Data is not found !');
                 } else {
                     zip.finalize();
                     resolve(zip);
                 }
-
-            })
-
+            });
         } catch (e) {
-            reject(e)
+            reject(e);
         }
     });
-}
+};
 
 //zip download
 

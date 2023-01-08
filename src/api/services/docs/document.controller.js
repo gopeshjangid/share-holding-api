@@ -347,16 +347,19 @@ const downloadCompanyDocsZip = async (req, res) => {
     try {
         const { companyCIN } = req.params;
         const documents = await Document.find({ companyId: companyCIN }, { docUrl: true });
-        const zip = await File.downloadZipS3Documents(documents.map(doc => doc.docUrl), 'shareholding-signed-docs');
-        res.setHeader("Content-Type", "application/zip");
-        res.setHeader("Content-Disposition", `attachment; filename=${companyCIN}.zip`);
-        console.info("Downloaded zip file!")
+        const zip = await File.downloadZipS3Documents(
+            documents.map((doc) => doc.docUrl),
+            'shareholding-signed-docs'
+        );
+        res.setHeader('Content-Type', 'application/zip');
+        res.setHeader('Content-Disposition', `attachment; filename=${companyCIN}.zip`);
+        console.info('Downloaded zip file!');
         zip.pipe(res);
     } catch (err) {
         let jsonResult = utils.getJsonResponse(false, err, {});
         res.send(jsonResult);
     }
-}
+};
 
 module.exports = {
     getCompanyDocumentsList,
