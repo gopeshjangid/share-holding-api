@@ -351,11 +351,11 @@ async function registration(req, res, next) {
         }
     });
 
-    let isCinExists = await Shareholder.findOne({ phoneNumber: req?.body?.phoneNumber });
+    let isCinExists = await Shareholder.count({ phoneNumber: req?.body?.phoneNumber });
     if (isCinExists) {
         res.send(utils.getJsonResponse(false, 'Shareholder already registered with same mobile number.', null));
     } else {
-        let isPanExists = await Shareholder.findOne({ panNo: req?.body?.panNo });
+        let isPanExists = await Shareholder.count({ panNo: req?.body?.panNo });
         if (isPanExists) {
             res.send(utils.getJsonResponse(false, 'Shareholder already registered with same PAN number.', null));
         } else {
@@ -501,7 +501,7 @@ const downloadZipShareholderDocs = async (req, res) => {
         const documents = await ShareholderDocs.find({ shareholderId: ObjectId(shareholderId) }, { docUrl: true });
         const zip = await File.downloadZipS3Documents(
             documents.map((doc) => doc.docUrl),
-            'shareholding-signed-docs'
+            'share-holding-docs'
         );
         res.setHeader('Content-Type', 'application/zip');
         res.setHeader('Content-Disposition', `attachment; filename=${shareholderId}.zip`);

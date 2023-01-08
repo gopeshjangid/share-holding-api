@@ -35,6 +35,36 @@ const getDRFRequestsByCompany = async (req, res) => {
     }
 };
 
+const getDRFRequestsForBroker = async (req, res) => {
+    const { companyId, request_status } = req.body;
+
+    try {
+        let condition = { request_status: 'PENDING' };
+        ShareHolderCompanyAssocModel.aggregate([
+            { $match: condition },
+            {
+                $lookup: {
+                    from: 'shareholders', // collection name in db
+                    localField: 'shareholderId',
+                    foreignField: '_id',
+                    pipeline: [{ $project: { otp: 0 } }],
+                    as: 'shareholderInfo'
+                }
+            }
+        ]).exec(function (err, data) {
+            console.log('error', err);
+            if (err) {
+                return res.status(500).json({ success: false, data: null, message: err?.message || err });
+            }
+            return res.status(200).json({ success: true, data, message: 'DRF request list' });
+        });
+    } catch (err) {
+        console.error('Error in fetching DRF request: ', err);
+        res.status(500).json({ success: false, data: null, message: err.message });
+    }
+};
+
+
 const approveRejectDRFRequest = async (req, res) => {
     const { requestId, request_status, remark } = req.body;
 
@@ -76,4 +106,4 @@ const approveRejectDRFRequest = async (req, res) => {
     }
 };
 
-module.exports = { getDRFRequestsByCompany, approveRejectDRFRequest };
+module.exports = { getDRFRequestsByCompany, approveRejectDRFRequest, getDRFRequestsForBroker };
