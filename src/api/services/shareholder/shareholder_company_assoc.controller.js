@@ -64,7 +64,6 @@ const getDRFRequestsForBroker = async (req, res) => {
     }
 };
 
-
 const approveRejectDRFRequest = async (req, res) => {
     const { requestId, request_status, remark } = req.body;
 
