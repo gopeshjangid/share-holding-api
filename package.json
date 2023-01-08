@@ -23,6 +23,7 @@
 		"node"
 	],
 	"dependencies": {
+		"archiver": "^5.3.1",
 		"aws-sdk": "^2.1187.0",
 		"bluebird": "3.7.2",
 		"body-parser": "1.20.0",

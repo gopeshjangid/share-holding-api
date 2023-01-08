@@ -392,7 +392,7 @@ const uploadShareholderDocuments = async (req, res) => {
 
         if (directoryName === '' || docType === '' || shareholderId === '') {
             return res.status(500).json({
-                success: false,
+                status: false,
                 data: null,
                 message: 'Please provide pan, shareholderId, docType in query string'
             });
@@ -409,13 +409,13 @@ const uploadShareholderDocuments = async (req, res) => {
             { $set: { process_status: 'UPLOADED', 'timeline.documentUploaded': new Date() } }
         );
         res.status(200).json({
-            success: true,
+            status: true,
             data: data,
             message: 'File(s) uploaded successfully'
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
@@ -485,7 +485,7 @@ const getCompanyShareholders = async (req, res) => {
             })
             .select({ createdAt: 0 });
         res.status(200).json({
-            success: true,
+            status: true,
             data: data,
             message: 'Shareholders fetched successfully'
         });

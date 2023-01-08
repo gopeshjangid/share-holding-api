@@ -33,7 +33,7 @@ function validateRequest(joiSchema) {
             logger.error(err.message);
             return res.status(422).json({
                 _status: 422,
-                success: false,
+                status: false,
                 message: err.message
             });
         }

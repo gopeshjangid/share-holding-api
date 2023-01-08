@@ -68,7 +68,7 @@ const uploadRegistrationDocuments = async (req, res) => {
         const docType = req.query.docType;
         if (companyName === '' || docType === '' || companyId === '') {
             return res.status(500).json({
-                success: false,
+                status: false,
                 data: null,
                 message: 'Please provide companyName, companyId, docType in query string'
             });
@@ -84,13 +84,13 @@ const uploadRegistrationDocuments = async (req, res) => {
         });
 
         res.status(200).json({
-            success: true,
+            status: true,
             data: data,
             message: 'File(s) uploaded successfully'
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 

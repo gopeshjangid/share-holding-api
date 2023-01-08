@@ -97,13 +97,13 @@ const uploadDocs = async (req, res) => {
             fileUrls.push(result);
         }
         res.status(200).json({
-            success: true,
+            status: true,
             data: fileUrls,
             message: 'File(s) uploaded successfully'
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
