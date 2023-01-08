@@ -37,6 +37,8 @@ router
     .patch(Document.addDocumentRemark);
 
 router.route('/readZipFromS3').get(Document.readZipFromS3);
+router.route('/downloadCompanyDocsZip/:companyCIN').get(Document.downloadCompanyDocsZip);
+
 
 // /api/users/verifyOtp
 module.exports = router;

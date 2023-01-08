@@ -24,5 +24,7 @@ router.route('/getCompanyShareholders').get(ShareholderController.getCompanyShar
 router.route('/getDRFRequestsByCompanyId').post(ShareholderCompanyAssocController.getDRFRequestsByCompany);
 
 router.route('/approveRejectDRFRequest').post(ShareholderCompanyAssocController.approveRejectDRFRequest);
+router.route('/downloadZipShareholderDocs/:shareholderId').get(ShareholderController.downloadZipShareholderDocs);
+
 
 module.exports = router;

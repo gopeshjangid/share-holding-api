@@ -5,10 +5,8 @@ const fs = require('fs');
 const S3 = AWS.S3();
 const bucketName = 'share-holding-docs';
 const Document = require('./document.model');
-
+const archiver = require('archiver');
 const join = require('path').join;
-//const XmlStream = require('xml-stream')
-//const s3Zip = require('s3-zip')
 
 const parseForm = async (req) => {
     return new Promise((resolve, reject) => {
@@ -157,6 +155,69 @@ const removeBasket = async ({ directory, fileName, dockType }) => {
     });
 };
 
+
+const downloadZipS3Documents = async (paths = [], bucketName) => {
+
+    return new Promise(async (resolve, reject) => {
+        if (!bucketName) {
+            return reject("Provide bucket name")
+        }
+        if (paths.length === 0) {
+            return reject("Please provide valid paths arrya")
+        }
+
+        let zip = new archiver.create('zip');
+        try {
+
+            const downloadFilesFromS3 = async (key, fileName) => {
+                return new Promise((resolve, reject) => {
+                    S3.getObject({ Bucket: bucketName, Key: key }, function (err, data) {
+                        if (err) {
+
+                            if (err.statusCode !== 404) {
+                                console.error("S3 Error: ", err);
+                                reject("Some files are not available");
+                            } else {
+                                resolve(false);
+                            }
+
+                        } else {
+                            zip.append(data.Body, {
+                                name: fileName
+                            });
+                            resolve(data.Body);
+                        }
+                    });
+                });
+
+            }
+            const new_paths = paths.map(async (path, index) => {
+                const str = path.split("/");
+                str.splice(0, 3);
+                const fileName = str[1];
+                const key = str.join("/");
+                console.info("File key", key)
+                const data = await downloadFilesFromS3(key, fileName);
+                return data;
+            });
+            //})
+
+            Promise.all(new_paths).then(data => {
+                if (data.every(file => !file)) {
+                    reject("Data is not found !")
+                } else {
+                    zip.finalize();
+                    resolve(zip);
+                }
+
+            })
+
+        } catch (e) {
+            reject(e)
+        }
+    });
+}
+
 //zip download
 
 /* let readZipFromS3 = function (fileName = 'undertaking_for_private_ltd_co.pdf') {
@@ -273,7 +334,7 @@ const readZipFromS3 = async (bucketName = 'share-holding-docs', prefix = 'U74999
         xml.on('endElement: Key', function(item) {
         filesArray.push(item['$text'].substr(folder.length))
         })
-
+ 
         xml
         .on('end', function () {
             zip(filesArray)
@@ -292,5 +353,6 @@ module.exports = {
     uploadDocs,
     readFromS3,
     removeBasket,
-    readZipFromS3
+    readZipFromS3,
+    downloadZipS3Documents
 };

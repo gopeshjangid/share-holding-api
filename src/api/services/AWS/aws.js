@@ -27,7 +27,10 @@ const aws = {
     },
     SQS: () => {
         return new AWS.SQS();
-    }
+    },
+    S3Client: (config) => {
+        return new AWS.S3(config);
+    },
 };
 
 module.exports = aws;

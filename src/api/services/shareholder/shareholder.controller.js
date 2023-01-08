@@ -495,11 +495,27 @@ const getCompanyShareholders = async (req, res) => {
     }
 };
 
+const downloadZipShareholderDocs = async (req, res) => {
+    try {
+        const { shareholderId } = req.params;
+        const documents = await ShareholderDocs.find({ shareholderId: ObjectId(shareholderId) }, { docUrl: true });
+        const zip = await File.downloadZipS3Documents(documents.map(doc => doc.docUrl), 'shareholding-signed-docs');
+        res.setHeader("Content-Type", "application/zip");
+        res.setHeader("Content-Disposition", `attachment; filename=${shareholderId}.zip`);
+        console.info("Downloaded zip file!")
+        zip.pipe(res);
+    } catch (err) {
+        let jsonResult = utils.getJsonResponse(false, err, {});
+        res.send(jsonResult);
+    }
+}
+
 module.exports = {
     shareholderLogin,
     registration,
     uploadShareholderDocuments,
     otpVerify,
     companyAssociate,
-    getCompanyShareholders
+    getCompanyShareholders,
+    downloadZipShareholderDocs
 };
