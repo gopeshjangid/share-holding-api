@@ -122,18 +122,25 @@ const sendDRFRequestToRTA = async (req, res) => {
         console.error('Error in fetching DRF request: ', err);
         res.status(500).json({ success: false, data: null, message: err.message });
     }
-}
+};
 
 const getApprovedDRFRequestsForShareholder = async (req, res) => {
     const { shareholderId } = req.params;
     try {
-        let condition = { shareholderId: ObjectId(shareholderId), request_status: "APPROVED" };
+        let condition = { shareholderId: ObjectId(shareholderId), request_status: 'APPROVED' };
         const data = await ShareHolderCompanyAssocModel.find(condition);
         return res.status(200).json({ success: true, data, message: 'DRF request list' });
     } catch (err) {
         console.error('Error in fetching DRF request: ', err);
         res.status(500).json({ success: false, data: null, message: err.message });
     }
-}
+};
 
-module.exports = { sendDRFRequestToRTA, getApprovedDRFRequestsForShareholder, getDRFRequestsByCompany, approveRejectDRFRequest, getDRFRequestsForBroker, sendDRFRequestToRTA };
+module.exports = {
+    sendDRFRequestToRTA,
+    getApprovedDRFRequestsForShareholder,
+    getDRFRequestsByCompany,
+    approveRejectDRFRequest,
+    getDRFRequestsForBroker,
+    sendDRFRequestToRTA
+};
