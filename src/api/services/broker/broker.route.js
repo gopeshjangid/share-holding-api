@@ -16,5 +16,6 @@ router
 router.route('/getShareholderByStatus').get(BrokerController.getShareholderByStatus);
 router.route('/updateShareholderStatus').post(BrokerController.updateShareholderStatus);
 router.route('/getDRFRequestsList').get(shareHolderAssocController.getDRFRequestsForBroker);
+router.route('/sendDRFRequestToRTA/:requestId').get(shareHolderAssocController.sendDRFRequestToRTA);
 
 module.exports = router;
