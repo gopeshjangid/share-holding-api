@@ -91,15 +91,15 @@ const CompanySchema = new mongoose.Schema(
         },
         changed_company_name: {
             type: Array,
-            required: false,
+            required: false
         },
         shares_classes: {
             type: Array,
-            required: false,
+            required: false
         },
         share_capital_changed: {
             type: Array,
-            required: false,
+            required: false
         },
         token: {
             type: String
