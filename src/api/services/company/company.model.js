@@ -2,6 +2,7 @@ const Promise = require('bluebird');
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const APIError = require('../../../helpers/APIError');
+const { bool } = require('joi');
 
 var validateEmail = function (email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -40,11 +41,11 @@ const CompanySchema = new mongoose.Schema(
             default: false
         },
         correspondence_address: {
-            type: String,
+            type: Object,
             required: false
         },
         registered_address: {
-            type: String,
+            type: Object,
             required: true
         },
         contact_number: {
@@ -71,6 +72,34 @@ const CompanySchema = new mongoose.Schema(
         createdAt: {
             type: Date,
             default: Date.now
+        },
+        macro_economic_sector: {
+            type: String,
+            required: true
+        },
+        sector: {
+            type: String,
+            required: true
+        },
+        industry: {
+            type: String,
+            required: true
+        },
+        basic_industry: {
+            type: String,
+            required: true
+        },
+        changed_company_name: {
+            type: Array,
+            required: false,
+        },
+        shares_classes: {
+            type: Array,
+            required: false,
+        },
+        share_capital_changed: {
+            type: Array,
+            required: false,
         },
         token: {
             type: String

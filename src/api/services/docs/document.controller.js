@@ -97,17 +97,7 @@ const uploadRegistrationDocuments = async (req, res) => {
 const downloadResolutionForm = async (req, res) => {
     try {
         const {
-            authoriser,
-            authoriser_designation,
-            authorised,
-            authorised_designation,
-            id,
-            name,
-            email,
             registered_address,
-            contact_number,
-            isin,
-            date_of_application
         } = req.body;
         const address = registered_address?.split(' ');
         const place_of_application = address[address.length - 1];
@@ -158,7 +148,8 @@ const processDocuments = async (params) => {
                 place_of_application,
                 gsttin,
                 pan,
-                website
+                website,
+                correspondence_address
             } = params;
 
             const authorized_din = directors[0]?.din;
@@ -168,18 +159,69 @@ const processDocuments = async (params) => {
             const authorizer_destination = directors[1]?.designation;
             const authorizer_name = directors[1]?.name;
 
+            // years 
+            const date = new Date();
+            const getYear = new Date().getFullYear();
+            const INCORpYear = getYear - 1;
+
+            //  adresses
+
+
+            const city = `${registered_address.city}`;
+            const state = `${registered_address.state}`;
+            const pin = `${registered_address.pin}`;
+            const country = `India`;
+            const reg_add1 = registered_address.address1;
+            const reg_add2 = registered_address.address2;
+            const reg_add3 = registered_address.address3;
+
+
+            const regd_address = `${registered_address.address1}, ${registered_address.address2}, ${registered_address.address3}`;
+            const c_address = `${correspondence_address.address1}, ${correspondence_address.address2}, ${correspondence_address.address3}`
+            const c_city = correspondence_address.city;
+            const c_state = correspondence_address.state;
+            const c_pin = correspondence_address.pin;
+            const IncorporationDate = `${date.getDate()}/${date.getMonth()}/${INCORpYear}`;
+            const auditDate = `31/03/${INCORpYear}`;
+            let bill_address = c_address !== regd_address && gsttin ? c_address : `${registered_address.address1}, ${registered_address.address2}`;
+            const bill_city = c_address !== regd_address && gsttin ? c_city : correspondence_address.city;
+            const bill_state = c_address !== regd_address && gsttin ? c_state : correspondence_address.state;
+            const bill_pin = c_address !== regd_address && gsttin ? c_pin : correspondence_address.pin;
+
+            const c_add1 = c_address !== regd_address ? registered_address.address1 : '';
+            const c_add2 = c_address !== regd_address ? registered_address.address2 : '';
+            const c_add3 = c_address !== regd_address ? registered_address.address3 : '';
+            //---------------------------
+
             const processedDocs = processDocType.map(async (element) => {
                 const filePath = path.join(__dirname, `../DocumentsHTML/${element}.ejs`);
                 const directoryName = `${cin}`;
                 const fileName = `${element}.pdf`;
+
                 const pdfData = await PDF.generatePdf(filePath, {
                     name,
                     email,
                     pan,
                     registered_address,
+                    regd_address,
+                    reg_add1,
+                    reg_add2,
+                    reg_add3,
+                    bill_address,
+                    bill_city,
+                    bill_state,
+                    bill_pin,
+                    c_address,
+                    c_pin,
+                    c_state,
+                    c_city,
+                    city,
+                    country,
+                    state,
+                    pin,
                     contact_number,
                     cin,
-                    date_of_application: moment().format('MM/DD/YY'),
+                    date_of_application: moment().format('DD-MM-YYYY'),
                     place_of_application,
                     directors,
                     authorized_din,
@@ -187,8 +229,11 @@ const processDocuments = async (params) => {
                     authorized_name,
                     gsttin: gsttin || '',
                     website,
+                    INCORpYear,
+                    IncorporationDate,
                     authorizer_name,
-                    fileName
+                    fileName,
+                    auditDate
                 });
 
                 let files = await File.uploadToS3(
