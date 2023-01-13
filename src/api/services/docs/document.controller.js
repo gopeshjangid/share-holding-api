@@ -105,7 +105,7 @@ const downloadResolutionForm = async (req, res) => {
         const place_of_application = registered_address.city;
         const filePath = path.join(__dirname, '../DocumentsHTML/board_resolution.ejs');
         const fileName = `board_resolution_${Date.now()}.pdf`;
-        const pdfData = await PDF.generatePdf(filePath, { ...req.body, place_of_application, fileName });
+        const pdfData = await PDF.generatePdf(filePath, { ...req.body, registered_address: address, place_of_application, fileName });
         res.contentType('application/pdf');
         res.header('Content-Length', '' + pdfData.length);
         fs.unlinkSync(fileName);
