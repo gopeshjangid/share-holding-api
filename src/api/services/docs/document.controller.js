@@ -96,13 +96,13 @@ const uploadRegistrationDocuments = async (req, res) => {
 
 const formatAddress = (registered_address) => {
     return `${registered_address.address1}, ${registered_address.address2}, ${registered_address.address3}, ${registered_address.city}, ${registered_address.state},${registered_address.pincode}`;
-}
+};
 
 const downloadResolutionForm = async (req, res) => {
     try {
         const { registered_address } = req.body;
         const address = formatAddress(registered_address);
-        const place_of_application = address[address.length - 1];
+        const place_of_application = registered_address.city;
         const filePath = path.join(__dirname, '../DocumentsHTML/board_resolution.ejs');
         const fileName = `board_resolution_${Date.now()}.pdf`;
         const pdfData = await PDF.generatePdf(filePath, { ...req.body, place_of_application, fileName });
