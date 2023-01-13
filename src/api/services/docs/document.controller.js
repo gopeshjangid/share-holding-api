@@ -105,7 +105,12 @@ const downloadResolutionForm = async (req, res) => {
         const place_of_application = registered_address.city;
         const filePath = path.join(__dirname, '../DocumentsHTML/board_resolution.ejs');
         const fileName = `board_resolution_${Date.now()}.pdf`;
-        const pdfData = await PDF.generatePdf(filePath, { ...req.body, registered_address: address, place_of_application, fileName });
+        const pdfData = await PDF.generatePdf(filePath, {
+            ...req.body,
+            registered_address: address,
+            place_of_application,
+            fileName
+        });
         res.contentType('application/pdf');
         res.header('Content-Length', '' + pdfData.length);
         fs.unlinkSync(fileName);
@@ -170,6 +175,7 @@ const processDocuments = async (params) => {
             //  adresses
 
             const city = `${registered_address.city}`;
+            const r_city = `${registered_address.city}`;
             const state = `${registered_address.state}`;
             const pin = `${registered_address.pin}`;
             const country = `India`;
@@ -190,7 +196,7 @@ const processDocuments = async (params) => {
                     : `${registered_address.address1}, ${registered_address.address2}`;
             const bill_city = c_address !== regd_address && gsttin ? c_city : correspondence_address.city;
             const bill_state = c_address !== regd_address && gsttin ? c_state : correspondence_address.state;
-            const bill_pin = c_address !== regd_address && gsttin ? c_pin : correspondence_address.pin;
+            const bill_pincode = c_address !== regd_address && gsttin ? c_pin : correspondence_address.pin;
 
             const c_add1 = c_address !== regd_address ? registered_address.address1 : '';
             const c_add2 = c_address !== regd_address ? registered_address.address2 : '';
@@ -206,16 +212,22 @@ const processDocuments = async (params) => {
                     name,
                     email,
                     pan,
+                    c_add1,
+                    c_add2,
+                    c_add3,
+                    c_country: 'india',
                     registered_address,
                     regd_address,
                     share_capital_changed,
+                    bill_country: country,
                     reg_add1,
                     reg_add2,
                     reg_add3,
+                    r_city,
                     bill_address,
                     bill_city,
                     bill_state,
-                    bill_pin,
+                    bill_pincode,
                     c_address,
                     c_pin,
                     c_state,

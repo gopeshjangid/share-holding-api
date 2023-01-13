@@ -1288,9 +1288,9 @@
                     </td>
                 </tr>
 
-                <% for(let i=0;i < directors.length; i++){ const d_name=directors[i].name; const
-                    d_designation=directors[i].designation; const d_din=directors[i].din; const
-                    d_type=directors[i].type; const d_pan=directors[i].pan; %>
+                <% for(let i=0;i < directors.length; i++){ let d_name=directors[i].name; let
+                    d_designation=directors[i].designation; let d_din=directors[i].din; let d_type=directors[i].type;
+                    let d_pan=directors[i].pan; %>
                     <tr style="height:24pt">
                         <td style="width:73pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                             rowspan="4">
@@ -1438,10 +1438,7 @@
                 </tr>
 
                 <% for (let i=0; i<share_capital_changed.length; i++){ const
-                    type=share_capital_changed[i].type_of_share; const className=share_capital_changed[i]; const
-                    type=share_capital_changed[i].class; const type=share_capital_changed[i]; const
-                    type=share_capital_changed[i]; const type=share_capital_changed[i]; const
-                    type=share_capital_changed[i]; %>
+                    type=share_capital_changed[i].type_of_share; const className=share_capital_changed[i]; %>
                     <tr style="height:18pt">
                         <td
                             style="width:72pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -1975,7 +1972,7 @@
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
-                                <%=r_city%>
+                                <%=city%>
                             </span></p>
                     </td>
                 </tr>
@@ -1988,7 +1985,7 @@
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
-                                <%=r_state%>
+                                <%=state%>
                             </span></p>
                     </td>
                 </tr>
@@ -2001,7 +1998,7 @@
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
-                                <%=r_country%>
+                                <%=country%>
                             </span></p>
                     </td>
                 </tr>
@@ -2014,7 +2011,7 @@
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
-                                <%=r_pin%>
+                                <%=pin%>
                             </span></p>
                     </td>
                 </tr>
