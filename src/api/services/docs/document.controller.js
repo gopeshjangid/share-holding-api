@@ -68,7 +68,7 @@ const uploadRegistrationDocuments = async (req, res) => {
         const docType = req.query.docType;
         if (companyName === '' || docType === '' || companyId === '') {
             return res.status(500).json({
-                success: false,
+                status: false,
                 data: null,
                 message: 'Please provide companyName, companyId, docType in query string'
             });
@@ -84,20 +84,24 @@ const uploadRegistrationDocuments = async (req, res) => {
         });
 
         res.status(200).json({
-            success: true,
+            status: true,
             data: data,
             message: 'File(s) uploaded successfully'
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
+
+const formatAddress = (registered_address) => {
+    return `${registered_address.address1}, ${registered_address.address2}, ${registered_address.address3}, ${registered_address.city}, ${registered_address.state},${registered_address.pincode}`;
+}
 
 const downloadResolutionForm = async (req, res) => {
     try {
         const { registered_address } = req.body;
-        const address = registered_address?.split(' ');
+        const address = formatAddress(registered_address);
         const place_of_application = address[address.length - 1];
         const filePath = path.join(__dirname, '../DocumentsHTML/board_resolution.ejs');
         const fileName = `board_resolution_${Date.now()}.pdf`;
@@ -147,7 +151,8 @@ const processDocuments = async (params) => {
                 gsttin,
                 pan,
                 website,
-                correspondence_address
+                correspondence_address,
+                share_capital_changed
             } = params;
 
             const authorized_din = directors[0]?.din;
@@ -203,6 +208,7 @@ const processDocuments = async (params) => {
                     pan,
                     registered_address,
                     regd_address,
+                    share_capital_changed,
                     reg_add1,
                     reg_add2,
                     reg_add3,

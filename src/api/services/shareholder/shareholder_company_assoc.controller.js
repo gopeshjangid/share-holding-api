@@ -25,13 +25,13 @@ const getDRFRequestsByCompany = async (req, res) => {
         ]).exec(function (err, data) {
             console.log('error', err);
             if (err) {
-                return res.status(500).json({ success: false, data: null, message: err?.message || err });
+                return res.status(500).json({ status: false, data: null, message: err?.message || err });
             }
-            return res.status(200).json({ success: true, data, message: 'DRF request list' });
+            return res.status(200).json({ status: true, data, message: 'DRF request list' });
         });
     } catch (err) {
         console.error('Error in fetching DRF request: ', err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
@@ -52,13 +52,13 @@ const getDRFRequestsForBroker = async (req, res) => {
         ]).exec(function (err, data) {
             console.log('error', err);
             if (err) {
-                return res.status(500).json({ success: false, data: null, message: err?.message || err });
+                return res.status(500).json({ status: false, data: null, message: err?.message || err });
             }
-            return res.status(200).json({ success: true, data, message: 'DRF request list' });
+            return res.status(200).json({ status: true, data, message: 'DRF request list' });
         });
     } catch (err) {
         console.error('Error in fetching DRF request: ', err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
@@ -78,7 +78,7 @@ const approveRejectDRFRequest = async (req, res) => {
     }
 
     if (error) {
-        return res.status(500).json({ success: false, data: null, message: error });
+        return res.status(500).json({ status: false, data: null, message: error });
     }
 
     try {
@@ -88,7 +88,7 @@ const approveRejectDRFRequest = async (req, res) => {
         }
         const isRequestFound = await ShareHolderCompanyAssocModel.count({ _id: Object(requestId) });
         if (!isRequestFound) {
-            return res.status(500).json({ success: false, data: null, message: 'Request id not found' });
+            return res.status(500).json({ status: false, data: null, message: 'Request id not found' });
         }
 
         await ShareHolderCompanyAssocModel.findByIdAndUpdate({ _id: ObjectId(requestId) }, set, {
@@ -96,10 +96,10 @@ const approveRejectDRFRequest = async (req, res) => {
             useFindAndModify: true
         });
 
-        return res.status(200).json({ success: true, data: null, message: 'updated successfully' });
+        return res.status(200).json({ status: true, data: null, message: 'updated successfully' });
     } catch (err) {
         console.error('Error in fetching DRF request: ', err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
@@ -109,7 +109,7 @@ const sendDRFRequestToRTA = async (req, res) => {
         const set = { request_status: 'PROCESSING' };
         const isRequestFound = await ShareHolderCompanyAssocModel.count({ _id: Object(requestId) });
         if (!isRequestFound) {
-            return res.status(500).json({ success: false, data: null, message: 'Request id not found' });
+            return res.status(500).json({ status: false, data: null, message: 'Request id not found' });
         }
 
         await ShareHolderCompanyAssocModel.findByIdAndUpdate({ _id: ObjectId(requestId) }, set, {
@@ -117,10 +117,10 @@ const sendDRFRequestToRTA = async (req, res) => {
             useFindAndModify: true
         });
 
-        return res.status(200).json({ success: true, data: null, message: 'updated successfully' });
+        return res.status(200).json({ status: true, data: null, message: 'updated successfully' });
     } catch (err) {
         console.error('Error in fetching DRF request: ', err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
@@ -129,10 +129,10 @@ const getApprovedDRFRequestsForShareholder = async (req, res) => {
     try {
         let condition = { shareholderId: ObjectId(shareholderId), request_status: 'APPROVED' };
         const data = await ShareHolderCompanyAssocModel.find(condition);
-        return res.status(200).json({ success: true, data, message: 'DRF request list' });
+        return res.status(200).json({ status: true, data, message: 'DRF request list' });
     } catch (err) {
         console.error('Error in fetching DRF request: ', err);
-        res.status(500).json({ success: false, data: null, message: err.message });
+        res.status(500).json({ status: false, data: null, message: err.message });
     }
 };
 
