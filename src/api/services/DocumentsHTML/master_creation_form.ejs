@@ -516,23 +516,27 @@
                 <tr style="height:24pt">
                     <td
                         style="width:125pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Other Business
-                            activity</p>
+                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                            <%=macro_economic_sector%>
+                        </p>
                     </td>
                     <td
                         style="width:125pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Other Business
-                            activity</p>
+                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                            <%=sector%>
+                        </p>
                     </td>
                     <td
                         style="width:125pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Other Business
-                            activity</p>
+                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                            <%=industry%>
+                        </p>
                     </td>
                     <td
                         style="width:125pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p class="s9" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                            Other Business activity</p>
+                            <%=basic_industry%>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -559,17 +563,23 @@
                     <td
                         style="width:167pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
-                                class="s8" style=" background-color: #FF0;">Class of company</span></p>
+                                class="s8" style=" background-color: #FF0;">
+                                <%=company_class%>
+                            </span></p>
                     </td>
                     <td
                         style="width:166pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
-                                class="s10" style=" background-color: #FF0;">Category of company</span></p>
+                                class="s10" style=" background-color: #FF0;">
+                                <%=category%>
+                            </span></p>
                     </td>
                     <td
                         style="width:167pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
-                                class="s10" style=" background-color: #FF0;">Sub-category of company</span></p>
+                                class="s10" style=" background-color: #FF0;">
+                                <%=sub_category%>
+                            </span></p>
                     </td>
                 </tr>
             </table>
@@ -603,33 +613,41 @@
                     </table>
                     <p style="text-indent: 0pt;text-align: left;"><br /></p>
                     <table style="border-collapse:collapse;margin-left:7.93pt" cellspacing="0">
-                        <tr style="height:24pt">
-                            <td
-                                style="width:167pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                                <p class="s7"
-                                    style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">1)</p>
-                            </td>
-                            <td
-                                style="width:166pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                                <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">As per
-                                    Annexure</p>
-                            </td>
-                            <td
-                                style="width:167pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                                <p class="s9"
-                                    style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">As per
-                                    Annexure</p>
-                            </td>
-                        </tr>
+                        <% for (var i=0;i<changed_company_name.length;i++) { %>
+                            <tr style="height:24pt">
+                                <td
+                                    style="width:167pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s7"
+                                        style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                        <%=i+1%>
+                                    </p>
+                                </td>
+                                <td
+                                    style="width:166pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                        <%=changed_company_name[i].name%>
+                                    </p>
+                                </td>
+                                <td
+                                    style="width:167pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s9"
+                                        style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                        <%=changed_company_name[i].date%>
+                                    </p>
+                                </td>
+                            </tr>
+                            <% } %>
                     </table>
-                    <p class="s11" style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes</p>
-                    <p style="text-indent: 0pt;text-align: left;" />
-                    <h4 style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
-                    <p style="text-indent: 0pt;text-align: left;" />
+
                 </li>
                 <li data-list-text="(c)">
                     <p style="padding-top: 6pt;padding-left: 22pt;text-indent: -13pt;text-align: left;">Share
                         certificates bearing old name(s) of the company be accepted for dematerialization?</p>
+
+                    <p style="text-indent: 0pt;text-align: left;" />
+                    <h4 style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
+                    <p style="text-indent: 0pt;text-align: left;" />
+                    <p class="s11" style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes</p>
                 </li>
             </ol>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
@@ -878,7 +896,7 @@
                             <td
                                 style="width:250pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                 <p class="s9"
-                                    style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">X</p>
+                                    style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"></p>
                             </td>
                         </tr>
                         <tr style="height:14pt">
@@ -890,7 +908,9 @@
                             </td>
                             <td
                                 style="width:250pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                                <p style="text-indent: 0pt;text-align: left;">
+                                    <%= r_add_c_add_same ? 'X' : '' %><br />
+                                </p>
                             </td>
                         </tr>
                         <tr style="height:14pt">
@@ -938,8 +958,8 @@
                             <td
                                 style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                 <p class="s9"
-                                    style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">Tax
-                                    Not Deducted</p>
+                                    style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">NA
+                                </p>
                             </td>
                         </tr>
                         <tr style="height:24pt">
@@ -999,14 +1019,14 @@
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_name%>
+                                <%=authorizer_name%>
                             </span></p>
                     </td>
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_name%>
+                                <%=authorizer_name%>
                             </span></p>
                     </td>
                 </tr>
@@ -1020,14 +1040,14 @@
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_destination%>
+                                <%=authorizer_designation%>
                             </span></p>
                     </td>
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_destination%>
+                                <%=authorizer_designation%>
                             </span></p>
                     </td>
                 </tr>
@@ -1104,16 +1124,6 @@
                     </td>
                 </tr>
             </table>
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p style="text-indent: 0pt;text-align: left;"><span><img width="5" height="16" alt="image"
-                        src="16.%20MCF%20Filled%20Application%20Form_files/Image_001.png" /></span></p>
-            <p style="text-indent: 0pt;text-align: left;"><span><img width="5" height="16" alt="image"
-                        src="16.%20MCF%20Filled%20Application%20Form_files/Image_002.png" /></span></p>
-            <p style="text-indent: 0pt;text-align: left;"><span><img width="5" height="16" alt="image"
-                        src="16.%20MCF%20Filled%20Application%20Form_files/Image_003.png" /></span></p>
-            <p style="text-indent: 0pt;text-align: left;"><span><img width="5" height="16" alt="image"
-                        src="16.%20MCF%20Filled%20Application%20Form_files/Image_004.png" /></span></p>
         </li>
         <li data-list-text="7.">
             <p style="padding-left: 24pt;text-indent: -16pt;text-align: left;"><a
@@ -1131,14 +1141,14 @@
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_name%>
+                                <%=authorizer_name%>
                             </span></p>
                     </td>
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_name%>
+                                <%=authorizer_name%>
                             </span></p>
                     </td>
                 </tr>
@@ -1152,14 +1162,14 @@
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_name%>
+                                <%=authorizer_name%>
                             </span></p>
                     </td>
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span
                                 class="s8">
-                                <%=authorized_name%>
+                                <%=authorizer_name%>
                             </span></p>
                     </td>
                 </tr>
@@ -1172,7 +1182,7 @@
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="text-indent: 0pt;line-height: 11pt;text-align: left;"><span class="s12">
-                                <%=authorized_destination%>
+                                <%=authorizer_designation%>
                             </span></p>
                     </td>
                     <td
@@ -1245,13 +1255,17 @@
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><a
-                                href="mailto:taran@femellafashions.com" class="s14">(Name of the Authorized Person)</a>
+                                href="mailto:taran@femellafashions.com" class="s14">
+                                <%=email%>
+                            </a>
                         </p>
                     </td>
                     <td
                         style="width:200pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><a
-                                href="mailto:taran@femellafashions.com" class="s14">(Name of the Authorized Person)</a>
+                                href="mailto:taran@femellafashions.com" class="s14">
+                                <%=email%>
+                            </a>
                         </p>
                     </td>
                 </tr>
@@ -1288,9 +1302,9 @@
                     </td>
                 </tr>
 
-                <% for(let i=0;i < directors.length; i++){ let d_name=directors[i].name; let
-                    d_designation=directors[i].designation; let d_din=directors[i].din; let d_type=directors[i].type;
-                    let d_pan=directors[i].pan; %>
+                <% for(var i=0;i < directors.length; i++){ var d_name=directors[i].name; var
+                    d_designation=directors[i].designation; var d_din=directors[i].din; var d_type=directors[i].type;
+                    var d_pan=directors[i].pan; %>
                     <tr style="height:24pt">
                         <td style="width:73pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                             rowspan="4">
@@ -1370,17 +1384,19 @@
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
             <p style="padding-top: 11pt;padding-left: 55pt;text-indent: 0pt;text-align: left;"><a name="bookmark2"><span
                         class="h2" style=" background-color: #FFC700;">Instrument Details </span></a></p>
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p class="s11" style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">No</p>
-            <p style="text-indent: 0pt;text-align: left;" />
-            <h4 style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
-            <p style="text-indent: 0pt;text-align: left;" />
+
         </li>
         <li data-list-text="9.">
             <p style="padding-left: 27pt;text-indent: -19pt;text-align: left;">(a) Whether any other security of the
                 company is already available in dematerialised form?</p>
+            <br />
+            <h4 style="padding-top: 1pt;padding-left: 9pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
+
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p class="s11" style="padding-top: 1pt;padding-left: 11pt;text-indent: 0pt;text-align: left;">No</p>
+            <p style="text-indent: 0pt;text-align: left;" /><br />
+
+            <p style="text-indent: 0pt;text-align: left;" />
             <p style="padding-left: 13pt;text-indent: 0pt;text-align: left;">(b) If yes, mention ISIN (any one)</p>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
         </li>
@@ -1437,44 +1453,49 @@
                     </td>
                 </tr>
 
-                <% for (let i=0; i<share_capital_changed.length; i++){ const
-                    type=share_capital_changed[i].type_of_share; const className=share_capital_changed[i]; %>
-                    <tr style="height:18pt">
-                        <td
-                            style="width:72pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:71pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:71pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:72pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p class="s7"
-                                style="padding-top: 3pt;padding-left: 21pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
-                                (a)</p>
-                        </td>
-                        <td
-                            style="width:71pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p class="s7"
-                                style="padding-top: 3pt;padding-left: 21pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
-                                (a)</p>
-                        </td>
-                    </tr>
+
+                <tr style="height:18pt">
+                    <td
+                        style="width:72pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                    </td>
+                    <td
+                        style="width:71pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                    </td>
+                    <td
+                        style="width:71pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                    </td>
+                    <td
+                        style="width:72pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p class="s7"
+                            style="padding-top: 3pt;padding-left: 21pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                        </p>
+                    </td>
+                    <td
+                        style="width:71pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p class="s7"
+                            style="padding-top: 3pt;padding-left: 21pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                        </p>
+                    </td>
+                </tr>
+                <% let total_paidup=0; let total_paidup_capital=0; for (var i=0; i<shares_classes.length; i++){ const
+                    item=shares_classes[i]; total_paidup=total_paidup+ item.paid_up_value;
+                    total_paidup_capital=total_paidup_capital+item.paid_up_capital; %>
                     <tr style="height:41pt">
                         <td
                             style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                             <p class="s7"
                                 style="padding-top: 2pt;padding-left: 2pt;padding-right: 13pt;text-indent: 0pt;line-height: 84%;text-align: left;">
-                                Fully paid- up shares</p>
+                                <%=item.type%>
+                            </p>
                         </td>
                         <td
                             style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p class="s13" style="text-indent: 0pt;line-height: 11pt;text-align: left;">-</p>
+                            <p class="s13" style="text-indent: 0pt;line-height: 11pt;text-align: left;">
+                                <%=item.class%>
+                            </p>
                         </td>
                         <td
                             style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -1483,75 +1504,65 @@
                         <td
                             style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                             <p class="s9" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                                10
+                                <%=item.face_value%>
                             </p>
                         </td>
                         <td
                             style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                             <p class="s9" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                                10
+                                <%=item.paid_up_value%>
                             </p>
                         </td>
                         <td
                             style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><span
-                                    class="s8" style=" background-color: #FF0;">Paid-Up</span></p>
-                            <p
-                                style="padding-left: 2pt;padding-right: 10pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
-                                <span class="s8" style=" background-color: #FF0;">Capital/Face</span><span class="s9">
-                                </span><span class="s8" style=" background-color: #FF0;">Value</span>
-                            </p>
+
+                            <span>
+                                <%=item.paid_up_capital /item.face_value%>
+                            </span>
                         </td>
                         <td
                             style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p
-                                style="padding-top: 1pt;padding-left: 2pt;padding-right: 3pt;text-indent: 0pt;text-align: left;">
-                                <span class="s8" style=" background-color: #FF0;">Paid Up</span><span class="s9">
-                                </span><span class="s8" style=" background-color: #FF0;">Capital</span>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr style="height:41pt">
-                        <td
-                            style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                        <td
-                            style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p class="s7" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Total</p>
-                        </td>
-                        <td
-                            style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><span
-                                    class="s8" style=" background-color: #FF0;">Paid-Up</span></p>
-                            <p
-                                style="padding-left: 2pt;padding-right: 10pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
-                                <span class="s8" style=" background-color: #FF0;">Capital/Face</span><span class="s9">
-                                </span><span class="s8" style=" background-color: #FF0;">Value</span>
-                            </p>
-                        </td>
-                        <td
-                            style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p
-                                style="padding-top: 1pt;padding-left: 2pt;padding-right: 3pt;text-indent: 0pt;text-align: left;">
-                                <span class="s8" style=" background-color: #FF0;">Paid Up</span><span class="s9">
-                                </span><span class="s8" style=" background-color: #FF0;">Capital</span>
-                            </p>
+                            <span>
+                                <%=item.paid_up_capital%>
+                            </span>
                         </td>
                     </tr>
                     <% } %>
+                        <tr style="height:41pt">
+                            <td
+                                style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p class="s7" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Total</p>
+                            </td>
+                            <td
+                                style="width:72pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p>
+                                    <%=total_paidup%>
+                                </p>
+                            </td>
+                            <td
+                                style="width:71pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p>
+                                    <%=total_paidup_capital%>
+                                </p>
+                            </td>
+                        </tr>
+
             </table>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
             <p class="s15"
@@ -1559,15 +1570,17 @@
                 case more than one class for each type of equity shares; give details of such classes separately and add
                 rows above, if required.</p>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p class="s11" style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">No</p>
-            <p style="text-indent: 0pt;text-align: left;" />
-            <h4 style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
+
             <p style="text-indent: 0pt;text-align: left;" />
             <ol id="l4">
                 <li data-list-text="(b)">
                     <p style="padding-left: 23pt;text-indent: -15pt;text-align: left;">Whether ISIN for Partly Paid-up
                         shares is required?</p>
                     <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                    <h4 style="padding-top: 1pt;padding-left: 11pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
+                    <p class="s11" style="padding-top: 1pt;padding-left: 11pt;text-indent: 0pt;text-align: left;">No</p>
+                    <p style="text-indent: 0pt;text-align: left;" />
+
                     <p style="text-indent: 0pt;text-align: left;"><br /></p>
                 </li>
                 <li data-list-text="(c)">
@@ -1623,34 +1636,41 @@
                             Payment status</p>
                     </td>
                 </tr>
-                <tr style="height:24pt">
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                            Fully paid-up shares</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                            EQUITY</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9"
-                            style="padding-top: 1pt;padding-left: 2pt;padding-right: 7pt;text-indent: 0pt;line-height: 10pt;text-align: left;">
-                            Voting (Each share has one vote)</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                            Free(unrestricted)</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
-                            Fully Paid</p>
-                    </td>
-                </tr>
+
+                <% for (var i=0; i<shares_classes.length; i++){ var item=shares_classes[i]; total_paidup=total_paidup+
+                    item.paid_up_value; total_paidup_capital=total_paidup_capital+item.paid_up_capital;
+                    if(item.type=='Fully Paid up' ){ %>
+                    <tr style="height:24pt">
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                Fully paid-up shares</p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                <%=item.class%>
+                            </p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9"
+                                style="padding-top: 1pt;padding-left: 2pt;padding-right: 7pt;text-indent: 0pt;line-height: 10pt;text-align: left;">
+                                <%=item.voting_rights%>
+                            </p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                Free(unrestricted)</p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                Fully Paid</p>
+                        </td>
+                    </tr>
+                    <% } } %>
             </table>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
         </li>
@@ -1675,91 +1695,198 @@
                         style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p class="s7"
                             style="padding-top: 2pt;padding-left: 2pt;padding-right: 23pt;text-indent: 0pt;line-height: 84%;text-align: left;">
-                            Distinctive Numbers From (a)</p>
+                            Distinctive Numbers From </p>
                     </td>
                     <td
                         style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p class="s7"
                             style="padding-top: 2pt;padding-left: 2pt;padding-right: 37pt;text-indent: 0pt;line-height: 84%;text-align: left;">
-                            Distinctive Numbers To (b)</p>
+                            Distinctive Numbers To </p>
                     </td>
                     <td
                         style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p class="s7"
                             style="padding-top: 3pt;padding-left: 2pt;padding-right: 7pt;text-indent: 0pt;line-height: 87%;text-align: left;">
-                            Number of shares [(b-a)+1]</p>
+                            Number of shares </p>
                     </td>
                 </tr>
-                <tr style="height:24pt">
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Fully paid-up shares
-                        </p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">EQUITY</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">1</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p
-                            style="padding-top: 1pt;padding-left: 2pt;padding-right: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
-                            <span class="s8" style=" background-color: #FF0;">Paid-Up Capital/Face</span><span
-                                class="s9"> </span><span class="s8" style=" background-color: #FF0;">Value</span>
-                        </p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p
-                            style="padding-top: 1pt;padding-left: 2pt;padding-right: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
-                            <span class="s8" style=" background-color: #FF0;">Paid-Up Capital/Face</span><span
-                                class="s9"> </span><span class="s8" style=" background-color: #FF0;">Value</span>
-                        </p>
-                    </td>
-                </tr>
-                <tr style="height:24pt">
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p class="s7" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Total</p>
-                    </td>
-                    <td
-                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                        <p
-                            style="padding-top: 1pt;padding-left: 2pt;padding-right: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
-                            <span class="s8" style=" background-color: #FF0;">Paid-Up Capital/Face</span><span
-                                class="s9"> </span><span class="s8" style=" background-color: #FF0;">Value</span>
-                        </p>
-                    </td>
-                </tr>
+
+                <% let totalShare=0; for( var i=0;i<share_capital_changed.length;i++){ var
+                    item=share_capital_changed[i]; totalShare=totalShare+ (item.distinctive_to-item.distinctive_from)+1;
+                    %>
+                    <tr style="height:24pt">
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                <%=item.type%>
+                            </p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                <%=item.class%>
+                            </p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                <%=item.distinctive_from%>
+                            </p>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <%=item.distinctive_to%>
+                        </td>
+                        <td
+                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                            <%=(item.distinctive_to-item.distinctive_from)+1%>
+                        </td>
+                    </tr>
+                    <% } %>
+                        <tr style="height:24pt">
+                            <td
+                                style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                            </td>
+                            <td
+                                style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <p class="s7" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Total</p>
+                            </td>
+                            <td
+                                style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                <%=totalShare%>
+                            </td>
+                        </tr>
             </table>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p class="s11" style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">No</p>
-            <p style="text-indent: 0pt;text-align: left;" />
-            <h4 style="padding-top: 1pt;padding-left: 1pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
+
             <p style="text-indent: 0pt;text-align: left;" />
         </li>
         <li data-list-text="12.">
             <p style="padding-left: 32pt;text-indent: -25pt;text-align: left;">(a) Whether any further shares issued
                 after the end of last financial year?</p>
             <p style="text-indent: 0pt;text-align: left;"><br /></p>
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <h4 style="padding-top: 1pt;padding-left: 11pt;text-indent: 0pt;text-align: left;">Yes/No</h4>
+
+            <% if(share_capital_changed.length==0){ %>
+                <p class="s11" style="padding-top: 1pt;padding-left: 11pt;text-indent: 0pt;text-align: left;">No</p>
+                <% } %>
+
+                    <% if(share_capital_changed.length>0 ){ %>
+
+
+                        <p style="padding-top: 9pt;padding-left: 32pt;text-indent: -25pt;text-align: left;">Distinctive
+                            Number (DN)
+                            details (for outstanding shares only):</p>
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                        <table style="border-collapse:collapse;margin-left:7.93pt" cellspacing="0">
+                            <tr style="height:37pt">
+                                <td
+                                    style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s7"
+                                        style="padding-top: 2pt;padding-left: 2pt;padding-right: 26pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
+                                        Type of Equity Shares/Class</p>
+                                </td>
+                                <td
+                                    style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s7"
+                                        style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                        Class, if any</p>
+                                </td>
+                                <td
+                                    style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s7"
+                                        style="padding-top: 2pt;padding-left: 2pt;padding-right: 23pt;text-indent: 0pt;line-height: 84%;text-align: left;">
+                                        Distinctive Numbers From </p>
+                                </td>
+                                <td
+                                    style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s7"
+                                        style="padding-top: 2pt;padding-left: 2pt;padding-right: 37pt;text-indent: 0pt;line-height: 84%;text-align: left;">
+                                        Distinctive Numbers To </p>
+                                </td>
+                                <td
+                                    style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s7"
+                                        style="padding-top: 3pt;padding-left: 2pt;padding-right: 7pt;text-indent: 0pt;line-height: 87%;text-align: left;">
+                                        Number of shares</p>
+                                </td>
+                            </tr>
+
+                            <% var totalShareVal=0; for( var i=0;i<share_capital_changed.length;i++){ var
+                                item=share_capital_changed[i]; totalShareVal=totalShareVal+
+                                (item.distinctive_to-item.distinctive_from)+1 %>
+                                <tr style="height:24pt">
+                                    <td
+                                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                            <%=item.type%>
+                                        </p>
+                                    </td>
+                                    <td
+                                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                            <%=item.class%>
+                                        </p>
+                                    </td>
+                                    <td
+                                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                        <p class="s9" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                            <%=item.distinctive_from%>
+                                        </p>
+                                    </td>
+                                    <td
+                                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                        <%=item.distinctive_to%>
+                                    </td>
+                                    <td
+                                        style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                        <%=(item.distinctive_to-item.distinctive_from)+1%>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <tr style="height:24pt">
+                                        <td
+                                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                                        </td>
+                                        <td
+                                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                                        </td>
+                                        <td
+                                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                                        </td>
+                                        <td
+                                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                            <p class="s7" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                                                Total</p>
+                                        </td>
+                                        <td
+                                            style="width:100pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                            <%=totalShareVal%>
+                                        </td>
+                                    </tr>
+                        </table>
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+
+                        <p style="text-indent: 0pt;text-align: left;" />
+
+                        <% } %>
+                            <p style="text-indent: 0pt;text-align: left;" />
+
+                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
         </li>
         <li data-list-text="13.">
             <p style="padding-left: 30pt;text-indent: -22pt;text-align: left;">Status of Listing:</p>
@@ -1941,7 +2068,7 @@
                     </td>
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
+                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span>
                                 <%=reg_add2%>
                             </span></p>
                     </td>
@@ -1971,8 +2098,8 @@
                     </td>
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
-                                <%=city%>
+                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span>
+                                <%=r_city%>
                             </span></p>
                     </td>
                 </tr>
@@ -1984,7 +2111,7 @@
                     </td>
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
+                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span>
                                 <%=state%>
                             </span></p>
                     </td>
@@ -1997,7 +2124,7 @@
                     </td>
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
+                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span>
                                 <%=country%>
                             </span></p>
                     </td>
@@ -2010,7 +2137,7 @@
                     </td>
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
+                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span>
                                 <%=pin%>
                             </span></p>
                     </td>
@@ -2023,7 +2150,7 @@
                     </td>
                     <td style="width:300pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;">><span>
+                        <p style="padding-left: 2pt;text-indent: 0pt;line-height: 12pt;text-align: left;"><span>
                                 <%=contact_number%>
                             </span></p>
                     </td>

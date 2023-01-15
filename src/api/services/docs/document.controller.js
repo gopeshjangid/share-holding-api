@@ -95,7 +95,7 @@ const uploadRegistrationDocuments = async (req, res) => {
 };
 
 const formatAddress = (registered_address) => {
-    return `${registered_address.address1}, ${registered_address.address2}, ${registered_address.address3}, ${registered_address.city}, ${registered_address.state},${registered_address.pincode}`;
+    return `${registered_address.address1} ${registered_address.address2} ${registered_address.address3} ${registered_address.city} ${registered_address.state} ${registered_address.pincode}`;
 };
 
 const downloadResolutionForm = async (req, res) => {
@@ -157,14 +157,23 @@ const processDocuments = async (params) => {
                 pan,
                 website,
                 correspondence_address,
-                share_capital_changed
+                share_capital_changed,
+                shares_classes,
+                macro_economic_sector,
+                sector,
+                industry,
+                basic_industry,
+                company_class,
+                category,
+                sub_category,
+                changed_company_name
             } = params;
 
             const authorized_din = directors[0]?.din;
             const authorized_destination = directors[0]?.designation;
             const authorized_name = directors[0]?.name;
             const authorizer_din = directors[1]?.din;
-            const authorizer_destination = directors[1]?.designation;
+            const authorizer_designation = directors[1]?.designation;
             const authorizer_name = directors[1]?.name;
 
             // years
@@ -177,17 +186,17 @@ const processDocuments = async (params) => {
             const city = `${registered_address.city}`;
             const r_city = `${registered_address.city}`;
             const state = `${registered_address.state}`;
-            const pin = `${registered_address.pin}`;
+            const pin = `${registered_address.pincode}`;
             const country = `India`;
             const reg_add1 = registered_address.address1;
             const reg_add2 = registered_address.address2;
             const reg_add3 = registered_address.address3;
 
-            const regd_address = `${registered_address.address1}, ${registered_address.address2}, ${registered_address.address3}`;
-            const c_address = `${correspondence_address.address1}, ${correspondence_address.address2}, ${correspondence_address.address3}`;
+            const regd_address = `${registered_address.address1} ${registered_address.address2} ${registered_address.address3}`;
+            const c_address = `${correspondence_address.address1} ${correspondence_address.address2} ${correspondence_address.address3}`;
             const c_city = correspondence_address.city;
             const c_state = correspondence_address.state;
-            const c_pin = correspondence_address.pin;
+            const c_pin = correspondence_address.pincode;
             const IncorporationDate = `${date.getDate()}/${date.getMonth()}/${INCORpYear}`;
             const auditDate = `31/03/${INCORpYear}`;
             let bill_address =
@@ -196,11 +205,12 @@ const processDocuments = async (params) => {
                     : `${registered_address.address1}, ${registered_address.address2}`;
             const bill_city = c_address !== regd_address && gsttin ? c_city : correspondence_address.city;
             const bill_state = c_address !== regd_address && gsttin ? c_state : correspondence_address.state;
-            const bill_pincode = c_address !== regd_address && gsttin ? c_pin : correspondence_address.pin;
+            const bill_pincode = c_address !== regd_address && gsttin ? c_pin : correspondence_address.pincode;
 
             const c_add1 = c_address !== regd_address ? registered_address.address1 : '';
             const c_add2 = c_address !== regd_address ? registered_address.address2 : '';
             const c_add3 = c_address !== regd_address ? registered_address.address3 : '';
+            const r_add_c_add_same = c_address === regd_address;
             //---------------------------
 
             const processedDocs = processDocType.map(async (element) => {
@@ -220,6 +230,14 @@ const processDocuments = async (params) => {
                     regd_address,
                     share_capital_changed,
                     bill_country: country,
+                    macro_economic_sector,
+                    sector,
+                    company_class,
+                    changed_company_name,
+                    category,
+                    sub_category,
+                    industry,
+                    basic_industry,
                     reg_add1,
                     reg_add2,
                     reg_add3,
@@ -232,6 +250,7 @@ const processDocuments = async (params) => {
                     c_pin,
                     c_state,
                     c_city,
+                    r_add_c_add_same,
                     city,
                     country,
                     state,
@@ -239,7 +258,7 @@ const processDocuments = async (params) => {
                     contact_number,
                     cin,
                     date_of_application: moment().format('DD-MM-YYYY'),
-                    place_of_application,
+                    place_of_application: r_city,
                     directors,
                     authorized_din,
                     authorized_destination,
@@ -249,8 +268,11 @@ const processDocuments = async (params) => {
                     INCORpYear,
                     IncorporationDate,
                     authorizer_name,
+                    authorizer_designation,
+                    authorizer_din,
                     fileName,
-                    auditDate
+                    auditDate,
+                    shares_classes
                 });
 
                 let files = await File.uploadToS3(

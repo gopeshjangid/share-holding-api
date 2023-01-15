@@ -81,6 +81,18 @@ const CompanySchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        company_class: {
+            type: String,
+            required: true
+        },
+        category: {
+            type: String,
+            required: true
+        },
+        sub_category: {
+            type: String,
+            required: true
+        },
         industry: {
             type: String,
             required: true
