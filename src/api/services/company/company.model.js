@@ -81,15 +81,15 @@ const CompanySchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        company_class: {
+        classOfCompany: {
             type: String,
             required: true
         },
-        category: {
+        companyCategory: {
             type: String,
             required: true
         },
-        sub_category: {
+        companySubCategory: {
             type: String,
             required: true
         },
